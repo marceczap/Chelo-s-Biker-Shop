@@ -765,191 +765,59 @@ html_content = f"""<!DOCTYPE html>
     </div>
 
     <!-- ============================================== -->
-    <!-- PANTALLA 3: HOME / CATEGORÍAS (REFINED & CLEAN BIKER UI) -->
+    <!-- PANTALLA 3: HOME / CATEGORÍAS (MINIMALISTA ELEGANTE) -->
     <!-- ============================================== -->
-    <div id="screenHome" class="hidden flex flex-col h-full w-full relative overflow-y-auto bg-[#f6f8fb]">
-      
-      <!-- Top Header Banner (Clean Showroom Hero) -->
-      <div class="relative w-full rounded-b-[34px] overflow-hidden shadow-xl flex flex-col justify-between p-5 shrink-0 z-10 bg-gradient-to-b from-[#11151c] via-[#1a202c] to-[#242c3d] text-white">
-        <!-- Subtle Tire Track Texture Overlay -->
-        <img src="{bg_b64}" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none" alt="Tire Texture" />
+    <div id="screenHome" class="hidden flex flex-col h-full w-full relative overflow-y-auto bg-white">
+      <img src="{helmet_b64}" class="helmet-home-watermark" alt="Watermark Helmet" />
 
-        <!-- Top Navigation Row -->
-        <div class="relative z-10 flex items-center justify-between w-full mb-3">
-          <button onclick="goToLogin()" class="px-3 py-1 bg-white/10 hover:bg-white/20 rounded-full text-white text-[11px] font-bold flex items-center space-x-1 backdrop-blur-md transition-all cursor-pointer border border-white/15">
+      <!-- Top Header Banner -->
+      <div class="relative w-full h-52 rounded-b-[38px] overflow-hidden shadow-lg flex flex-col justify-between p-5 shrink-0 z-10">
+        <img src="{store_b64}" class="absolute inset-0 w-full h-full object-cover" alt="Banner" />
+        <div class="absolute inset-0 bg-black/45 backdrop-blur-[1px]"></div>
+
+        <div class="relative z-10 flex items-center justify-between w-full">
+          <button onclick="goToLogin()" class="px-2.5 py-1 bg-black/40 hover:bg-black/60 rounded-full text-white text-[11px] font-bold flex items-center space-x-1 backdrop-blur-xs cursor-pointer">
             <span>←</span><span>Salir</span>
           </button>
-          
           <div class="flex items-center space-x-2">
-            <div class="text-right">
-              <span class="block text-[11px] font-bold tracking-wider text-amber-400">CHELO'S</span>
-              <span class="block text-[9px] text-gray-300 font-serif">Biker Shop • Est. 2026</span>
-            </div>
+            <span class="font-bold text-white text-sm tracking-widest drop-shadow">HOME</span>
             <img src="{helmet_b64}" class="w-8 h-8 object-contain filter invert drop-shadow" alt="Logo" />
           </div>
         </div>
 
-        <!-- Greeting -->
-        <div class="relative z-10 mb-3">
-          <h3 class="vintage-shaded text-lg font-bold text-white tracking-wide leading-tight">
-            Encuentra tu pasión sobre dos ruedas
-          </h3>
-          <p class="text-[11px] text-gray-300 font-sans mt-0.5">Catálogo oficial con garantía y respaldo de taller</p>
-        </div>
-
-        <!-- Search Bar (Crisp Frosted Glass) -->
-        <div class="relative z-10 w-full h-11 bg-white/15 backdrop-blur-md rounded-full flex items-center px-4 space-x-2.5 border border-white/30 shadow-inner">
-          <svg class="w-4 h-4 text-gray-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <input type="text" placeholder="Buscar motos, cascos, repuestos..." class="w-full bg-transparent text-xs font-semibold text-white placeholder-gray-300 focus:outline-none" />
+        <!-- Liquid Glass Search Bar -->
+        <div class="relative z-10 w-full h-11 liquid-glass-search flex items-center px-4 space-x-2.5 mb-1">
+          <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="text" placeholder="Buscar motos, cascos, repuestos..." class="w-full bg-transparent text-xs font-semibold text-gray-900 placeholder-gray-600 focus:outline-none" />
         </div>
       </div>
 
-      <!-- Category Filter Chips (Quick Nav) -->
-      <div class="px-4 pt-3.5 pb-1 z-10 flex items-center justify-between gap-1.5 overflow-x-auto shrink-0">
-        <button onclick="goToMotosCatalog()" class="px-3 py-1 rounded-full bg-white text-gray-800 text-[10.5px] font-bold shadow-xs border border-gray-200 hover:bg-gray-100 transition-all flex items-center space-x-1 cursor-pointer">
-          <span>🏍️</span><span>Motos</span>
+      <!-- Categories Container (Clean Minimalist Cards) -->
+      <div class="flex-1 flex flex-col justify-around px-6 py-5 space-y-4 z-10">
+        <!-- 1. MOTOCICLETAS Button -->
+        <button onclick="goToMotosCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
+          <img src="{motos_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Motocicletas" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">MOTOCICLETAS</span>
+          </div>
         </button>
-        <button onclick="goToCascosCatalog()" class="px-3 py-1 rounded-full bg-white text-gray-800 text-[10.5px] font-bold shadow-xs border border-gray-200 hover:bg-gray-100 transition-all flex items-center space-x-1 cursor-pointer">
-          <span>🪖</span><span>Cascos</span>
+
+        <!-- 2. CASCOS Button -->
+        <button onclick="goToCascosCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
+          <img src="{cascos_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cascos" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">CASCOS</span>
+          </div>
         </button>
-        <button onclick="goToIndumentariaCatalog()" class="px-3 py-1 rounded-full bg-white text-gray-800 text-[10.5px] font-bold shadow-xs border border-gray-200 hover:bg-gray-100 transition-all flex items-center space-x-1 cursor-pointer">
-          <span>🧥</span><span>Ropa</span>
-        </button>
-        <button onclick="goToBranchesSelection()" class="px-3 py-1 rounded-full bg-white text-gray-800 text-[10.5px] font-bold shadow-xs border border-gray-200 hover:bg-gray-100 transition-all flex items-center space-x-1 cursor-pointer">
-          <span>📍</span><span>Sucursales</span>
-        </button>
-      </div>
 
-      <!-- Categories Container (Clean, High-Contrast Modern Cards) -->
-      <div class="flex-1 flex flex-col justify-start px-4 py-2 space-y-3.5 z-10 pb-6">
-        
-        <!-- 1. MOTOCICLETAS Card -->
-        <div 
-          onclick="goToMotosCatalog()" 
-          class="relative w-full h-32 rounded-3xl overflow-hidden shadow-lg bg-gradient-to-r from-[#171b22] via-[#222834] to-[#2d3648] p-4 flex items-center justify-between border border-amber-500/30 hover:border-amber-400 group cursor-pointer active:scale-98 transition-all duration-300"
-        >
-          <!-- Subtle Accent Glow -->
-          <div class="absolute top-0 right-0 w-36 h-36 bg-amber-500/10 rounded-full blur-xl pointer-events-none"></div>
-
-          <!-- Left Details -->
-          <div class="flex flex-col justify-between h-full z-10 max-w-[58%]">
-            <div>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-amber-500/20 text-amber-400 border border-amber-500/40 mb-1">
-                🏁 10 MODELOS EN STOCK
-              </span>
-              <h3 class="text-white font-serif font-black text-base tracking-wider leading-tight drop-shadow-sm">
-                MOTOCICLETAS
-              </h3>
-              <p class="text-[10px] text-gray-300 font-sans mt-0.5 line-clamp-1">
-                Sport • Enduro • Naked • City
-              </p>
-            </div>
-
-            <div class="flex items-center space-x-1.5 text-amber-400 text-[10.5px] font-bold">
-              <span>Explorar catálogo</span>
-              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
+        <!-- 3. INDUMENTARIA Button -->
+        <button onclick="goToIndumentariaCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
+          <img src="{indum_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Indumentaria" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">INDUMENTARIA</span>
           </div>
-
-          <!-- Right Studio Image -->
-          <div class="w-32 h-28 flex items-center justify-center relative z-10 shrink-0 transform group-hover:scale-108 transition-transform duration-300">
-            <img src="{moto_ktm_power}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_8px_12px_rgba(0,0,0,0.6)]" alt="Motos" />
-          </div>
-        </div>
-
-        <!-- 2. CASCOS Card -->
-        <div 
-          onclick="goToCascosCatalog()" 
-          class="relative w-full h-32 rounded-3xl overflow-hidden shadow-lg bg-gradient-to-r from-[#1a1414] via-[#2c1d1d] to-[#3a2525] p-4 flex items-center justify-between border border-red-500/30 hover:border-red-400 group cursor-pointer active:scale-98 transition-all duration-300"
-        >
-          <div class="absolute top-0 right-0 w-36 h-36 bg-red-500/10 rounded-full blur-xl pointer-events-none"></div>
-
-          <div class="flex flex-col justify-between h-full z-10 max-w-[58%]">
-            <div>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-red-500/20 text-red-400 border border-red-500/40 mb-1">
-                🪖 8 CERTIFICADOS FIM
-              </span>
-              <h3 class="text-white font-serif font-black text-base tracking-wider leading-tight drop-shadow-sm">
-                CASCOS RACING
-              </h3>
-              <p class="text-[10px] text-gray-300 font-sans mt-0.5 line-clamp-1">
-                100% Fibra Carbono • ECE 22.06
-              </p>
-            </div>
-
-            <div class="flex items-center space-x-1.5 text-red-400 text-[10.5px] font-bold">
-              <span>Explorar catálogo</span>
-              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-
-          <div class="w-28 h-28 flex items-center justify-center relative z-10 shrink-0 transform group-hover:scale-108 transition-transform duration-300">
-            <img src="{casco_agv}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_8px_12px_rgba(0,0,0,0.6)]" alt="Cascos" />
-          </div>
-        </div>
-
-        <!-- 3. INDUMENTARIA Card -->
-        <div 
-          onclick="goToIndumentariaCatalog()" 
-          class="relative w-full h-32 rounded-3xl overflow-hidden shadow-lg bg-gradient-to-r from-[#14181f] via-[#1c2432] to-[#253246] p-4 flex items-center justify-between border border-cyan-500/30 hover:border-cyan-400 group cursor-pointer active:scale-98 transition-all duration-300"
-        >
-          <div class="absolute top-0 right-0 w-36 h-36 bg-cyan-500/10 rounded-full blur-xl pointer-events-none"></div>
-
-          <div class="flex flex-col justify-between h-full z-10 max-w-[58%]">
-            <div>
-              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-extrabold bg-cyan-500/20 text-cyan-400 border border-cyan-500/40 mb-1">
-                🧥 EQUIPAMIENTO PRO
-              </span>
-              <h3 class="text-white font-serif font-black text-base tracking-wider leading-tight drop-shadow-sm">
-                INDUMENTARIA
-              </h3>
-              <p class="text-[10px] text-gray-300 font-sans mt-0.5 line-clamp-1">
-                Chaquetas • Monos • Botas • Airbags
-              </p>
-            </div>
-
-            <div class="flex items-center space-x-1.5 text-cyan-400 text-[10.5px] font-bold">
-              <span>Explorar catálogo</span>
-              <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </div>
-          </div>
-
-          <div class="w-28 h-28 flex items-center justify-center relative z-10 shrink-0 transform group-hover:scale-108 transition-transform duration-300">
-            <img src="{gear_chaqueta_cuero}" class="max-h-full max-w-full object-contain filter drop-shadow-[0_8px_12px_rgba(0,0,0,0.6)]" alt="Indumentaria" />
-          </div>
-        </div>
-
-        <!-- Trust Badges Strip -->
-        <div class="bg-white rounded-2xl p-3 shadow-xs border border-gray-200 grid grid-cols-3 gap-2 text-center mt-1">
-          <div class="flex flex-col items-center">
-            <span class="text-xs">🛡️</span>
-            <span class="text-[9.5px] font-bold text-gray-800">1 Año Garantía</span>
-          </div>
-          <div class="flex flex-col items-center border-x border-gray-100">
-            <span class="text-xs">📍</span>
-            <span class="text-[9.5px] font-bold text-gray-800">3 Sucursales</span>
-          </div>
-          <div class="flex flex-col items-center">
-            <span class="text-xs">⚡</span>
-            <span class="text-[9.5px] font-bold text-gray-800">Retiro Inmediato</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Navigation Bar -->
-      <div class="h-16 bg-white border-t border-gray-100 flex items-center justify-around px-8 z-30 shadow-2xl shrink-0 mt-auto">
-        <button onclick="showToast('Ruta: Perfil 👤')" class="flex flex-col items-center justify-center p-2 text-gray-400 hover:text-black transition-all cursor-pointer">
-          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-        </button>
-        <button onclick="goToHome()" class="flex flex-col items-center justify-center p-2 text-black transition-all scale-110 cursor-pointer">
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-        </button>
-        <button onclick="goToBranchesSelection()" class="flex flex-col items-center justify-center p-2 text-gray-400 hover:text-black transition-all cursor-pointer">
-          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
         </button>
       </div>
-
     </div>
 
     <!-- ============================================================== -->
