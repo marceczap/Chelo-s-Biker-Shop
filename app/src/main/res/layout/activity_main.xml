@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".MainActivity">
+
+    <!-- Subtle Tire Tracks Background Watermark -->
+    <ImageView
+        android:id="@+id/iv_bg_watermark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.14"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_tire_tracks"
+        android:contentDescription="Fondo Huellas de Neumáticos" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="28dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="28dp">
+
+            <!-- Arched Brand Logo with Helmet -->
+            <LinearLayout
+                android:id="@+id/ll_logo_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_brand_arch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.04"
+                    android:text="Chelo´s  Biker  Shop"
+                    android:textColor="#111111"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/iv_helmet_logo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="2dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="Chelo Biker Shop Logo"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_helmet_logo" />
+
+                <TextView
+                    android:id="@+id/tv_brand_est"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.06"
+                    android:text="Est. 2026"
+                    android:textColor="#111111"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Store Showroom Banner Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_store_banner"
+                android:layout_width="0dp"
+                android:layout_height="145dp"
+                android:layout_marginTop="14dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_logo_container">
+
+                <ImageView
+                    android:id="@+id/iv_store_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Tienda de Motos"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_store_banner" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Subtitle Tienda de Motos -->
+            <TextView
+                android:id="@+id/tv_store_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:letterSpacing="0.08"
+                android:shadowColor="#888888"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:text="Tienda de Motos"
+                android:textColor="#222222"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_store_banner" />
+
+            <!-- Title Iniciar Sesión -->
+            <TextView
+                android:id="@+id/tv_login_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="serif"
+                android:text="Iniciar Sesión"
+                android:textColor="#111111"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_store_subtitle" />
+
+            <!-- Input Correo -->
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_input_pill"
+                android:fontFamily="monospace"
+                android:hint="correo"
+                android:inputType="textEmailAddress"
+                android:paddingHorizontal="20dp"
+                android:textColor="#111111"
+                android:textColorHint="#555555"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
+
+            <!-- Input Contraseña -->
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_input_pill"
+                android:fontFamily="monospace"
+                android:hint="contraseña"
+                android:inputType="textPassword"
+                android:paddingHorizontal="20dp"
+                android:textColor="#111111"
+                android:textColorHint="#555555"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+            <!-- No tienes una cuenta? REGISTRATE -->
+            <LinearLayout
+                android:id="@+id/ll_register_link"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_password">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="No tienes una cuenta? "
+                    android:textColor="#111111"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_register_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:fontFamily="serif"
+                    android:text="REGISTRATE"
+                    android:textColor="#0088FF"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Circular Action Button ( ➔ ) -->
+            <FrameLayout
+                android:id="@+id/btn_login_arrow"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_circle_arrow_btn"
+                android:clickable="true"
+                android:elevation="3dp"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_register_link">
+
+                <ImageView
+                    android:id="@+id/iv_arrow_icon"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_gravity="center"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:contentDescription="Continuar"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="#FFFFFF" />
+            </FrameLayout>
+
+            <!-- Siguenos Section -->
+            <TextView
+                android:id="@+id/tv_siguenos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="serif"
+                android:text="Siguenos"
+                android:textColor="#333333"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_login_arrow" />
+
+            <!-- Social Icons Row (Facebook, Instagram, YouTube) -->
+            <LinearLayout
+                android:id="@+id/ll_social_icons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_siguenos">
+
+                <!-- Facebook -->
+                <ImageView
+                    android:id="@+id/btn_social_fb"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="Facebook"
+                    android:focusable="true"
+                    android:src="@drawable/ic_social_fb" />
+
+                <!-- Instagram -->
+                <ImageView
+                    android:id="@+id/btn_social_ig"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="Instagram"
+                    android:focusable="true"
+                    android:src="@drawable/ic_social_ig" />
+
+                <!-- YouTube -->
+                <ImageView
+                    android:id="@+id/btn_social_yt"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="YouTube"
+                    android:focusable="true"
+                    android:src="@drawable/ic_social_yt" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

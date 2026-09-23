@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Chelo Biker Shop</string>
+    <string name="title_motos">Motos</string>
+    <string name="title_cascos">Cascos</string>
+    <string name="title_perfil">Mi Perfil</string>
+    <string name="title_sucursales">Sucursales</string>
+    <string name="add_to_cart">AGREGAR AL CARRITO</string>
+    <string name="buy_now">REALIZAR COMPRA</string>
+    <string name="colors_available">COLORES DISPONIBLES</string>
+    <string name="google_maps_key">AIzaSyMockKeyForDevCheloBikerShop</string>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="24dp">
+
+        <!-- Background Watermark Graphic -->
+        <ImageView
+            android:id="@+id/iv_casco_watermark"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:alpha="0.16"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_tire_draw"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Watermark" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_casco_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="serif"
+            android:letterSpacing="0.04"
+            android:text="Casco O´neal tipo racer"
+            android:textColor="#1A1A1A"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Helmet Image Display -->
+        <ImageView
+            android:id="@+id/iv_casco_display"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_helmet_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_casco_title"
+            android:contentDescription="Casco" />
+
+        <!-- Technical Safety Certification Display -->
+        <ImageView
+            android:id="@+id/iv_casco_tech"
+            android:layout_width="0dp"
+            android:layout_height="175dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/img_helmet_tech"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_casco_display"
+            android:contentDescription="Certificaciones DOT Snell ECE" />
+
+        <!-- Price Display -->
+        <TextView
+            android:id="@+id/tv_casco_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="serif"
+            android:text="590 bs.-"
+            android:textColor="#111111"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_casco_tech" />
+
+        <!-- Previous / Next Model Selector Bar -->
+        <LinearLayout
+            android:id="@+id/ll_helmet_switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_casco_price">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_prev_helmet"
+                android:layout_width="38dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_pill_btn"
+                android:text="◀"
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_helmet_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="Modelo 1 de 3"
+                android:textColor="#555555"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next_helmet"
+                android:layout_width="38dp"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_pill_btn"
+                android:text="▶"
+                android:textColor="#333333"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Add to Cart Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_casco_to_cart"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:background="@drawable/bg_pill_btn"
+            android:fontFamily="serif"
+            android:letterSpacing="0.04"
+            android:text="AGREGAR AL CARRITO"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_helmet_switcher" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

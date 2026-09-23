@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Bottom Helmet Watermark matching Figma -->
+    <ImageView
+        android:id="@+id/iv_home_watermark"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="-40dp"
+        android:alpha="0.22"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_helmet_logo"
+        android:contentDescription="Watermark Casco" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <!-- Top Header Banner with Curved Bottom -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                app:cardCornerRadius="34dp"
+                app:cardElevation="6dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Banner Background Image -->
+                    <ImageView
+                        android:id="@+id/iv_home_banner_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_store_banner"
+                        android:contentDescription="Banner Chelo Biker Shop" />
+
+                    <!-- Dark Gradient Overlay for Contrast -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#40000000" />
+
+                    <!-- Top Right HOME & Logo -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.08"
+                            android:text="HOME"
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1"
+                            android:shadowDy="1"
+                            android:shadowRadius="2" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/ic_helmet_logo"
+                            app:tint="#FFFFFF"
+                            android:contentDescription="Logo" />
+                    </LinearLayout>
+
+                    <!-- Liquid Glass Search Bar -->
+                    <LinearLayout
+                        android:id="@+id/ll_search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginHorizontal="24dp"
+                        android:layout_marginBottom="18dp"
+                        android:background="@drawable/bg_glass_search"
+                        android:elevation="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_search"
+                            app:tint="#333333"
+                            android:contentDescription="Buscar" />
+
+                        <EditText
+                            android:id="@+id/et_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:background="@null"
+                            android:hint="Buscar motos, cascos, repuestos..."
+                            android:imeOptions="actionSearch"
+                            android:inputType="text"
+                            android:textColor="#111111"
+                            android:textColorHint="#666666"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Category Buttons Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="24dp">
+
+                <!-- 1. MOTOCICLETAS Card Button -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_cat_motos"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="6dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_cat_motos"
+                            android:contentDescription="Motocicletas" />
+
+                        <!-- Liquid Glass Dark Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_glass_card" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.12"
+                            android:text="MOTOCICLETAS"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:shadowColor="#000000"
+                            android:shadowDx="2"
+                            android:shadowDy="2"
+                            android:shadowRadius="4" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2. CASCOS Card Button -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_cat_cascos"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="6dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_cat_cascos"
+                            android:contentDescription="Cascos" />
+
+                        <!-- Liquid Glass Dark Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_glass_card" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.12"
+                            android:text="CASCOS"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:shadowColor="#000000"
+                            android:shadowDx="2"
+                            android:shadowDy="2"
+                            android:shadowRadius="4" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 3. INDUMENTARIA Card Button -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_cat_indumentaria"
+                    android:layout_width="match_parent"
+                    android:layout_height="115dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="6dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_cat_indumentaria"
+                            android:contentDescription="Indumentaria" />
+
+                        <!-- Liquid Glass Dark Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_glass_card" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.12"
+                            android:text="INDUMENTARIA"
+                            android:textColor="#FFFFFF"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:shadowColor="#000000"
+                            android:shadowDx="2"
+                            android:shadowDy="2"
+                            android:shadowRadius="4" />
+                    </FrameLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
