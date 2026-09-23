@@ -57,13 +57,12 @@
                         android:layout_height="match_parent"
                         android:background="#55000000" />
 
-                    <!-- Top Right HOME & Logo -->
+                    <!-- Centered HOME & Logo -->
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="top|end"
+                        android:layout_gravity="top|center_horizontal"
                         android:layout_marginTop="16dp"
-                        android:layout_marginEnd="20dp"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
@@ -74,16 +73,16 @@
                             android:letterSpacing="0.08"
                             android:text="HOME"
                             android:textColor="#FFFFFF"
-                            android:textSize="14sp"
+                            android:textSize="15sp"
                             android:textStyle="bold"
                             android:shadowColor="#000000"
                             android:shadowDx="1"
                             android:shadowDy="1"
-                            android:shadowRadius="2" />
+                            android:shadowRadius="3" />
 
                         <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
                             android:layout_marginStart="8dp"
                             android:src="@drawable/ic_helmet_logo"
                             app:tint="#FFFFFF"
@@ -159,11 +158,11 @@
                             android:src="@drawable/img_cat_motos"
                             android:contentDescription="Motocicletas" />
 
-                        <!-- Liquid Glass Dark Overlay -->
+                        <!-- Darkened Matte Overlay -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="#A6000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -205,11 +204,11 @@
                             android:src="@drawable/img_cat_cascos"
                             android:contentDescription="Cascos" />
 
-                        <!-- Liquid Glass Dark Overlay -->
+                        <!-- Darkened Matte Overlay -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="#A6000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -250,11 +249,11 @@
                             android:src="@drawable/img_cat_indumentaria"
                             android:contentDescription="Indumentaria" />
 
-                        <!-- Liquid Glass Dark Overlay -->
+                        <!-- Darkened Matte Overlay -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
+                            android:background="#A6000000" />
 
                         <TextView
                             android:layout_width="wrap_content"

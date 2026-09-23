@@ -542,11 +542,11 @@ html_content = f"""<!DOCTYPE html>
       border-radius: 9999px;
     }}
     .liquid-glass-card {{
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.6) 100%);
-      backdrop-filter: blur(1.5px);
-      -webkit-backdrop-filter: blur(1.5px);
-      border: 1.5px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.85) 100%);
+      backdrop-filter: blur(2.5px);
+      -webkit-backdrop-filter: blur(2.5px);
+      border: 1.5px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.25);
       border-radius: 28px;
     }}
 
@@ -773,51 +773,77 @@ html_content = f"""<!DOCTYPE html>
       <!-- Top Header Banner -->
       <div class="relative w-full h-52 rounded-b-[38px] overflow-hidden shadow-lg flex flex-col justify-between p-5 shrink-0 z-10">
         <img src="{store_b64}" class="absolute inset-0 w-full h-full object-cover" alt="Banner" />
-        <div class="absolute inset-0 bg-black/45 backdrop-blur-[1px]"></div>
+        <div class="absolute inset-0 bg-black/55 backdrop-blur-[1px]"></div>
 
+        <!-- Top Header Navigation with HOME Centered -->
         <div class="relative z-10 flex items-center justify-between w-full">
-          <button onclick="goToLogin()" class="px-2.5 py-1 bg-black/40 hover:bg-black/60 rounded-full text-white text-[11px] font-bold flex items-center space-x-1 backdrop-blur-xs cursor-pointer">
+          <button onclick="goToLogin()" class="px-2.5 py-1 bg-black/40 hover:bg-black/60 rounded-full text-white text-[11px] font-bold flex items-center space-x-1 backdrop-blur-xs cursor-pointer z-10">
             <span>←</span><span>Salir</span>
           </button>
-          <div class="flex items-center space-x-2">
-            <span class="font-bold text-white text-sm tracking-widest drop-shadow">HOME</span>
+          
+          <!-- Perfectly Centered HOME & Logo -->
+          <div class="absolute inset-x-0 flex items-center justify-center space-x-2 pointer-events-none">
+            <span class="font-bold text-white text-base tracking-widest drop-shadow font-serif">HOME</span>
             <img src="{helmet_b64}" class="w-8 h-8 object-contain filter invert drop-shadow" alt="Logo" />
           </div>
+
+          <div class="w-12"></div>
         </div>
 
-        <!-- Liquid Glass Search Bar -->
-        <div class="relative z-10 w-full h-11 liquid-glass-search flex items-center px-4 space-x-2.5 mb-1">
-          <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          <input type="text" placeholder="Buscar motos, cascos, repuestos..." class="w-full bg-transparent text-xs font-semibold text-gray-900 placeholder-gray-600 focus:outline-none" />
+        <!-- Liquid Glass Functional Search Bar -->
+        <div class="relative z-10 w-full h-11 liquid-glass-search flex items-center px-4 space-x-2 mb-1">
+          <svg class="w-4 h-4 text-gray-700 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input 
+            type="text" 
+            id="homeSearchInput"
+            oninput="handleHomeSearch(this.value)"
+            placeholder="Buscar motos, cascos, repuestos..." 
+            class="w-full bg-transparent text-xs font-semibold text-gray-900 placeholder-gray-600 focus:outline-none" 
+          />
+          <button id="btnHomeSearchClear" onclick="clearHomeSearch()" class="hidden text-gray-500 hover:text-black p-1 cursor-pointer">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
         </div>
       </div>
 
-      <!-- Categories Container (Clean Minimalist Cards) -->
-      <div class="flex-1 flex flex-col justify-around px-6 py-5 space-y-4 z-10">
+      <!-- Main Categories Container (Darkened / Opacados) -->
+      <div id="homeCategoriesContainer" class="flex-1 flex flex-col justify-around px-6 py-5 space-y-4 z-10">
         <!-- 1. MOTOCICLETAS Button -->
         <button onclick="goToMotosCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
-          <img src="{motos_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Motocicletas" />
-          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
-            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">MOTOCICLETAS</span>
+          <img src="{motos_b64}" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.52] contrast-[1.05] group-hover:scale-105 transition-transform duration-500" alt="Motocicletas" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/60 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] font-sans">MOTOCICLETAS</span>
           </div>
         </button>
 
         <!-- 2. CASCOS Button -->
         <button onclick="goToCascosCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
-          <img src="{cascos_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Cascos" />
-          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
-            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">CASCOS</span>
+          <img src="{cascos_b64}" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.52] contrast-[1.05] group-hover:scale-105 transition-transform duration-500" alt="Cascos" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/60 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] font-sans">CASCOS</span>
           </div>
         </button>
 
         <!-- 3. INDUMENTARIA Button -->
         <button onclick="goToIndumentariaCatalog()" class="relative w-full h-28 rounded-[28px] overflow-hidden group active:scale-95 transform transition-all duration-300 shadow-xl cursor-pointer">
-          <img src="{indum_b64}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Indumentaria" />
-          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/40 transition-colors">
-            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] font-sans">INDUMENTARIA</span>
+          <img src="{indum_b64}" class="absolute inset-0 w-full h-full object-cover filter brightness-[0.52] contrast-[1.05] group-hover:scale-105 transition-transform duration-500" alt="Indumentaria" />
+          <div class="absolute inset-0 liquid-glass-card flex items-center justify-center p-3 group-hover:bg-black/60 transition-colors">
+            <span class="text-white font-black text-lg tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] font-sans">INDUMENTARIA</span>
           </div>
         </button>
       </div>
+
+      <!-- Live Search Results View (Shown dynamically when searching) -->
+      <div id="homeSearchResultsContainer" class="hidden flex-1 overflow-y-auto px-4 py-3 space-y-2.5 z-10 pb-16">
+        <div class="flex items-center justify-between px-1">
+          <span id="homeSearchCount" class="text-xs font-bold text-gray-700 font-serif">0 productos encontrados</span>
+          <button onclick="clearHomeSearch()" class="text-[11px] text-gray-500 hover:text-black font-semibold">Cerrar búsqueda</button>
+        </div>
+        <div id="homeSearchResultsList" class="space-y-2">
+          <!-- Dynamically injected search matches -->
+        </div>
+      </div>
+
     </div>
 
     <!-- ============================================================== -->
@@ -1320,6 +1346,83 @@ html_content = f"""<!DOCTYPE html>
       }} else {{
         container.classList.add('hidden');
       }}
+    }}
+
+    function handleHomeSearch(query) {{
+      const q = (query || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('btnHomeSearchClear');
+      const catsContainer = document.getElementById('homeCategoriesContainer');
+      const resultsContainer = document.getElementById('homeSearchResultsContainer');
+      const resultsList = document.getElementById('homeSearchResultsList');
+      const searchCount = document.getElementById('homeSearchCount');
+
+      if (!q) {{
+        if (clearBtn) clearBtn.classList.add('hidden');
+        if (resultsContainer) resultsContainer.classList.add('hidden');
+        if (catsContainer) catsContainer.classList.remove('hidden');
+        return;
+      }}
+
+      if (clearBtn) clearBtn.classList.remove('hidden');
+      if (catsContainer) catsContainer.classList.add('hidden');
+      if (resultsContainer) resultsContainer.classList.remove('hidden');
+
+      // Aggregate all products across the 3 categories
+      const allProducts = [
+        ...motosList.map(m => ({{ ...m, catKey: 'motos', catLabel: '🏍️ Motocicleta' }})),
+        ...helmetsList.map(h => ({{ ...h, catKey: 'cascos', catLabel: '🪖 Casco Racing' }})),
+        ...gearList.map(g => ({{ ...g, catKey: 'indumentaria', catLabel: '🧥 Indumentaria' }}))
+      ];
+
+      const matches = allProducts.filter(p => {{
+        const nameMatch = p.name.toLowerCase().includes(q);
+        const specMatch = p.specs && p.specs.some(s => s.toLowerCase().includes(q));
+        const colorMatch = p.colors && p.colors.some(c => c.name.toLowerCase().includes(q));
+        const catMatch = p.catLabel.toLowerCase().includes(q);
+        return nameMatch || specMatch || colorMatch || catMatch;
+      }});
+
+      if (searchCount) searchCount.innerText = `${{matches.length}} producto(s) encontrado(s)`;
+      if (!resultsList) return;
+      resultsList.innerHTML = '';
+
+      if (matches.length === 0) {{
+        resultsList.innerHTML = `
+          <div class=\"bg-gray-50 rounded-2xl p-6 text-center border border-gray-200 space-y-2 mt-2\">
+            <span class=\"text-3xl\">🔍</span>
+            <p class=\"font-serif font-bold text-gray-800 text-sm\">No encontramos productos para \"${{query}}\"</p>
+            <p class=\"text-[11px] text-gray-500\">Prueba buscando: KTM, Ninja, AGV, Chaqueta, Guantes, Botas, Carbono, Enduro.</p>
+          </div>
+        `;
+        return;
+      }}
+
+      matches.forEach(item => {{
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl p-2.5 shadow-md border border-gray-100 flex items-center space-x-3 hover:shadow-lg transition-all active:scale-98 cursor-pointer';
+        card.onclick = () => {{
+          openProductDetail(item, item.catKey);
+        }};
+
+        card.innerHTML = `
+          <div class=\"w-16 h-16 rounded-xl bg-gray-50 p-1 flex items-center justify-center shrink-0 border border-gray-100 overflow-hidden\">
+            <img src=\"${{item.img}}\" class=\"max-h-full max-w-full object-contain hover:scale-105 transition-transform\" alt=\"${{item.name}}\" />
+          </div>
+          <div class=\"flex-1 min-w-0\">
+            <span class=\"inline-block text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-gray-100 text-gray-700 border border-gray-200 mb-0.5\">${{item.catLabel}}</span>
+            <h4 class=\"vintage-shaded text-xs font-bold text-gray-900 truncate leading-tight\">${{item.name}}</h4>
+            <div class=\"text-amber-700 font-bold text-xs mt-0.5\">${{item.price}}</div>
+          </div>
+          <div class=\"text-gray-400 font-bold text-base px-2\">➔</div>
+        `;
+        resultsList.appendChild(card);
+      }});
+    }}
+
+    function clearHomeSearch() {{
+      const input = document.getElementById('homeSearchInput');
+      if (input) input.value = '';
+      handleHomeSearch('');
     }}
 
     function renderMotosGrid() {{
