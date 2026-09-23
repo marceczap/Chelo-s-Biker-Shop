@@ -5,19 +5,7 @@
     android:id="@+id/home_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
-
-    <!-- Bottom Helmet Watermark matching Figma -->
-    <ImageView
-        android:id="@+id/iv_home_watermark"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="-40dp"
-        android:alpha="0.22"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark Casco" />
+    android:background="#F6F8FB">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,28 +22,23 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_home_banner"
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="220dp"
                 app:cardCornerRadius="34dp"
                 app:cardElevation="6dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#1B202C">
 
-                    <!-- Banner Background Image -->
+                    <!-- Subtle Tire Tracks Background -->
                     <ImageView
-                        android:id="@+id/iv_home_banner_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:alpha="0.10"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/img_store_banner"
-                        android:contentDescription="Banner Chelo Biker Shop" />
-
-                    <!-- Dark Gradient Overlay for Contrast -->
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#40000000" />
+                        android:src="@drawable/bg_tire_tracks"
+                        android:contentDescription="Textura Huellas" />
 
                     <!-- Top Right HOME & Logo -->
                     <LinearLayout
@@ -67,37 +50,76 @@
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.08"
-                            android:text="HOME"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
-                            android:shadowDx="1"
-                            android:shadowDy="1"
-                            android:shadowRadius="2" />
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:letterSpacing="0.08"
+                                android:text="CHELO'S"
+                                android:textColor="#FFB74D"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="serif"
+                                android:text="Est. 2026"
+                                android:textColor="#E0E0E0"
+                                android:textSize="9sp" />
+                        </LinearLayout>
 
                         <ImageView
-                            android:layout_width="36dp"
-                            android:layout_height="36dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:layout_marginStart="8dp"
                             android:src="@drawable/ic_helmet_logo"
                             app:tint="#FFFFFF"
                             android:contentDescription="Logo" />
                     </LinearLayout>
 
-                    <!-- Liquid Glass Search Bar -->
+                    <!-- Welcome Title -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|start"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="110dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:text="Pasión Biker Oficial"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:text="Catálogo con garantía y taller"
+                            android:textColor="#B0BEC5"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- Clean Frosted Search Bar -->
                     <LinearLayout
                         android:id="@+id/ll_search_bar"
                         android:layout_width="match_parent"
-                        android:layout_height="46dp"
+                        android:layout_height="44dp"
                         android:layout_gravity="bottom"
-                        android:layout_marginHorizontal="24dp"
-                        android:layout_marginBottom="18dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="16dp"
                         android:background="@drawable/bg_glass_search"
                         android:elevation="4dp"
                         android:gravity="center_vertical"
@@ -105,10 +127,10 @@
                         android:paddingHorizontal="16dp">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:src="@drawable/ic_search"
-                            app:tint="#333333"
+                            app:tint="#424242"
                             android:contentDescription="Buscar" />
 
                         <EditText
@@ -121,64 +143,97 @@
                             android:imeOptions="actionSearch"
                             android:inputType="text"
                             android:textColor="#111111"
-                            android:textColorHint="#666666"
-                            android:textSize="13sp" />
+                            android:textColorHint="#616161"
+                            android:textSize="12.5sp" />
                     </LinearLayout>
 
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Category Buttons Container -->
+            <!-- Category Cards Container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="18dp"
                 android:orientation="vertical"
-                android:paddingHorizontal="24dp">
+                android:paddingHorizontal="20dp">
 
                 <!-- 1. MOTOCICLETAS Card Button -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_motos"
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_height="125dp"
+                    android:layout_marginBottom="16dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    app:cardElevation="5dp">
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_motos"
+                        android:padding="16dp">
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_cat_motos"
-                            android:contentDescription="Motocicletas" />
-
-                        <!-- Liquid Glass Dark Overlay -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
-
-                        <TextView
+                        <!-- Left Text Content -->
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.12"
-                            android:text="MOTOCICLETAS"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginEnd="130dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_btn"
+                                android:backgroundTint="#33FFB74D"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp"
+                                android:text="🏁 10 MODELOS EN STOCK"
+                                android:textColor="#FFB74D"
+                                android:textSize="9.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="serif"
+                                android:letterSpacing="0.06"
+                                android:text="MOTOCICLETAS"
+                                android:textColor="#FFFFFF"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Sport • Enduro • Naked • City"
+                                android:textColor="#CFD8DC"
+                                android:textSize="10.5sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Explorar catálogo ➔"
+                                android:textColor="#FFB74D"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Right Studio Cutout Image -->
+                        <ImageView
+                            android:layout_width="120dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/moto_ktm_power"
+                            android:contentDescription="Motocicletas" />
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -186,45 +241,76 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_cascos"
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_height="125dp"
+                    android:layout_marginBottom="16dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    app:cardElevation="5dp">
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_cascos"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginEnd="130dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_btn"
+                                android:backgroundTint="#33EF5350"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp"
+                                android:text="🪖 8 CERTIFICADOS FIM"
+                                android:textColor="#EF5350"
+                                android:textSize="9.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="serif"
+                                android:letterSpacing="0.06"
+                                android:text="CASCOS RACING"
+                                android:textColor="#FFFFFF"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="100% Carbono • ECE 22.06"
+                                android:textColor="#CFD8DC"
+                                android:textSize="10.5sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Explorar catálogo ➔"
+                                android:textColor="#EF5350"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_cat_cascos"
+                            android:layout_width="110dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/casco_agv_pista"
                             android:contentDescription="Cascos" />
-
-                        <!-- Liquid Glass Dark Overlay -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.12"
-                            android:text="CASCOS"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -232,44 +318,76 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_indumentaria"
                     android:layout_width="match_parent"
-                    android:layout_height="115dp"
+                    android:layout_height="125dp"
+                    android:layout_marginBottom="16dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    app:cardElevation="5dp">
 
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/bg_card_indumentaria"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="start|center_vertical"
+                            android:layout_marginEnd="130dp"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_pill_btn"
+                                android:backgroundTint="#3326C6DA"
+                                android:paddingHorizontal="8dp"
+                                android:paddingVertical="2dp"
+                                android:text="🧥 EQUIPAMIENTO PRO"
+                                android:textColor="#26C6DA"
+                                android:textSize="9.5sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:fontFamily="serif"
+                                android:letterSpacing="0.06"
+                                android:text="INDUMENTARIA"
+                                android:textColor="#FFFFFF"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Chaquetas • Monos • Botas"
+                                android:textColor="#CFD8DC"
+                                android:textSize="10.5sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="Explorar catálogo ➔"
+                                android:textColor="#26C6DA"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_cat_indumentaria"
+                            android:layout_width="110dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="end|center_vertical"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/gear_chaqueta_cuero"
                             android:contentDescription="Indumentaria" />
-
-                        <!-- Liquid Glass Dark Overlay -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_glass_card" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.12"
-                            android:text="INDUMENTARIA"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:shadowColor="#000000"
-                            android:shadowDx="2"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
 
