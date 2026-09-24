@@ -27,13 +27,15 @@
         <!-- Top Header Bar matching Motos Catalog -->
         <LinearLayout
             android:id="@+id/ll_catalog_header"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="20dp"
             android:paddingTop="16dp"
             android:paddingBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -70,11 +72,13 @@
         <!-- Scrollable 2-Column Grid for Helmets -->
         <ScrollView
             android:id="@+id/sv_cascos_grid"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:fillViewport="true"
             android:scrollbars="none"
             app:layout_constraintBottom_toTopOf="@+id/ll_bottom_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ll_catalog_header">
 
             <LinearLayout
@@ -134,13 +138,15 @@
         <!-- Bottom Navigation Bar -->
         <LinearLayout
             android:id="@+id/ll_bottom_nav"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="64dp"
             android:background="#FFFFFF"
             android:elevation="12dp"
             android:gravity="center"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
             <!-- Profile Button -->
             <FrameLayout

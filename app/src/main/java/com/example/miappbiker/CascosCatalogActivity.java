@@ -95,33 +95,43 @@ public class CascosCatalogActivity extends AppCompatActivity {
         LinearLayout container = findViewById(R.id.ll_cascos_grid_container);
         container.removeAllViews();
 
+        int margin = (int) (5 * getResources().getDisplayMetrics().density);
+
         for (int i = 0; i < helmetsList.length; i += 2) {
             LinearLayout row = new LinearLayout(this);
-            row.setLayoutParams(new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+            rowParams.setMargins(0, 0, 0, (int) (6 * getResources().getDisplayMetrics().density));
+            row.setLayoutParams(rowParams);
             row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setWeightSum(2);
-            row.setPadding(0, 4, 0, 8);
+            row.setWeightSum(2.0f);
 
             // Item 1 (Left)
-            row.addView(createHelmetCard(helmetsList[i]));
+            View card1 = createHelmetCard(row, helmetsList[i]);
+            LinearLayout.LayoutParams lp1 = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+            lp1.setMargins(margin, margin, margin, margin);
+            row.addView(card1, lp1);
 
             // Item 2 (Right if exists)
             if (i + 1 < helmetsList.length) {
-                row.addView(createHelmetCard(helmetsList[i + 1]));
+                View card2 = createHelmetCard(row, helmetsList[i + 1]);
+                LinearLayout.LayoutParams lp2 = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f);
+                lp2.setMargins(margin, margin, margin, margin);
+                row.addView(card2, lp2);
             } else {
                 View placeholder = new View(this);
-                placeholder.setLayoutParams(new LinearLayout.LayoutParams(0, 1, 1));
-                row.addView(placeholder);
+                LinearLayout.LayoutParams placeLp = new LinearLayout.LayoutParams(0, 1, 1.0f);
+                placeLp.setMargins(margin, margin, margin, margin);
+                row.addView(placeholder, placeLp);
             }
 
             container.addView(row);
         }
     }
 
-    private View createHelmetCard(HelmetItem helmet) {
-        View cardView = LayoutInflater.from(this).inflate(R.layout.item_catalog_card, null, false);
+    private View createHelmetCard(ViewGroup parent, HelmetItem helmet) {
+        View cardView = LayoutInflater.from(this).inflate(R.layout.item_catalog_card, parent, false);
 
         ImageView ivImage = cardView.findViewById(R.id.iv_card_image);
         TextView tvTitle = cardView.findViewById(R.id.tv_card_title);
