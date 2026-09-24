@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -14,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -83,6 +83,20 @@ public class MotosCatalogActivity extends AppCompatActivity {
         setupNavigation();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCartBadge();
+    }
+
+    private void updateCartBadge() {
+        TextView tvBadge = findViewById(R.id.tv_cart_badge);
+        if (tvBadge != null) {
+            int count = CartManager.getInstance().getTotalCount();
+            tvBadge.setText(String.valueOf(count));
+        }
+    }
+
     private void populateGrid() {
         LinearLayout container = findViewById(R.id.ll_motos_grid_container);
         container.removeAllViews();
@@ -94,7 +108,7 @@ public class MotosCatalogActivity extends AppCompatActivity {
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setWeightSum(2);
-            row.setPadding(0, 8, 0, 16);
+            row.setPadding(0, 4, 0, 8);
 
             // Item 1 (Left)
             row.addView(createMotoCard(motosList[i]));
@@ -113,52 +127,31 @@ public class MotosCatalogActivity extends AppCompatActivity {
     }
 
     private View createMotoCard(MotoItem moto) {
-        LinearLayout card = new LinearLayout(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
-        params.setMargins(6, 6, 6, 6);
-        card.setLayoutParams(params);
-        card.setOrientation(LinearLayout.VERTICAL);
-        card.setGravity(Gravity.CENTER_HORIZONTAL);
-        card.setPadding(8, 10, 8, 12);
-        card.setBackgroundResource(R.drawable.bg_rounded_card);
-        card.setElevation(4f);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.item_catalog_card, null, false);
 
-        // Moto Image
-        ImageView iv = new ImageView(this);
-        iv.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 260));
-        iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        iv.setImageResource(moto.imageRes);
-        card.addView(iv);
+        ImageView ivImage = cardView.findViewById(R.id.iv_card_image);
+        TextView tvTitle = cardView.findViewById(R.id.tv_card_title);
+        TextView tvSubtitle = cardView.findViewById(R.id.tv_card_subtitle);
+        LinearLayout llSpecs = cardView.findViewById(R.id.ll_card_specs);
+        TextView tvPrice = cardView.findViewById(R.id.tv_card_price);
 
-        // Subtitle "caracteristicas"
-        TextView tvSub = new TextView(this);
-        tvSub.setText("caracteristicas");
-        tvSub.setTextColor(Color.parseColor("#111111"));
-        tvSub.setTextSize(13);
-        tvSub.setTypeface(android.graphics.Typeface.SERIF, android.graphics.Typeface.BOLD);
-        tvSub.setPadding(0, 6, 0, 4);
-        card.addView(tvSub);
+        ivImage.setImageResource(moto.imageRes);
+        tvTitle.setText(moto.name.toUpperCase());
+        tvSubtitle.setText("caracteristicas");
+        tvPrice.setText(moto.price);
 
-        // Specs lines
+        llSpecs.removeAllViews();
         for (String spec : moto.specs) {
             TextView tvSpec = new TextView(this);
             tvSpec.setText("• " + spec);
-            tvSpec.setTextColor(Color.parseColor("#444444"));
-            tvSpec.setTextSize(10.5f);
+            tvSpec.setTextColor(Color.parseColor("#555555"));
+            tvSpec.setTextSize(9.5f);
             tvSpec.setGravity(Gravity.CENTER);
-            card.addView(tvSpec);
+            tvSpec.setPadding(0, 1, 0, 1);
+            llSpecs.addView(tvSpec);
         }
 
-        // Price Tag
-        TextView tvPrice = new TextView(this);
-        tvPrice.setText(moto.price);
-        tvPrice.setTextColor(Color.parseColor("#111111"));
-        tvPrice.setTextSize(12.5f);
-        tvPrice.setTypeface(android.graphics.Typeface.SERIF, android.graphics.Typeface.BOLD);
-        tvPrice.setPadding(0, 6, 0, 0);
-        card.addView(tvPrice);
-
-        card.setOnClickListener(v -> {
+        cardView.setOnClickListener(v -> {
             Intent intent = new Intent(MotosCatalogActivity.this, ProductDetailActivity.class);
             intent.putExtra(ProductDetailActivity.EXTRA_TITLE, moto.name);
             intent.putExtra(ProductDetailActivity.EXTRA_IMAGE_RES, moto.imageRes);
@@ -168,20 +161,46 @@ public class MotosCatalogActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        return card;
+        return cardView;
     }
 
     private void setupNavigation() {
-        findViewById(R.id.nav_btn_profile).setOnClickListener(v -> {
-            Toast.makeText(this, "Navegando a Perfil 👤", Toast.LENGTH_SHORT).show();
-        });
+        ImageView btnBack = findViewById(R.id.btn_back_home);
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> finish());
+        }
 
-        findViewById(R.id.nav_btn_home).setOnClickListener(v -> {
-            finish();
-        });
+        FrameLayout btnCart = findViewById(R.id.btn_floating_cart);
+        if (btnCart != null) {
+            btnCart.setOnClickListener(v -> {
+                Intent intent = new Intent(MotosCatalogActivity.this, CartActivity.class);
+                startActivity(intent);
+            });
+        }
 
-        findViewById(R.id.nav_btn_locations).setOnClickListener(v -> {
-            Toast.makeText(this, "Navegando a Sucursales 🗺️", Toast.LENGTH_SHORT).show();
-        });
+        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
+        if (btnHome != null) {
+            btnHome.setOnClickListener(v -> {
+                Intent intent = new Intent(MotosCatalogActivity.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                finish();
+            });
+        }
+
+        FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
+        if (btnProfile != null) {
+            btnProfile.setOnClickListener(v ->
+                    Toast.makeText(this, "Ruta: Perfil de Usuario 👤", Toast.LENGTH_SHORT).show()
+            );
+        }
+
+        FrameLayout btnLocations = findViewById(R.id.nav_btn_locations);
+        if (btnLocations != null) {
+            btnLocations.setOnClickListener(v -> {
+                Intent intent = new Intent(MotosCatalogActivity.this, BranchesActivity.class);
+                startActivity(intent);
+            });
+        }
     }
 }

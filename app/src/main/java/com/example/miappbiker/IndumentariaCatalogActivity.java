@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -14,7 +15,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -36,29 +36,29 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
     }
 
     private final GearItem[] gearList = new GearItem[]{
-            new GearItem("Chaqueta Alpinestars GP Plus R v3", R.drawable.gear_chaqueta_cuero,
-                    new String[]{"Material: Cuero Bovino 1.3mm", "Protección: Nucleon Flex Plus CE", "Zonas: Paneles Stretch Elásticos", "Regulación: Cintura con Velcro", "Uso: Racing / Deportivo"}, "$520 USD"),
+            new GearItem("Chaqueta Alpinestars GP Plus", R.drawable.gear_chaqueta_cuero,
+                    new String[]{"Cuero Bovino 1.3mm", "Protección Nucleon CE", "Paneles Stretch", "Regulación Cintura", "Uso Racing / Sport"}, "$520 USD"),
 
             new GearItem("Guantes Dainese Full Metal 6", R.drawable.gear_guantes_racing,
-                    new String[]{"Material: Piel de Cabra + Kevlar", "Nudillos: Titanio y Fibra Carbono", "Costuras: Fibra de Aramida", "Sistema: Distorsión Meñique DCP", "Homologación: CE Cat. II"}, "$390 USD"),
+                    new String[]{"Piel Cabra + Kevlar", "Nudillos Titanio/Carbono", "Costuras Fibra Aramida", "Control Distorsión DCP", "Homologación CE Cat II"}, "$390 USD"),
 
             new GearItem("Botas Alpinestars Supertech R", R.drawable.gear_botas_supertech,
-                    new String[]{"Construcción: Microfibra Técnica", "Seguridad: Botín Interno Biomecánico", "Deslizador: TPU Reemplazable", "Suela: Agarre Compuesto Liviano", "Uso: Circuito y Pista"}, "$550 USD"),
+                    new String[]{"Botín Interior Biomecánico", "Deslizadera TPU/Aluminio", "Microfibra Alta Abrasión", "Suela Agarre MotoGP", "Protección Espinilla"}, "$540 USD"),
 
-            new GearItem("Mono Dainese Laguna Seca 5 1PC", R.drawable.gear_traje_monomono,
-                    new String[]{"Material: Cuero Vacuno Tutu", "Placas: Titanio en Hombros y Codos", "Ventilación: Perforado Localizado", "Joroba: Aerodinámica con Hidrobag", "Nivel: Competición MotoGP"}, "$1,390 USD"),
+            new GearItem("Mono Cuero Alpinestars GP Force", R.drawable.gear_traje_monomono,
+                    new String[]{"1 Pieza Cuero 1.3mm", "Compatible Chaleco Tech-Air", "Joroba Aerodinámica Pro", "Protecciones CE Nivel 2", "Sliders Rodilla/Codo"}, "$980 USD"),
 
-            new GearItem("Pantalón Kevlar Rev'it Jeans", R.drawable.gear_pantalon_kevlar,
-                    new String[]{"Tejido: Cordura Denim 12.5oz", "Refuerzo: PWR|shield Anti-abrasión", "Protecciones: SEESMART CE Nivel 1", "Corte: Slim Fit Urbano Cómodo", "Costuras: Triples Reforzadas"}, "$230 USD"),
+            new GearItem("Pantalón Kevlar Revit Detroit TF", R.drawable.gear_pantalon_kevlar,
+                    new String[]{"Denim Cordura Stretch", "Refuerzos PWR|Shield", "Protección Rodilla Seesmart", "Triple Costura Seguridad", "Estilo Urbano Casual"}, "$230 USD"),
 
-            new GearItem("Chaqueta Dainese Carve Master 3", R.drawable.gear_chaqueta_textil,
-                    new String[]{"Membrana: GORE-TEX Impermeable", "Forro: Térmico Cuello Desmontable", "Protección: Pro-Armor Nivel 2", "Ventilación: Entradas en Pecho y Espalda", "Uso: Touring 4 Estaciones"}, "$640 USD"),
+            new GearItem("Chaqueta Touring Klim Badlands", R.drawable.gear_chaqueta_textil,
+                    new String[]{"Membrana Gore-Tex Pro 3L", "Refuerzos Superfabric", "Protección D3O Aero Pro", "12 Ventilaciones Activas", "Impermeable Total"}, "$1,150 USD"),
 
-            new GearItem("Botas Touring Forma Adventure", R.drawable.gear_botas_adventure,
-                    new String[]{"Cuero: Tratado Graso Vintage", "Membrana: Drytex 100% Impermeable", "Cierres: Plásticos GH Regulables", "Suela: Doble Densidad Antideslizante", "Uso: Maxi-Trail / Aventura"}, "$280 USD"),
+            new GearItem("Botas Adventure Sidi Adventure 2", R.drawable.gear_botas_adventure,
+                    new String[]{"Membrana Gore-Tex 100%", "Sistema Flex Pivotante", "Cierre Doble Micrométrico", "Suela Antideslizante Enduro", "Uso Dual / Travesía"}, "$460 USD"),
 
             new GearItem("Chaleco Airbag Alpinestars Tech-Air 5", R.drawable.gear_chaleco_airbag,
-                    new String[]{"Sistema: Autónomo Inalámbrico", "Sensores: 6 Sensores Integrados", "Cobertura: Espalda, Hombros y Pecho", "Conexión: Bluetooth con App Móvil", "Despliegue: 20 a 40 milisegundos"}, "$750 USD")
+                    new String[]{"Despliegue en 20-40ms", "6 Sensores Giroscópicos", "Bluetooth App Conectada", "Protección Espalda/Hombro", "Autónomo sin cables"}, "$750 USD")
     };
 
     @Override
@@ -77,6 +77,20 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
         setupNavigation();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateCartBadge();
+    }
+
+    private void updateCartBadge() {
+        TextView tvBadge = findViewById(R.id.tv_cart_badge);
+        if (tvBadge != null) {
+            int count = CartManager.getInstance().getTotalCount();
+            tvBadge.setText(String.valueOf(count));
+        }
+    }
+
     private void populateGrid() {
         LinearLayout container = findViewById(R.id.ll_indum_grid_container);
         container.removeAllViews();
@@ -88,7 +102,7 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
                     ViewGroup.LayoutParams.WRAP_CONTENT));
             row.setOrientation(LinearLayout.HORIZONTAL);
             row.setWeightSum(2);
-            row.setPadding(0, 8, 0, 16);
+            row.setPadding(0, 4, 0, 8);
 
             // Item 1 (Left)
             row.addView(createGearCard(gearList[i]));
@@ -107,60 +121,31 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
     }
 
     private View createGearCard(GearItem item) {
-        LinearLayout card = new LinearLayout(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
-        params.setMargins(6, 6, 6, 6);
-        card.setLayoutParams(params);
-        card.setOrientation(LinearLayout.VERTICAL);
-        card.setBackgroundColor(Color.TRANSPARENT);
+        View cardView = LayoutInflater.from(this).inflate(R.layout.item_catalog_card, null, false);
 
-        // Card Container with Soft Glass / Border
-        CardView cardFrame = new CardView(this);
-        LinearLayout.LayoutParams frameParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, 150);
-        cardFrame.setLayoutParams(frameParams);
-        cardFrame.setRadius(24);
-        cardFrame.setCardElevation(4);
-        cardFrame.setCardBackgroundColor(Color.WHITE);
+        ImageView ivImage = cardView.findViewById(R.id.iv_card_image);
+        TextView tvTitle = cardView.findViewById(R.id.tv_card_title);
+        TextView tvSubtitle = cardView.findViewById(R.id.tv_card_subtitle);
+        LinearLayout llSpecs = cardView.findViewById(R.id.ll_card_specs);
+        TextView tvPrice = cardView.findViewById(R.id.tv_card_price);
 
-        ImageView img = new ImageView(this);
-        img.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        img.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        img.setImageResource(item.imageRes);
-        cardFrame.addView(img);
-
-        card.addView(cardFrame);
-
-        // Name
-        TextView tvName = new TextView(this);
-        tvName.setText(item.name);
-        tvName.setTextColor(Color.parseColor("#111111"));
-        tvName.setTextSize(12);
-        tvName.setTypeface(null, android.graphics.Typeface.BOLD);
-        tvName.setPadding(2, 6, 2, 2);
-        card.addView(tvName);
-
-        // Price
-        TextView tvPrice = new TextView(this);
+        ivImage.setImageResource(item.imageRes);
+        tvTitle.setText(item.name.toUpperCase());
+        tvSubtitle.setText("especificaciones");
         tvPrice.setText(item.price);
-        tvPrice.setTextColor(Color.parseColor("#d97706")); // Golden Amber
-        tvPrice.setTextSize(11);
-        tvPrice.setTypeface(null, android.graphics.Typeface.BOLD);
-        tvPrice.setPadding(2, 0, 2, 2);
-        card.addView(tvPrice);
 
-        // Specifications List
+        llSpecs.removeAllViews();
         for (String spec : item.specs) {
             TextView tvSpec = new TextView(this);
             tvSpec.setText("• " + spec);
-            tvSpec.setTextColor(Color.parseColor("#444444"));
+            tvSpec.setTextColor(Color.parseColor("#555555"));
             tvSpec.setTextSize(9.5f);
-            tvSpec.setPadding(2, 1, 2, 1);
-            card.addView(tvSpec);
+            tvSpec.setGravity(Gravity.CENTER);
+            tvSpec.setPadding(0, 1, 0, 1);
+            llSpecs.addView(tvSpec);
         }
 
-        View.OnClickListener openDetail = v -> {
+        cardView.setOnClickListener(v -> {
             Intent intent = new Intent(IndumentariaCatalogActivity.this, ProductDetailActivity.class);
             intent.putExtra(ProductDetailActivity.EXTRA_TITLE, item.name);
             intent.putExtra(ProductDetailActivity.EXTRA_IMAGE_RES, item.imageRes);
@@ -168,34 +153,23 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
             intent.putExtra(ProductDetailActivity.EXTRA_PRICE, item.price);
             intent.putExtra(ProductDetailActivity.EXTRA_CATEGORY, "INDUMENTARIA");
             startActivity(intent);
-        };
+        });
 
-        card.setOnClickListener(openDetail);
-
-        // Action Button Ver / Detalle
-        TextView btnAction = new TextView(this);
-        LinearLayout.LayoutParams btnParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        btnParams.setMargins(0, 6, 0, 0);
-        btnAction.setLayoutParams(btnParams);
-        btnAction.setBackgroundResource(R.drawable.bg_pill_btn);
-        btnAction.setText("Ver Detalle");
-        btnAction.setTextColor(Color.parseColor("#111111"));
-        btnAction.setTextSize(10);
-        btnAction.setGravity(Gravity.CENTER);
-        btnAction.setPadding(4, 8, 4, 8);
-        btnAction.setClickable(true);
-        btnAction.setFocusable(true);
-        btnAction.setOnClickListener(openDetail);
-        card.addView(btnAction);
-
-        return card;
+        return cardView;
     }
 
     private void setupNavigation() {
         ImageView btnBack = findViewById(R.id.btn_back_home);
         if (btnBack != null) {
             btnBack.setOnClickListener(v -> finish());
+        }
+
+        FrameLayout btnCart = findViewById(R.id.btn_floating_cart);
+        if (btnCart != null) {
+            btnCart.setOnClickListener(v -> {
+                Intent intent = new Intent(IndumentariaCatalogActivity.this, CartActivity.class);
+                startActivity(intent);
+            });
         }
 
         FrameLayout btnHome = findViewById(R.id.nav_btn_home);
@@ -217,9 +191,10 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Sucursales y Ubicaciones 🗺️", Toast.LENGTH_SHORT).show()
-            );
+            btnMenu.setOnClickListener(v -> {
+                Intent intent = new Intent(IndumentariaCatalogActivity.this, BranchesActivity.class);
+                startActivity(intent);
+            });
         }
     }
 }

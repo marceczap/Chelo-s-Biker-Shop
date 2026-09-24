@@ -82,12 +82,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="12dp"
+                android:paddingHorizontal="10dp"
                 android:paddingTop="6dp"
                 android:paddingBottom="30dp">
                 <!-- Dynamically filled with 2-column gear cards -->
             </LinearLayout>
         </ScrollView>
+
+        <!-- Floating Shopping Cart Button -->
+        <FrameLayout
+            android:id="@+id/btn_floating_cart"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/ll_bottom_nav"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <View
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_floating_cart"
+                android:elevation="6dp" />
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:elevation="8dp"
+                android:src="@drawable/ic_shopping_cart"
+                app:tint="#FFFFFF"
+                android:contentDescription="Carrito" />
+
+            <TextView
+                android:id="@+id/tv_cart_badge"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="top|end"
+                android:background="@drawable/bg_badge_circle"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </FrameLayout>
 
         <!-- Bottom Navigation Bar -->
         <LinearLayout

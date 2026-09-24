@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_root"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_margin="5dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Product Image Box (100% visible, no crop, fitCenter) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="115dp"
+            android:background="@drawable/bg_product_box"
+            android:padding="6dp">
+
+            <ImageView
+                android:id="@+id/iv_card_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:contentDescription="Producto" />
+        </FrameLayout>
+
+        <!-- Product Title -->
+        <TextView
+            android:id="@+id/tv_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:fontFamily="serif"
+            android:textColor="#111111"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:lines="2"
+            android:ellipsize="end" />
+
+        <!-- Subtitle: especificaciones / caracteristicas -->
+        <TextView
+            android:id="@+id/tv_card_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="serif"
+            android:text="especificaciones"
+            android:textColor="#333333"
+            android:textSize="10.5sp"
+            android:textStyle="bold" />
+
+        <!-- Specs Container -->
+        <LinearLayout
+            android:id="@+id/ll_card_specs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+            <!-- Bullet points added dynamically -->
+        </LinearLayout>
+
+        <!-- Price Badge (Golden Amber Pill) -->
+        <TextView
+            android:id="@+id/tv_card_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/bg_price_pill_amber"
+            android:fontFamily="serif"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="3dp"
+            android:textColor="#B45309"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
