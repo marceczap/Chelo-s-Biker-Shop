@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Bottom Left Large Helmet Watermark -->
+    <ImageView
+        android:id="@+id/iv_profile_watermark"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="-40dp"
+        android:layout_marginBottom="-40dp"
+        android:alpha="0.18"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_helmet_logo"
+        android:contentDescription="Watermark" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Top Header Navigation Bar -->
+        <LinearLayout
+            android:id="@+id/ll_profile_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btn_profile_back"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="4dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#111111"
+                android:contentDescription="Regresar" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:fontFamily="serif"
+                android:letterSpacing="0.06"
+                android:text="Mi Perfil Biker"
+                android:textColor="#111111"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:alpha="0.6"
+                android:src="@drawable/ic_helmet_logo"
+                android:contentDescription="Logo" />
+        </LinearLayout>
+
+        <!-- Scrollable Profile Content -->
+        <ScrollView
+            android:id="@+id/sv_profile_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/ll_bottom_nav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_profile_header">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="30dp">
+
+                <!-- 1. Biker Avatar & Credential Badge -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <FrameLayout
+                            android:layout_width="96dp"
+                            android:layout_height="96dp">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_circle_color_black"
+                                android:backgroundTint="#E2E8F0" />
+
+                            <ImageView
+                                android:id="@+id/iv_avatar"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_person"
+                                app:tint="#334155"
+                                android:contentDescription="Avatar" />
+
+                            <!-- Camera badge -->
+                            <FrameLayout
+                                android:id="@+id/btn_change_avatar"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="bottom|end"
+                                android:background="@drawable/bg_badge_circle"
+                                android:backgroundTint="#111111"
+                                android:clickable="true"
+                                android:focusable="true">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="📷"
+                                    android:textSize="12sp" />
+                            </FrameLayout>
+                        </FrameLayout>
+
+                        <TextView
+                            android:id="@+id/tv_display_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="serif"
+                            android:text="Marcelo Biker"
+                            android:textColor="#111111"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_display_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_price_pill_amber"
+                            android:paddingHorizontal="12dp"
+                            android:paddingVertical="3dp"
+                            android:text="🏍️ PILOTO PRO • CHELO MEMBER"
+                            android:textColor="#B45309"
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2. Datos Personales Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.04"
+                            android:text="Información de Contacto"
+                            android:textColor="#111111"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <!-- Nombre -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Nombre y Apellidos"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="Marcelo Biker"
+                            android:inputType="textPersonName"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- Correo -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Correo Electrónico"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="marcelo@chelobikershop.bo"
+                            android:inputType="textEmailAddress"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- Teléfono -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Teléfono / WhatsApp"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="+591 76543210"
+                            android:inputType="phone"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- CI / NIT -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Carnet de Identidad (CI) / NIT"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_ci"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="8472910 CBBA"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- Ciudad -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Ciudad / Ubicación"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="Cochabamba, Bolivia"
+                            android:inputType="textPostalAddress"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 3. Perfil Biker & Garaje Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="serif"
+                            android:letterSpacing="0.04"
+                            android:text="Garaje Biker &amp; Seguridad"
+                            android:textColor="#111111"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <!-- Mi Moto Actual -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="🏍️ Mi Moto Actual / Favorita"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_moto"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="KTM Enduro 250 XC"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- Licencia -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="🪪 Licencia de Conducir"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_license"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="Categoría M (Biker Pro)"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+
+                        <!-- Emergencia -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="🩸 Grupo Sanguíneo &amp; Contacto Emergencia"
+                            android:textColor="#666666"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/et_profile_emergency"
+                            android:layout_width="match_parent"
+                            android:layout_height="44dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_edit_text"
+                            android:hint="O+ • Contacto: 71234567"
+                            android:inputType="text"
+                            android:paddingHorizontal="14dp"
+                            android:textColor="#111111"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 4. Action Buttons -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_save_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_pill_btn"
+                    android:backgroundTint="#111111"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.08"
+                    android:text="GUARDAR CAMBIOS"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13.5sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_pill_btn"
+                    android:backgroundTint="#FEE2E2"
+                    android:fontFamily="serif"
+                    android:letterSpacing="0.08"
+                    android:text="CERRAR SESIÓN"
+                    android:textColor="#DC2626"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bottom Navigation Bar (Profile Active) -->
+        <LinearLayout
+            android:id="@+id/ll_bottom_nav"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="#FFFFFF"
+            android:elevation="12dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Profile Button (Active) -->
+            <FrameLayout
+                android:id="@+id/nav_btn_profile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_person"
+                    app:tint="#111111"
+                    android:contentDescription="Perfil" />
+            </FrameLayout>
+
+            <!-- Home Button -->
+            <FrameLayout
+                android:id="@+id/nav_btn_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_home"
+                    app:tint="#888888"
+                    android:contentDescription="Home" />
+            </FrameLayout>
+
+            <!-- Menu / Branches Button -->
+            <FrameLayout
+                android:id="@+id/nav_btn_menu"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_menu"
+                    app:tint="#888888"
+                    android:contentDescription="Sucursales" />
+            </FrameLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

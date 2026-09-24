@@ -194,9 +194,10 @@ public class CascosCatalogActivity extends AppCompatActivity {
 
         FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
         if (btnProfile != null) {
-            btnProfile.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Perfil de Usuario 👤", Toast.LENGTH_SHORT).show()
-            );
+            btnProfile.setOnClickListener(v -> {
+                Intent intent = new Intent(CascosCatalogActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            });
         }
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);

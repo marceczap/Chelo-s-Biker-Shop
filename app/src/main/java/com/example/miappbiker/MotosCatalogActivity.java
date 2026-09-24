@@ -200,9 +200,10 @@ public class MotosCatalogActivity extends AppCompatActivity {
 
         FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
         if (btnProfile != null) {
-            btnProfile.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Perfil de Usuario 👤", Toast.LENGTH_SHORT).show()
-            );
+            btnProfile.setOnClickListener(v -> {
+                Intent intent = new Intent(MotosCatalogActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            });
         }
 
         FrameLayout btnLocations = findViewById(R.id.nav_btn_locations);

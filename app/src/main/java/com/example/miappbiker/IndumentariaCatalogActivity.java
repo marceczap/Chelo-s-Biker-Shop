@@ -194,9 +194,10 @@ public class IndumentariaCatalogActivity extends AppCompatActivity {
 
         FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
         if (btnProfile != null) {
-            btnProfile.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Perfil de Usuario 👤", Toast.LENGTH_SHORT).show()
-            );
+            btnProfile.setOnClickListener(v -> {
+                Intent intent = new Intent(IndumentariaCatalogActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            });
         }
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
