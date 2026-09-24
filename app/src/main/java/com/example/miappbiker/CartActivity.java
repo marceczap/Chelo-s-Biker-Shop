@@ -1,23 +1,27 @@
 package com.example.miappbiker;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import android.widget.LinearLayout;
+
 import java.util.List;
 
 public class CartActivity extends AppCompatActivity {
@@ -63,7 +67,7 @@ public class CartActivity extends AppCompatActivity {
             String color = intent.getStringExtra(EXTRA_PRODUCT_COLOR);
             if (price == null) price = "$4,800 USD";
             if (color == null) color = "Naranja Racing";
-            
+
             int unitPrice = 4800;
             try {
                 unitPrice = Integer.parseInt(price.replaceAll("[^0-9]", ""));
@@ -81,7 +85,8 @@ public class CartActivity extends AppCompatActivity {
             TextView tvEmpty = new TextView(this);
             tvEmpty.setText("Tu carrito está vacío 🛒");
             tvEmpty.setTextSize(16);
-            tvEmpty.setGravity(android.view.Gravity.CENTER);
+            tvEmpty.setTextColor(Color.parseColor("#888888"));
+            tvEmpty.setGravity(Gravity.CENTER);
             tvEmpty.setPadding(0, 40, 0, 40);
             llCartItemsContainer.addView(tvEmpty);
             updatePriceDisplay();
@@ -92,96 +97,33 @@ public class CartActivity extends AppCompatActivity {
             final int pos = i;
             CartItem item = items.get(i);
 
-            androidx.cardview.widget.CardView card = new androidx.cardview.widget.CardView(this);
-            LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            cardLp.setMargins(0, 0, 0, 16);
-            card.setLayoutParams(cardLp);
-            card.setRadius(32f);
-            card.setCardElevation(4f);
-            card.setCardBackgroundColor(android.graphics.Color.WHITE);
+            View itemView = LayoutInflater.from(this).inflate(R.layout.item_cart_product, llCartItemsContainer, false);
 
-            LinearLayout row = new LinearLayout(this);
-            row.setOrientation(LinearLayout.HORIZONTAL);
-            row.setPadding(20, 20, 20, 20);
-            row.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            ImageView ivImg = itemView.findViewById(R.id.iv_cart_item_img);
+            TextView tvTitle = itemView.findViewById(R.id.tv_cart_item_title);
+            TextView tvColor = itemView.findViewById(R.id.tv_cart_item_color);
+            TextView tvPrice = itemView.findViewById(R.id.tv_cart_item_price);
+            TextView tvQty = itemView.findViewById(R.id.tv_cart_qty);
+            FrameLayout btnMinus = itemView.findViewById(R.id.btn_cart_minus);
+            FrameLayout btnPlus = itemView.findViewById(R.id.btn_cart_plus);
 
-            ImageView iv = new ImageView(this);
-            LinearLayout.LayoutParams ivLp = new LinearLayout.LayoutParams(160, 160);
-            iv.setLayoutParams(ivLp);
-            iv.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            iv.setImageResource(item.getImageRes());
-            row.addView(iv);
-
-            LinearLayout info = new LinearLayout(this);
-            LinearLayout.LayoutParams infoLp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f);
-            infoLp.setMargins(20, 0, 20, 0);
-            info.setLayoutParams(infoLp);
-            info.setOrientation(LinearLayout.VERTICAL);
-
-            TextView tvTitle = new TextView(this);
+            ivImg.setImageResource(item.getImageRes());
             tvTitle.setText(item.getName().toUpperCase());
-            tvTitle.setTextColor(android.graphics.Color.BLACK);
-            tvTitle.setTextSize(13.5f);
-            tvTitle.setTypeface(null, android.graphics.Typeface.BOLD);
-            info.addView(tvTitle);
-
-            TextView tvColor = new TextView(this);
             tvColor.setText("Color: " + item.getColor());
-            tvColor.setTextColor(android.graphics.Color.DKGRAY);
-            tvColor.setTextSize(11.5f);
-            info.addView(tvColor);
-
-            TextView tvPrice = new TextView(this);
-            tvPrice.setText("$" + String.format("%,d", item.getTotalPrice()) + " USD (" + String.format("%,d", (int)Math.round(item.getTotalPrice()*6.96)) + " Bs.)");
-            tvPrice.setTextColor(android.graphics.Color.parseColor("#D97706"));
-            tvPrice.setTextSize(12.5f);
-            tvPrice.setTypeface(null, android.graphics.Typeface.BOLD);
-            info.addView(tvPrice);
-
-            row.addView(info);
-
-            // Quantity buttons
-            LinearLayout qtyLayout = new LinearLayout(this);
-            qtyLayout.setOrientation(LinearLayout.VERTICAL);
-            qtyLayout.setGravity(android.view.Gravity.CENTER);
-
-            TextView btnPlus = new TextView(this);
-            btnPlus.setText("+");
-            btnPlus.setTextSize(16);
-            btnPlus.setGravity(android.view.Gravity.CENTER);
-            btnPlus.setBackgroundResource(R.drawable.bg_pill_btn);
-            btnPlus.setLayoutParams(new LinearLayout.LayoutParams(64, 64));
-            btnPlus.setOnClickListener(v -> {
-                CartManager.getInstance().updateQuantity(pos, 1);
-                renderCartItems();
-            });
-
-            TextView tvQty = new TextView(this);
+            tvPrice.setText("$" + String.format("%,d", item.getTotalPrice()) + " USD (" + String.format("%,d", (int) Math.round(item.getTotalPrice() * 6.96)) + " Bs.)");
             tvQty.setText(String.valueOf(item.getQuantity()));
-            tvQty.setTextSize(14);
-            tvQty.setTypeface(null, android.graphics.Typeface.BOLD);
-            tvQty.setGravity(android.view.Gravity.CENTER);
-            tvQty.setPadding(0, 4, 0, 4);
 
-            TextView btnMinus = new TextView(this);
-            btnMinus.setText("-");
-            btnMinus.setTextSize(16);
-            btnMinus.setGravity(android.view.Gravity.CENTER);
-            btnMinus.setBackgroundResource(R.drawable.bg_pill_btn);
-            btnMinus.setLayoutParams(new LinearLayout.LayoutParams(64, 64));
             btnMinus.setOnClickListener(v -> {
                 CartManager.getInstance().updateQuantity(pos, -1);
                 renderCartItems();
             });
 
-            qtyLayout.addView(btnPlus);
-            qtyLayout.addView(tvQty);
-            qtyLayout.addView(btnMinus);
+            btnPlus.setOnClickListener(v -> {
+                CartManager.getInstance().updateQuantity(pos, 1);
+                renderCartItems();
+            });
 
-            row.addView(qtyLayout);
-            card.addView(row);
-            llCartItemsContainer.addView(card);
+            llCartItemsContainer.addView(itemView);
         }
 
         updatePriceDisplay();
@@ -261,9 +203,10 @@ public class CartActivity extends AppCompatActivity {
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Sucursales y Ubicaciones 🗺️", Toast.LENGTH_SHORT).show()
-            );
+            btnMenu.setOnClickListener(v -> {
+                Intent intent = new Intent(CartActivity.this, BranchesActivity.class);
+                startActivity(intent);
+            });
         }
     }
 }

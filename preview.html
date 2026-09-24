@@ -1128,7 +1128,7 @@
       showToast('Vista de Detalle: ' + item.name + ' 🔍');
     }
 
-    // Multi-Product Add To Cart
+    // Multi-Product Add To Cart with Fly-to-Cart Animation
     function addProductToCartFromDetail() {
       if (!currentDetailItem) return;
 
@@ -1150,8 +1150,44 @@
         });
       }
 
-      updateFloatingCartBadge();
-      showToast('¡' + currentDetailItem.name + ' agregado al carrito! 🛒');
+      // Fly-to-cart Animation
+      const srcImg = document.getElementById('detailImage');
+      const cartBtn = document.getElementById('floatingCartBtn');
+
+      if (srcImg && cartBtn) {
+        const srcRect = srcImg.getBoundingClientRect();
+        const cartRect = cartBtn.getBoundingClientRect();
+
+        const flyClone = document.createElement('img');
+        flyClone.src = currentDetailItem.img;
+        flyClone.className = 'fixed z-50 pointer-events-none rounded-xl object-contain shadow-2xl transition-all duration-500 ease-in-out';
+        flyClone.style.width = '100px';
+        flyClone.style.height = '100px';
+        flyClone.style.left = (srcRect.left + (srcRect.width - 100) / 2) + 'px';
+        flyClone.style.top = (srcRect.top + (srcRect.height - 100) / 2) + 'px';
+        flyClone.style.transform = 'scale(1) rotate(0deg)';
+        flyClone.style.opacity = '1';
+
+        document.body.appendChild(flyClone);
+
+        setTimeout(() => {
+          flyClone.style.left = (cartRect.left + (cartRect.width - 30) / 2) + 'px';
+          flyClone.style.top = (cartRect.top + (cartRect.height - 30) / 2) + 'px';
+          flyClone.style.width = '30px';
+          flyClone.style.height = '30px';
+          flyClone.style.transform = 'scale(0.3) rotate(360deg)';
+          flyClone.style.opacity = '0.7';
+        }, 20);
+
+        setTimeout(() => {
+          if (flyClone.parentNode) flyClone.parentNode.removeChild(flyClone);
+          updateFloatingCartBadge();
+          showToast('¡' + currentDetailItem.name + ' agregado al carrito! 🛒');
+        }, 550);
+      } else {
+        updateFloatingCartBadge();
+        showToast('¡' + currentDetailItem.name + ' agregado al carrito! 🛒');
+      }
     }
 
     function renderCartItems() {
@@ -1189,15 +1225,15 @@
             <span class="inline-block text-[10px] text-gray-500 font-medium mb-0.5">${item.color}</span>
             <div class="text-amber-700 font-bold text-xs">
               $${itemTotalUSD.toLocaleString('en-US')} USD
-              <span class="text-[10px] text-gray-500 font-normal">(${itemTotalBs.toLocaleString('es-BO')} Bs.)</span>
+              <span class="text-[10px] text-gray-500 font-normal">($${itemTotalBs.toLocaleString('es-BO')} Bs.)</span>
             </div>
           </div>
 
           <div class="flex flex-col items-center space-y-1 shrink-0">
-            <div class="flex items-center space-x-1.5 bg-gray-100 rounded-full px-2 py-0.5">
-              <button onclick="changeCartItemQty(${index}, -1)" class="w-5 h-5 rounded-full bg-white shadow-xs font-bold text-xs flex items-center justify-center hover:bg-gray-200 active:scale-90 cursor-pointer">-</button>
-              <span class="text-xs font-bold px-1 text-gray-900">${item.qty}</span>
-              <button onclick="changeCartItemQty(${index}, 1)" class="w-5 h-5 rounded-full bg-white shadow-xs font-bold text-xs flex items-center justify-center hover:bg-gray-200 active:scale-90 cursor-pointer">+</button>
+            <div class="flex items-center space-x-1.5 bg-gray-100 rounded-full p-1 border border-gray-200 shadow-inner">
+              <button onclick="changeCartItemQty(${index}, -1)" class="w-7 h-7 rounded-full bg-gray-900 hover:bg-black text-white font-black text-sm flex items-center justify-center shadow-md active:scale-90 transition-all cursor-pointer">−</button>
+              <span class="text-xs font-black px-1.5 text-gray-900 min-w-[18px] text-center">${item.qty}</span>
+              <button onclick="changeCartItemQty(${index}, 1)" class="w-7 h-7 rounded-full bg-gray-900 hover:bg-black text-white font-black text-sm flex items-center justify-center shadow-md active:scale-90 transition-all cursor-pointer">+</button>
             </div>
             <button onclick="removeCartItem(${index})" class="text-[10px] text-red-500 hover:text-red-700 font-semibold cursor-pointer pt-0.5">
               Eliminar
