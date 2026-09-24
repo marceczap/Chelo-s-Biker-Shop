@@ -46,13 +46,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="serif"
-                android:text="La paz"
+                android:text="La Paz"
                 android:textColor="#111111"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </FrameLayout>
 
-        <!-- Google Maps Interactive Container -->
+        <!-- Google Maps Native Container -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -66,9 +66,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <!-- Interactive Web Map or Static View -->
-                <WebView
-                    android:id="@+id/wv_google_map"
+                <!-- Native Google Maps Fragment -->
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/map_fragment"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
@@ -202,8 +203,8 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_person"
                     app:tint="#888888"
@@ -219,12 +220,12 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_home"
                     app:tint="#111111"
-                    android:contentDescription="Home" />
+                    android:contentDescription="Inicio" />
             </FrameLayout>
 
             <FrameLayout
@@ -236,12 +237,12 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:layout_width="26dp"
-                    android:layout_height="26dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_menu"
                     app:tint="#888888"
-                    android:contentDescription="Menu" />
+                    android:contentDescription="Sucursales" />
             </FrameLayout>
         </LinearLayout>
 

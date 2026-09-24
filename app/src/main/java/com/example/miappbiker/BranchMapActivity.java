@@ -3,9 +3,6 @@ package com.example.miappbiker;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,15 +10,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import java.util.Random;
 
-public class BranchMapActivity extends AppCompatActivity {
+public class BranchMapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     public static final String EXTRA_CITY_NAME = "extra_city_name";
 
@@ -36,11 +42,12 @@ public class BranchMapActivity extends AppCompatActivity {
     private String billingPhone;
     private String payMethod;
 
-    private String mapUrl;
     private String placeCode;
     private String placeAddress;
     private double lat;
     private double lng;
+
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +63,7 @@ public class BranchMapActivity extends AppCompatActivity {
 
         readIntentData();
         setupMapDetails();
-        setupWebViewMap();
+        setupGoogleMapFragment();
         setupButtons();
         setupNavigation();
     }
@@ -110,16 +117,38 @@ public class BranchMapActivity extends AppCompatActivity {
 
         tvCode.setText(placeCode);
         tvAddress.setText(placeAddress);
-        mapUrl = "https://maps.google.com/maps?q=" + lat + "," + lng + "&hl=es&z=15&output=embed";
     }
 
-    private void setupWebViewMap() {
-        WebView wvMap = findViewById(R.id.wv_google_map);
-        WebSettings settings = wvMap.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        wvMap.setWebViewClient(new WebViewClient());
-        wvMap.loadUrl(mapUrl);
+    private void setupGoogleMapFragment() {
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map_fragment);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+
+        try {
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            mMap.getUiSettings().setZoomControlsEnabled(true);
+            mMap.getUiSettings().setCompassEnabled(true);
+            mMap.getUiSettings().setMapToolbarEnabled(true);
+
+            LatLng branchLocation = new LatLng(lat, lng);
+
+            mMap.addMarker(new MarkerOptions()
+                    .position(branchLocation)
+                    .title("Chelo Biker Shop - " + cityName)
+                    .snippet(placeAddress)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(branchLocation, 15.5f));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setupButtons() {
@@ -186,9 +215,10 @@ public class BranchMapActivity extends AppCompatActivity {
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v ->
-                    Toast.makeText(this, "Ruta: Sucursales y Ubicaciones 🗺️", Toast.LENGTH_SHORT).show()
-            );
+            btnMenu.setOnClickListener(v -> {
+                Intent intent = new Intent(BranchMapActivity.this, BranchesActivity.class);
+                startActivity(intent);
+            });
         }
     }
 }
