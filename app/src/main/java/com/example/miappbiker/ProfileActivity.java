@@ -92,11 +92,6 @@ public class ProfileActivity extends AppCompatActivity {
             btnSave.setOnClickListener(v -> saveUserData());
         }
 
-        AppCompatButton btnLogout = findViewById(R.id.btn_logout);
-        if (btnLogout != null) {
-            btnLogout.setOnClickListener(v -> showLogoutDialog());
-        }
-
         // Navigation
         FrameLayout btnHome = findViewById(R.id.nav_btn_home);
         if (btnHome != null) {
@@ -110,11 +105,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> {
-                Intent intent = new Intent(ProfileActivity.this, BranchesActivity.class);
-                startActivity(intent);
-                finish();
-            });
+            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
         }
     }
 
@@ -135,21 +126,5 @@ public class ProfileActivity extends AppCompatActivity {
         tvDisplayName.setText(name);
 
         Toast.makeText(this, "✅ Datos de perfil guardados correctamente", Toast.LENGTH_SHORT).show();
-    }
-
-    private void showLogoutDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle("Cerrar Sesión 🔒")
-                .setMessage("¿Estás seguro de que deseas salir de tu cuenta?")
-                .setPositiveButton("Sí, Salir", (dialog, which) -> {
-                    sessionManager.logout();
-                    Toast.makeText(this, "Sesión cerrada correctamente 👋", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                })
-                .setNegativeButton("Cancelar", null)
-                .show();
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -75,6 +76,19 @@ public class HomeActivity extends AppCompatActivity {
             Intent intent = new Intent(HomeActivity.this, IndumentariaCatalogActivity.class);
             startActivity(intent);
         });
+
+        ImageView btnProfile = findViewById(R.id.btn_home_profile);
+        if (btnProfile != null) {
+            btnProfile.setOnClickListener(v -> {
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            });
+        }
+
+        ImageView btnHamburger = findViewById(R.id.btn_home_hamburger);
+        if (btnHamburger != null) {
+            btnHamburger.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
+        }
 
         setupSearch();
     }

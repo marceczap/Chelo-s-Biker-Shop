@@ -204,10 +204,7 @@ public class CartActivity extends AppCompatActivity {
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> {
-                Intent intent = new Intent(CartActivity.this, BranchesActivity.class);
-                startActivity(intent);
-            });
+            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
         }
     }
 }

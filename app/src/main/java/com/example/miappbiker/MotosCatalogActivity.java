@@ -208,10 +208,7 @@ public class MotosCatalogActivity extends AppCompatActivity {
 
         FrameLayout btnLocations = findViewById(R.id.nav_btn_locations);
         if (btnLocations != null) {
-            btnLocations.setOnClickListener(v -> {
-                Intent intent = new Intent(MotosCatalogActivity.this, BranchesActivity.class);
-                startActivity(intent);
-            });
+            btnLocations.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
         }
     }
 }

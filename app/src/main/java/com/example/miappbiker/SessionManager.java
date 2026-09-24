@@ -14,6 +14,7 @@ public class SessionManager {
     private static final String KEY_MOTO = "userMoto";
     private static final String KEY_LICENSE = "userLicense";
     private static final String KEY_EMERGENCY = "userEmergency";
+    private static final String KEY_LANGUAGE = "appLanguage";
 
     private final SharedPreferences pref;
     private final SharedPreferences.Editor editor;
@@ -79,6 +80,15 @@ public class SessionManager {
 
     public String getUserEmergency() {
         return pref.getString(KEY_EMERGENCY, "O+ • Contacto: 71234567");
+    }
+
+    public void setLanguage(String langCode) {
+        editor.putString(KEY_LANGUAGE, langCode);
+        editor.apply();
+    }
+
+    public String getLanguage() {
+        return pref.getString(KEY_LANGUAGE, "es");
     }
 
     public void logout() {

@@ -414,20 +414,6 @@
                     android:textSize="13.5sp"
                     android:textStyle="bold" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_logout"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/bg_pill_btn"
-                    android:backgroundTint="#FEE2E2"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.08"
-                    android:text="CERRAR SESIÓN"
-                    android:textColor="#DC2626"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
-
             </LinearLayout>
         </ScrollView>
 

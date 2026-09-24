@@ -216,10 +216,7 @@ public class BranchMapActivity extends AppCompatActivity implements OnMapReadyCa
 
         FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
         if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> {
-                Intent intent = new Intent(BranchMapActivity.this, BranchesActivity.class);
-                startActivity(intent);
-            });
+            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
         }
     }
 }

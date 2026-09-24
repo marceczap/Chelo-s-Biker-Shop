@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Chelo Biker Shop</string>
+    <string name="title_motos">Motorcycles</string>
+    <string name="title_cascos">Helmets</string>
+    <string name="title_indumentaria">Riding Gear</string>
+    <string name="title_perfil">My Profile</string>
+    <string name="title_sucursales">Branches</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="buy_now">CHECKOUT / BUY NOW</string>
+    <string name="colors_available">AVAILABLE COLORS</string>
+    <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+
+    <!-- Menu Hamburger Strings -->
+    <string name="menu_title">CHELO BIKER SHOP</string>
+    <string name="menu_contact">CONTACT US</string>
+    <string name="menu_contact_sub">WhatsApp, phone calls, email &amp; branches</string>
+    <string name="menu_legal">LEGAL INFORMATION</string>
+    <string name="menu_legal_sub">Terms of service, privacy &amp; warranties</string>
+    <string name="menu_language">LANGUAGE / IDIOMA</string>
+    <string name="menu_language_sub">Choose your preferred application language</string>
+    <string name="menu_logout">LOG OUT</string>
+    <string name="menu_logout_sub">Sign out from your account on this device</string>
+
+    <!-- Profile Strings -->
+    <string name="profile_title">My Biker Profile</string>
+    <string name="profile_badge_active">ACTIVE RIDER 🏁</string>
+    <string name="profile_sec_personal">PERSONAL INFORMATION</string>
+    <string name="profile_sec_garage">MY BIKER GARAGE</string>
+    <string name="profile_sec_security">SAFETY &amp; EMERGENCY</string>
+    <string name="profile_btn_save">SAVE CHANGES</string>
+    <string name="profile_saved_toast">Information saved successfully! ✅</string>
+    <string name="logout_confirm_msg">Are you sure you want to log out of Chelo Biker?</string>
+    <string name="logout_yes">Log Out</string>
+    <string name="logout_no">Cancel</string>
+    <string name="lang_changed_toast">Language changed to English 🇺🇸</string>
+</resources>

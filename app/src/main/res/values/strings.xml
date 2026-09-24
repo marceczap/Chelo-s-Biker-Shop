@@ -2,10 +2,35 @@
     <string name="app_name">Chelo Biker Shop</string>
     <string name="title_motos">Motos</string>
     <string name="title_cascos">Cascos</string>
+    <string name="title_indumentaria">Indumentaria</string>
     <string name="title_perfil">Mi Perfil</string>
     <string name="title_sucursales">Sucursales</string>
     <string name="add_to_cart">AGREGAR AL CARRITO</string>
     <string name="buy_now">REALIZAR COMPRA</string>
     <string name="colors_available">COLORES DISPONIBLES</string>
     <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+
+    <!-- Menu Hamburger Strings -->
+    <string name="menu_title">CHELO BIKER SHOP</string>
+    <string name="menu_contact">CONTÁCTANOS</string>
+    <string name="menu_contact_sub">WhatsApp, llamadas, correo y sucursales</string>
+    <string name="menu_legal">INFORMACIÓN LEGAL</string>
+    <string name="menu_legal_sub">Términos, políticas de privacidad y garantías</string>
+    <string name="menu_language">IDIOMA / LANGUAGE</string>
+    <string name="menu_language_sub">Selecciona el idioma del aplicativo</string>
+    <string name="menu_logout">CERRAR SESIÓN</string>
+    <string name="menu_logout_sub">Cerrar la cuenta en este dispositivo</string>
+
+    <!-- Profile Strings -->
+    <string name="profile_title">Mi Perfil Biker</string>
+    <string name="profile_badge_active">PILOTO ACTIVO 🏁</string>
+    <string name="profile_sec_personal">INFORMACIÓN PERSONAL</string>
+    <string name="profile_sec_garage">MI GARAJE BIKER</string>
+    <string name="profile_sec_security">SEGURIDAD Y EMERGENCIA</string>
+    <string name="profile_btn_save">GUARDAR CAMBIOS</string>
+    <string name="profile_saved_toast">¡Información guardada con éxito! ✅</string>
+    <string name="logout_confirm_msg">¿Deseas cerrar tu sesión actual de Chelo Biker?</string>
+    <string name="logout_yes">Cerrar Sesión</string>
+    <string name="logout_no">Cancelar</string>
+    <string name="lang_changed_toast">Idioma cambiado a Español 🇪🇸</string>
 </resources>
