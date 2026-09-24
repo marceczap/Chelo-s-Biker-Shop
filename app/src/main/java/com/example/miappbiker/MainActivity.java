@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etEmail;
     private EditText etPassword;
-    private FrameLayout btnLoginArrow;
+    private androidx.appcompat.widget.AppCompatButton btnLogin;
     private LinearLayout llRegisterLink;
     private ImageView btnSocialFb;
     private ImageView btnSocialIg;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
-        btnLoginArrow = findViewById(R.id.btn_login_arrow);
+        btnLogin = findViewById(R.id.btn_login_arrow);
         llRegisterLink = findViewById(R.id.ll_register_link);
         btnSocialFb = findViewById(R.id.btn_social_fb);
         btnSocialIg = findViewById(R.id.btn_social_ig);
@@ -54,11 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        btnLoginArrow.setOnClickListener(v -> handleLogin());
-        
-        ImageView ivArrow = findViewById(R.id.iv_arrow_icon);
-        if (ivArrow != null) {
-            ivArrow.setOnClickListener(v -> handleLogin());
+        if (btnLogin != null) {
+            btnLogin.setOnClickListener(v -> handleLogin());
         }
 
         etPassword.setOnEditorActionListener((v, actionId, event) -> {
