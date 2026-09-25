@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/confirmation_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/biker_gray_bg">
+
+    <!-- Subtle Background Watermarks -->
+    <ImageView
+        style="@style/MarcaAguaFondo" />
+
+    <ImageView
+        style="@style/MarcaAguaCascoEsquina"
+        android:alpha="0.10" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="36dp">
+
+            <!-- Top Header with Back / Close Button -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btn_confirm_back"
+                    style="@style/BotonIconoNav"
+                    android:contentDescription="Volver"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/biker_black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_helmet_logo"
+                        android:contentDescription="Logo" />
+
+                    <TextView
+                        style="@style/TextoEncabezadoSeccion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/home_brand_title"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Success Badge & Icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="76dp"
+                    android:layout_height="76dp"
+                    android:background="@drawable/bg_badge_circle"
+                    android:backgroundTint="#ECFDF5">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="✓"
+                        android:textColor="#10B981"
+                        android:textSize="38sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tv_confirm_title"
+                    style="@style/TextoTituloGrande"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center"
+                    android:text="@string/confirm_title"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_confirm_sub"
+                    style="@style/TextoSecundarioMedio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/confirm_subtitle" />
+            </LinearLayout>
+
+            <!-- Order Summary Card -->
+            <androidx.cardview.widget.CardView
+                style="@style/TarjetaContenedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                app:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Order Code & Status Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_order_code_label"
+                                android:textSize="10.5sp" />
+
+                            <TextView
+                                android:id="@+id/tv_order_code"
+                                style="@style/TextoTituloVintage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CHELO-849201"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <!-- Status Badge -->
+                        <TextView
+                            android:id="@+id/tv_order_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_pill_btn"
+                            android:backgroundTint="#ECFDF5"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="4dp"
+                            android:text="@string/confirm_status_ready"
+                            android:textColor="#059669"
+                            android:textSize="10.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="#F3F4F6" />
+
+                    <!-- Product Item Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/bg_product_box"
+                            android:padding="4dp">
+
+                            <ImageView
+                                android:id="@+id/iv_confirm_product_img"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/moto_ktm_enduro"
+                                android:contentDescription="Producto" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_confirm_product_title"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="KTM 250 XC-F BIKER PRO"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tv_confirm_product_details"
+                                style="@style/TextoSecundario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Cantidad: 1 • Color: Naranja" />
+
+                            <TextView
+                                android:id="@+id/tv_confirm_product_price"
+                                style="@style/TextoPrecio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="$4,800 USD"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Collapsible / Expandable Details Button -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btn_toggle_details"
+                style="@style/TarjetaOpcionMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="14dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📋"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_toggle_details_text"
+                        style="@style/TextoEncabezadoSeccion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/confirm_btn_toggle_details"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_toggle_arrow"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/biker_black"
+                        android:contentDescription="Expandir" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Expanded Details Container (Initially Visible or Toggleable) -->
+            <LinearLayout
+                android:id="@+id/ll_expanded_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <!-- 1. Buyer Information Section -->
+                <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextoEncabezadoSeccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/confirm_sec_buyer"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="#F3F4F6" />
+
+                        <!-- Name -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_buyer_name" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_buyer_name"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Marcelo Biker"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- CI / NIT -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_buyer_ci" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_buyer_ci"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="8472910 CBBA"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Phone -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_buyer_phone" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_buyer_phone"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="+591 76543210"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Email -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_buyer_email" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_buyer_email"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="marcelo@chelobiker.com"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2. Pick-Up Branch Section -->
+                <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextoEncabezadoSeccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/confirm_sec_branch"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="#F3F4F6" />
+
+                        <!-- City -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_branch_city" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_branch_city"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="La Paz"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Address -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_branch_address" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_branch_address"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Av. Rafael Pabón, Megacenter Irpavi"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Plus Code -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/confirm_label_branch_code" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_branch_code"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="FW67+66F La Paz"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 3. Payment & Breakdown Section -->
+                <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            style="@style/TextoEncabezadoSeccion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/confirm_sec_payment"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="#F3F4F6" />
+
+                        <!-- Method -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/confirm_label_pay_method" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_pay_method"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="QR Simple / Transferencia"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Subtotal -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/confirm_label_subtotal" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_subtotal"
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$4,800 USD"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <!-- Shipping -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoSecundario"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/confirm_label_shipping" />
+
+                            <TextView
+                                style="@style/TextoEncabezadoSeccion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cart_shipping_free"
+                                android:textColor="#059669"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginVertical="8dp"
+                            android:background="#F3F4F6" />
+
+                        <!-- Total -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/TextoTituloVintage"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/confirm_label_total"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tv_detail_total"
+                                style="@style/TextoPrecio"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$4,800 USD"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <!-- Fiscal & Warranty Note -->
+                        <TextView
+                            style="@style/TextoSecundario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_id_card"
+                            android:padding="8dp"
+                            android:text="@string/confirm_fiscal_note"
+                            android:textSize="10.5sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <!-- Action Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_confirm_go_home"
+                    style="@style/BotonPrimario"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="@string/confirm_btn_home" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_confirm_go_profile"
+                    style="@style/BotonSecundario"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/confirm_btn_profile" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

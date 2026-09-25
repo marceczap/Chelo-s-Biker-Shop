@@ -112,4 +112,28 @@
     <string name="logout_yes">Cerrar Sesión</string>
     <string name="logout_no">Cancelar</string>
     <string name="lang_changed_toast">Idioma cambiado a Español 🇪🇸</string>
+    <!-- Confirmación de Compra (OrderConfirmationActivity) -->
+    <string name="confirm_title">¡COMPRA CONFIRMADA!</string>
+    <string name="confirm_subtitle">Tu adquisición ha sido procesada con éxito. Ya estamos preparando tu pedido para retiro.</string>
+    <string name="confirm_order_code_label">Código de Orden</string>
+    <string name="confirm_status_ready">Listo para retiro en sucursal</string>
+    <string name="confirm_btn_toggle_details">DESGLOSAR DETALLES DE COMPRA</string>
+    <string name="confirm_btn_hide_details">OCULTAR DETALLES DE COMPRA</string>
+    <string name="confirm_sec_buyer">DATOS DEL COMPRADOR</string>
+    <string name="confirm_sec_branch">SUCURSAL DE RETIRO</string>
+    <string name="confirm_sec_payment">PAGO Y FACTURACIÓN</string>
+    <string name="confirm_label_buyer_name">Nombre:</string>
+    <string name="confirm_label_buyer_ci">CI / NIT:</string>
+    <string name="confirm_label_buyer_phone">Teléfono:</string>
+    <string name="confirm_label_buyer_email">Correo:</string>
+    <string name="confirm_label_branch_city">Ciudad:</string>
+    <string name="confirm_label_branch_address">Dirección:</string>
+    <string name="confirm_label_branch_code">Plus Code:</string>
+    <string name="confirm_label_pay_method">Método:</string>
+    <string name="confirm_label_subtotal">Subtotal:</string>
+    <string name="confirm_label_shipping">Envío Sucursal:</string>
+    <string name="confirm_label_total">Total Cancelado:</string>
+    <string name="confirm_fiscal_note">Factura oficial con validez tributaria emitida. Garantía de fábrica por 1 año o 10,000 km activada.</string>
+    <string name="confirm_btn_home">VOLVER AL SHOWROOM</string>
+    <string name="confirm_btn_profile">IR A MI PERFIL BIKER</string>
 </resources>

@@ -112,4 +112,28 @@
     <string name="logout_yes">Log Out</string>
     <string name="logout_no">Cancel</string>
     <string name="lang_changed_toast">Language changed to English 🇺🇸</string>
+    <!-- Order Confirmation (OrderConfirmationActivity) -->
+    <string name="confirm_title">ORDER CONFIRMED!</string>
+    <string name="confirm_subtitle">Your purchase has been successfully processed. We are preparing your order for branch pick-up.</string>
+    <string name="confirm_order_code_label">Order Code</string>
+    <string name="confirm_status_ready">Ready for branch pick-up</string>
+    <string name="confirm_btn_toggle_details">EXPAND PURCHASE DETAILS</string>
+    <string name="confirm_btn_hide_details">HIDE PURCHASE DETAILS</string>
+    <string name="confirm_sec_buyer">BUYER DETAILS</string>
+    <string name="confirm_sec_branch">PICK-UP BRANCH</string>
+    <string name="confirm_sec_payment">PAYMENT &amp; INVOICE</string>
+    <string name="confirm_label_buyer_name">Name:</string>
+    <string name="confirm_label_buyer_ci">ID / Tax ID:</string>
+    <string name="confirm_label_buyer_phone">Phone:</string>
+    <string name="confirm_label_buyer_email">Email:</string>
+    <string name="confirm_label_branch_city">City:</string>
+    <string name="confirm_label_branch_address">Address:</string>
+    <string name="confirm_label_branch_code">Plus Code:</string>
+    <string name="confirm_label_pay_method">Method:</string>
+    <string name="confirm_label_subtotal">Subtotal:</string>
+    <string name="confirm_label_shipping">Branch Delivery:</string>
+    <string name="confirm_label_total">Total Paid:</string>
+    <string name="confirm_fiscal_note">Official tax invoice emitted. 1-year or 10,000 km manufacturer warranty activated.</string>
+    <string name="confirm_btn_home">BACK TO SHOWROOM</string>
+    <string name="confirm_btn_profile">GO TO BIKER PROFILE</string>
 </resources>

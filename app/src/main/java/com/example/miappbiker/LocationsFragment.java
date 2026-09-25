@@ -162,14 +162,14 @@ public class LocationsFragment extends Fragment implements OnMapReadyCallback {
 
         btnCheckout.setOnClickListener(v -> {
             BranchLocation branch = branches[selectedBranchIndex];
-            new AlertDialog.Builder(requireContext())
-                    .setTitle("Finalizar Compra 🏁")
-                    .setMessage("¿Deseas confirmar tu pedido con retiro en la sucursal de " + branch.city + " (" + branch.address + ")?")
-                    .setPositiveButton("Confirmar Compra", (dialog, which) -> {
-                        Toast.makeText(getContext(), "¡Compra realizada con éxito! Recibirás los detalles por WhatsApp.", Toast.LENGTH_LONG).show();
-                    })
-                    .setNegativeButton("Cancelar", null)
-                    .show();
+            Intent confirmIntent = new Intent(requireContext(), OrderConfirmationActivity.class);
+            confirmIntent.putExtra("city_name", branch.city);
+            confirmIntent.putExtra("place_code", branch.code);
+            confirmIntent.putExtra("place_address", branch.address);
+            startActivity(confirmIntent);
+            if (getActivity() != null) {
+                getActivity().finish();
+            }
         });
     }
 

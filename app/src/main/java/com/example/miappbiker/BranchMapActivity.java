@@ -175,24 +175,23 @@ public class BranchMapActivity extends AppCompatActivity implements OnMapReadyCa
     private void handleRealizarCompra() {
         String orderId = "CHELO-" + (100000 + new Random().nextInt(900000));
 
-        new AlertDialog.Builder(this)
-                .setTitle("¡COMPRA REALIZADA CON ÉXITO! 🎉")
-                .setMessage("¡Felicitaciones " + billingName + "!\n\n" +
-                        "• Código de Orden: " + orderId + "\n" +
-                        "• Producto: " + productTitle + " (x" + quantity + ")\n" +
-                        "• Color: " + productColor + "\n" +
-                        "• Total: " + productPrice + "\n" +
-                        "• Método de Pago: " + payMethod + "\n" +
-                        "• Sucursal de Retiro: " + cityName + " (" + placeCode + ")\n" +
-                        "• Dirección: " + placeAddress + "\n\n" +
-                        "¡Tu factura electrónica y orden de retiro en sucursal han sido emitidas!")
-                .setPositiveButton("Finalizar e Ir al Menú", (dialog, which) -> {
-                    Intent homeIntent = new Intent(BranchMapActivity.this, HomeActivity.class);
-                    homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                    startActivity(homeIntent);
-                    finish();
-                })
-                .show();
+        Intent confirmIntent = new Intent(BranchMapActivity.this, OrderConfirmationActivity.class);
+        confirmIntent.putExtra("order_id", orderId);
+        confirmIntent.putExtra("billing_name", billingName);
+        confirmIntent.putExtra("billing_ci", billingNit);
+        confirmIntent.putExtra("billing_phone", billingPhone);
+        confirmIntent.putExtra("product_title", productTitle);
+        confirmIntent.putExtra("product_price", productPrice);
+        confirmIntent.putExtra("product_color", productColor);
+        confirmIntent.putExtra("quantity", quantity);
+        confirmIntent.putExtra("product_img", productImageRes);
+        confirmIntent.putExtra("payment_method", payMethod);
+        confirmIntent.putExtra("city_name", cityName);
+        confirmIntent.putExtra("place_code", placeCode);
+        confirmIntent.putExtra("place_address", placeAddress);
+
+        startActivity(confirmIntent);
+        finish();
     }
 
     private void setupNavigation() {
