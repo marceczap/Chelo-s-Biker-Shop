@@ -5,19 +5,12 @@
     android:id="@+id/home_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-    <!-- Bottom Helmet Watermark matching Figma -->
+    <!-- Bottom Helmet Watermark -->
     <ImageView
         android:id="@+id/iv_home_watermark"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="-40dp"
-        android:alpha="0.20"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark Casco" />
+        style="@style/MarcaAguaCasco" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,10 +26,9 @@
             <!-- Top Header Banner with Curved Bottom -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_home_banner"
+                style="@style/TarjetaBannerHome"
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
-                app:cardCornerRadius="34dp"
-                app:cardElevation="6dp">
+                android:layout_height="210dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -60,18 +52,16 @@
                     <!-- Top Buttons: Profile & Hamburger -->
                     <ImageView
                         android:id="@+id/btn_home_profile"
+                        style="@style/BotonIconoNav"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="top|start"
                         android:layout_marginTop="12dp"
                         android:layout_marginStart="16dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:contentDescription="Perfil"
-                        android:focusable="true"
                         android:padding="8dp"
                         android:src="@drawable/ic_person"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white"
+                        android:contentDescription="Perfil" />
 
                     <!-- Centered HOME & Logo -->
                     <LinearLayout
@@ -88,10 +78,10 @@
                             android:fontFamily="serif"
                             android:letterSpacing="0.08"
                             android:text="HOME"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/white"
                             android:textSize="15sp"
                             android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="@color/black"
                             android:shadowDx="1"
                             android:shadowDy="1"
                             android:shadowRadius="3" />
@@ -101,24 +91,22 @@
                             android:layout_height="34dp"
                             android:layout_marginStart="8dp"
                             android:src="@drawable/ic_helmet_logo"
-                            app:tint="#FFFFFF"
+                            app:tint="@color/white"
                             android:contentDescription="Logo" />
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/btn_home_hamburger"
+                        style="@style/BotonIconoNav"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="top|end"
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="16dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:contentDescription="Menu"
-                        android:focusable="true"
                         android:padding="8dp"
                         android:src="@drawable/ic_menu"
-                        app:tint="#FFFFFF" />
+                        app:tint="@color/white"
+                        android:contentDescription="Menu" />
 
                     <!-- Liquid Glass Search Bar -->
                     <LinearLayout
@@ -150,8 +138,8 @@
                             android:hint="Buscar motos, cascos, repuestos..."
                             android:imeOptions="actionSearch"
                             android:inputType="text"
-                            android:textColor="#111111"
-                            android:textColorHint="#666666"
+                            android:textColor="@color/biker_black"
+                            android:textColorHint="@color/biker_gray_text"
                             android:textSize="13sp" />
                     </LinearLayout>
 
@@ -169,14 +157,13 @@
                 <!-- 1. MOTOCICLETAS Card Button -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_motos"
+                    style="@style/TarjetaElevada"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
                     android:layout_marginBottom="20dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    android:foreground="?attr/selectableItemBackground">
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -202,10 +189,10 @@
                             android:fontFamily="serif"
                             android:letterSpacing="0.12"
                             android:text="MOTOCICLETAS"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="@color/black"
                             android:shadowDx="2"
                             android:shadowDy="2"
                             android:shadowRadius="4" />
@@ -215,14 +202,13 @@
                 <!-- 2. CASCOS Card Button -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_cascos"
+                    style="@style/TarjetaElevada"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
                     android:layout_marginBottom="20dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    android:foreground="?attr/selectableItemBackground">
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -248,10 +234,10 @@
                             android:fontFamily="serif"
                             android:letterSpacing="0.12"
                             android:text="CASCOS"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="@color/black"
                             android:shadowDx="2"
                             android:shadowDy="2"
                             android:shadowRadius="4" />
@@ -261,13 +247,12 @@
                 <!-- 3. INDUMENTARIA Card Button -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btn_cat_indumentaria"
+                    style="@style/TarjetaElevada"
                     android:layout_width="match_parent"
                     android:layout_height="115dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    app:cardCornerRadius="26dp"
-                    app:cardElevation="6dp">
+                    android:foreground="?attr/selectableItemBackground">
 
                     <FrameLayout
                         android:layout_width="match_parent"
@@ -293,10 +278,10 @@
                             android:fontFamily="serif"
                             android:letterSpacing="0.12"
                             android:text="INDUMENTARIA"
-                            android:textColor="#FFFFFF"
+                            android:textColor="@color/white"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:shadowColor="#000000"
+                            android:shadowColor="@color/black"
                             android:shadowDx="2"
                             android:shadowDy="2"
                             android:shadowRadius="4" />

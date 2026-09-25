@@ -5,20 +5,15 @@
     android:id="@+id/cart_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA">
+    android:background="@color/biker_gray_bg">
 
     <!-- Bottom Watermark Casco -->
     <ImageView
         android:id="@+id/iv_cart_watermark"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        style="@style/MarcaAguaCasco"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="-40dp"
-        android:layout_marginBottom="-40dp"
-        android:alpha="0.15"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark" />
+        android:layout_marginBottom="-40dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -29,7 +24,7 @@
             android:id="@+id/ll_cart_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFF"
+            android:background="@color/white"
             android:elevation="4dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -40,26 +35,21 @@
 
             <ImageView
                 android:id="@+id/btn_cart_back"
+                style="@style/BotonIconoNav"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:padding="4dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#111111"
+                app:tint="@color/biker_black"
                 android:contentDescription="Regresar" />
 
             <TextView
+                style="@style/TextoTituloVintage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:fontFamily="serif"
-                android:letterSpacing="0.06"
-                android:text="Carrito de Compras"
-                android:textColor="#111111"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Carrito de Compras" />
 
             <ImageView
                 android:layout_width="28dp"
@@ -96,111 +86,81 @@
 
                 <!-- 2. Datos de Facturación Card -->
                 <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="18dp"
                     app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:background="@color/white"
                         android:orientation="vertical"
                         android:padding="16dp">
 
                         <TextView
+                            style="@style/TextoEncabezadoSeccion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.06"
                             android:text="Datos de Facturación y Envío"
-                            android:textColor="#111111"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textSize="15sp" />
 
                         <!-- Nombre / Razón Social -->
                         <EditText
                             android:id="@+id/et_billing_name"
-                            android:layout_width="match_parent"
-                            android:layout_height="44dp"
+                            style="@style/CampoTextoFormulario"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/bg_edit_text"
                             android:hint="Nombre Completo / Razón Social"
-                            android:inputType="textPersonName"
-                            android:paddingHorizontal="14dp"
-                            android:textColor="#111111"
-                            android:textColorHint="#888888"
-                            android:textSize="13sp" />
+                            android:inputType="textPersonName" />
 
                         <!-- NIT / CI -->
                         <EditText
                             android:id="@+id/et_billing_nit"
-                            android:layout_width="match_parent"
-                            android:layout_height="44dp"
+                            style="@style/CampoTextoFormulario"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/bg_edit_text"
                             android:hint="NIT o Carnet de Identidad (CI)"
-                            android:inputType="number"
-                            android:paddingHorizontal="14dp"
-                            android:textColor="#111111"
-                            android:textColorHint="#888888"
-                            android:textSize="13sp" />
+                            android:inputType="number" />
 
                         <!-- Teléfono WhatsApp -->
                         <EditText
                             android:id="@+id/et_billing_phone"
-                            android:layout_width="match_parent"
-                            android:layout_height="44dp"
+                            style="@style/CampoTextoFormulario"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/bg_edit_text"
                             android:hint="Teléfono / WhatsApp de contacto"
-                            android:inputType="phone"
-                            android:paddingHorizontal="14dp"
-                            android:textColor="#111111"
-                            android:textColorHint="#888888"
-                            android:textSize="13sp" />
+                            android:inputType="phone" />
 
                         <!-- Dirección / Sucursal -->
                         <EditText
                             android:id="@+id/et_billing_address"
-                            android:layout_width="match_parent"
-                            android:layout_height="44dp"
+                            style="@style/CampoTextoFormulario"
                             android:layout_marginTop="8dp"
-                            android:background="@drawable/bg_edit_text"
                             android:hint="Dirección de entrega o Sucursal de retiro"
-                            android:inputType="textPostalAddress"
-                            android:paddingHorizontal="14dp"
-                            android:textColor="#111111"
-                            android:textColorHint="#888888"
-                            android:textSize="13sp" />
+                            android:inputType="textPostalAddress" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <!-- 3. Métodos de Pago Card -->
                 <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="18dp"
                     app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:background="@color/white"
                         android:orientation="vertical"
                         android:padding="16dp">
 
                         <TextView
+                            style="@style/TextoEncabezadoSeccion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="serif"
-                            android:letterSpacing="0.06"
                             android:text="Método de Pago"
-                            android:textColor="#111111"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
+                            android:textSize="15sp" />
 
                         <RadioGroup
                             android:id="@+id/rg_payment_methods"
@@ -215,7 +175,7 @@
                                 android:checked="true"
                                 android:paddingVertical="6dp"
                                 android:text="📱 Pago Fácil QR Simple (Banco Nacional)"
-                                android:textColor="#222222"
+                                android:textColor="@color/biker_black"
                                 android:textSize="13sp" />
 
                             <RadioButton
@@ -224,7 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingVertical="6dp"
                                 android:text="💳 Tarjeta de Débito / Crédito (Visa/Mastercard)"
-                                android:textColor="#222222"
+                                android:textColor="@color/biker_black"
                                 android:textSize="13sp" />
 
                             <RadioButton
@@ -233,7 +193,7 @@
                                 android:layout_height="wrap_content"
                                 android:paddingVertical="6dp"
                                 android:text="💵 Pago Contra Entrega en Tienda"
-                                android:textColor="#222222"
+                                android:textColor="@color/biker_black"
                                 android:textSize="13sp" />
                         </RadioGroup>
                     </LinearLayout>
@@ -241,16 +201,16 @@
 
                 <!-- 4. Desglose de Costos Card -->
                 <androidx.cardview.widget.CardView
+                    style="@style/TarjetaContenedor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    app:cardCornerRadius="18dp"
                     app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:background="@color/white"
                         android:orientation="vertical"
                         android:padding="16dp">
 
@@ -260,21 +220,20 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                style="@style/TextoSecundario"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Subtotal"
-                                android:textColor="#666666"
                                 android:textSize="13sp" />
 
                             <TextView
                                 android:id="@+id/tv_cart_subtotal"
+                                style="@style/TextoEncabezadoSeccion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="$4,800 USD"
-                                android:textColor="#111111"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
+                                android:textSize="13sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -284,18 +243,18 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                style="@style/TextoSecundario"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="Envío Biker Seguro"
-                                android:textColor="#666666"
                                 android:textSize="13sp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="GRATIS"
-                                android:textColor="#10B981"
+                                android:textColor="@color/biker_green"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -304,7 +263,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:layout_marginVertical="10dp"
-                            android:background="#E5E7EB" />
+                            android:background="@color/biker_gray_border" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -312,24 +271,19 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                style="@style/TextoTituloVintage"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:fontFamily="serif"
                                 android:text="Total a Pagar"
-                                android:textColor="#111111"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:textSize="16sp" />
 
                             <TextView
                                 android:id="@+id/tv_cart_total"
+                                style="@style/TextoPrecio"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="serif"
-                                android:text="$4,800 USD"
-                                android:textColor="#D97706"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
+                                android:text="$4,800 USD" />
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -337,15 +291,9 @@
                 <!-- Botón ELEGIR SUCURSAL DE RETIRO -->
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_confirm_checkout"
-                    android:layout_width="match_parent"
+                    style="@style/BotonPrimario"
                     android:layout_height="54dp"
-                    android:background="@drawable/bg_pill_btn"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.08"
-                    android:text="ELEGIR SUCURSAL DE RETIRO ➔"
-                    android:textColor="#111111"
-                    android:textSize="13.5sp"
-                    android:textStyle="bold" />
+                    android:text="ELEGIR SUCURSAL DE RETIRO ➔" />
 
             </LinearLayout>
         </ScrollView>
@@ -353,66 +301,49 @@
         <!-- Bottom Navigation Bar -->
         <LinearLayout
             android:id="@+id/ll_bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:background="#FFFFFF"
-            android:elevation="12dp"
-            android:gravity="center"
-            android:orientation="horizontal"
+            style="@style/BarraNavegacionInferior"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <!-- Profile Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_profile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_person"
-                    app:tint="#888888"
+                    app:tint="@color/biker_gray_muted"
                     android:contentDescription="Perfil" />
             </FrameLayout>
 
             <!-- Home Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_home"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_home"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Home" />
             </FrameLayout>
 
             <!-- Menu / Branches Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_menu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_menu"
-                    app:tint="#888888"
-                    android:contentDescription="Sucursales" />
+                    app:tint="@color/biker_gray_muted"
+                    android:contentDescription="Menu" />
             </FrameLayout>
         </LinearLayout>
 

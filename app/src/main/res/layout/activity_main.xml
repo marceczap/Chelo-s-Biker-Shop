@@ -5,18 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <!-- Subtle Tire Tracks Background Watermark -->
     <ImageView
         android:id="@+id/iv_bg_watermark"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.14"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_tire_tracks"
-        android:contentDescription="Fondo Huellas de Neumáticos" />
+        style="@style/MarcaAguaFondo" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -43,14 +38,10 @@
 
                 <TextView
                     android:id="@+id/tv_brand_arch"
+                    style="@style/TextoTituloGrande"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.04"
-                    android:text="Chelo´s  Biker  Shop"
-                    android:textColor="#111111"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:text="Chelo´s  Biker  Shop" />
 
                 <ImageView
                     android:id="@+id/iv_helmet_logo"
@@ -64,24 +55,20 @@
 
                 <TextView
                     android:id="@+id/tv_brand_est"
+                    style="@style/TextoTituloVintage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.06"
                     android:text="Est. 2026"
-                    android:textColor="#111111"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <!-- Store Showroom Banner Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_store_banner"
+                style="@style/TarjetaElevada"
                 android:layout_width="0dp"
                 android:layout_height="145dp"
                 android:layout_marginTop="14dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_logo_container">
@@ -98,19 +85,11 @@
             <!-- Subtitle Tienda de Motos -->
             <TextView
                 android:id="@+id/tv_store_subtitle"
+                style="@style/TextoSubtituloVintage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:fontFamily="serif"
-                android:letterSpacing="0.08"
-                android:shadowColor="#888888"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"
                 android:text="Tienda de Motos"
-                android:textColor="#222222"
-                android:textSize="18sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card_store_banner" />
@@ -118,14 +97,12 @@
             <!-- Title Iniciar Sesión -->
             <TextView
                 android:id="@+id/tv_login_title"
+                style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="serif"
                 android:text="Iniciar Sesión"
-                android:textColor="#111111"
                 android:textSize="16sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_store_subtitle" />
@@ -133,17 +110,11 @@
             <!-- Input Correo -->
             <EditText
                 android:id="@+id/et_email"
+                style="@style/CampoTextoPill"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_input_pill"
-                android:fontFamily="monospace"
                 android:hint="correo"
                 android:inputType="textEmailAddress"
-                android:paddingHorizontal="20dp"
-                android:textColor="#111111"
-                android:textColorHint="#555555"
-                android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_login_title" />
@@ -151,17 +122,11 @@
             <!-- Input Contraseña -->
             <EditText
                 android:id="@+id/et_password"
+                style="@style/CampoTextoPill"
                 android:layout_width="0dp"
-                android:layout_height="42dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/bg_input_pill"
-                android:fontFamily="monospace"
                 android:hint="contraseña"
                 android:inputType="textPassword"
-                android:paddingHorizontal="20dp"
-                android:textColor="#111111"
-                android:textColorHint="#555555"
-                android:textSize="13sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/et_email" />
@@ -184,38 +149,25 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="No tienes una cuenta? "
-                    android:textColor="#111111"
+                    android:textColor="@color/biker_black"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/tv_register_btn"
+                    style="@style/TextoEnlaceAzul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:fontFamily="serif"
-                    android:text="REGISTRATE"
-                    android:textColor="#0088FF"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:text="REGISTRATE" />
             </LinearLayout>
 
             <!-- Action Button ( INGRESAR en color verde ) -->
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login_arrow"
+                style="@style/BotonPrimarioVerde"
                 android:layout_width="0dp"
-                android:layout_height="46dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginHorizontal="20dp"
-                android:background="@drawable/bg_green_btn"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:fontFamily="serif"
-                android:letterSpacing="0.08"
                 android:text="INGRESAR"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_register_link" />
@@ -223,14 +175,12 @@
             <!-- Siguenos Section -->
             <TextView
                 android:id="@+id/tv_siguenos"
+                style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:fontFamily="serif"
                 android:text="Siguenos"
-                android:textColor="#333333"
                 android:textSize="13sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_login_arrow" />
@@ -250,37 +200,31 @@
                 <!-- Facebook -->
                 <ImageView
                     android:id="@+id/btn_social_fb"
+                    style="@style/BotonIconoNav"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
                     android:contentDescription="Facebook"
-                    android:focusable="true"
                     android:src="@drawable/ic_social_fb" />
 
                 <!-- Instagram -->
                 <ImageView
                     android:id="@+id/btn_social_ig"
+                    style="@style/BotonIconoNav"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
                     android:contentDescription="Instagram"
-                    android:focusable="true"
                     android:src="@drawable/ic_social_ig" />
 
                 <!-- YouTube -->
                 <ImageView
                     android:id="@+id/btn_social_yt"
+                    style="@style/BotonIconoNav"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
                     android:contentDescription="YouTube"
-                    android:focusable="true"
                     android:src="@drawable/ic_social_yt" />
             </LinearLayout>
 

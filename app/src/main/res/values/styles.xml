@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ========================================================= -->
+    <!-- 1. TIPOGRAFÍA Y TEXTOS (Texto.*)                           -->
+    <!-- ========================================================= -->
+
+    <!-- Título Vintage de Marca (Chelo's Biker Shop / HOME / Catálogos) -->
+    <style name="TextoTituloVintage">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <style name="TextoTituloGrande" parent="TextoTituloVintage">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextoSubtituloVintage">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">#222222</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:shadowColor">#888888</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <!-- Encabezado de Sección en Tarjetas / Diálogos -->
+    <style name="TextoEncabezadoSeccion">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_black</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.06</item>
+    </style>
+
+    <!-- Subtítulo o Texto Secundario / Explicativo -->
+    <style name="TextoSecundario">
+        <item name="android:textColor">@color/biker_gray_text</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="TextoSecundarioMedio" parent="TextoSecundario">
+        <item name="android:textSize">11.5sp</item>
+    </style>
+
+    <!-- Etiqueta de Formulario (Label) -->
+    <style name="TextoEtiquetaFormulario">
+        <item name="android:textColor">#666666</item>
+        <item name="android:textSize">11.5sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Texto de Precio Destacado -->
+    <style name="TextoPrecio">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_amber_price</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Enlace / Link Azul -->
+    <style name="TextoEnlaceAzul">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_blue_link</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- 2. BOTONES Y ACCIONES (Boton.*)                            -->
+    <!-- ========================================================= -->
+
+    <!-- Botón Primario Negro (Píldora) -->
+    <style name="BotonPrimario" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@drawable/bg_pill_btn</item>
+        <item name="android:backgroundTint">@color/biker_black</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">13.5sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <!-- Botón Primario Verde Esmeralda (Píldora / Ingresar) -->
+    <style name="BotonPrimarioVerde" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">46dp</item>
+        <item name="android:background">@drawable/bg_green_btn</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <!-- Botón Secundario Gris Suave -->
+    <style name="BotonSecundario" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/bg_pill_btn</item>
+        <item name="android:backgroundTint">@color/biker_gray_card</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Botón Peligro / Cerrar Sesión (Rojo Suave) -->
+    <style name="BotonPeligro" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/bg_pill_btn</item>
+        <item name="android:backgroundTint">@color/biker_red_bg</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textColor">@color/biker_red_danger</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <!-- Botón Icono de Navegación / Volver -->
+    <style name="BotonIconoNav">
+        <item name="android:layout_width">38dp</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- 3. CAMPOS DE TEXTO E INPUTS (CampoTexto.*)                  -->
+    <!-- ========================================================= -->
+
+    <!-- Input Estilo Píldora (Login / Registro) -->
+    <style name="CampoTextoPill">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:background">@drawable/bg_input_pill</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:paddingHorizontal">20dp</item>
+        <item name="android:textColor">@color/biker_black</item>
+        <item name="android:textColorHint">@color/biker_gray_hint</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- Input Formulario Estándar (Perfil / Checkout) -->
+    <style name="CampoTextoFormulario">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:background">@drawable/bg_edit_text</item>
+        <item name="android:paddingHorizontal">14dp</item>
+        <item name="android:textColor">@color/biker_black</item>
+        <item name="android:textColorHint">@color/biker_gray_hint</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- 4. TARJETAS Y CONTENEDORES (Tarjeta.*)                     -->
+    <!-- ========================================================= -->
+
+    <!-- Tarjeta Estándar Blanca -->
+    <style name="TarjetaContenedor">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <!-- Tarjeta de Producto Elevada -->
+    <style name="TarjetaElevada">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <!-- Tarjeta de Opción de Menú (Gris Suave Interactivo) -->
+    <style name="TarjetaOpcionMenu">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/biker_gray_bg</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Tarjeta de Sucursal con Imagen y Mapa -->
+    <style name="TarjetaSucursal">
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Tarjeta de Item en Carrito -->
+    <style name="TarjetaItemCarrito">
+        <item name="cardCornerRadius">18dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <!-- Tarjeta de Producto en Catálogo Grid -->
+    <style name="TarjetaItemCatalogo">
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">3dp</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <!-- Banner Showroom Superior -->
+    <style name="TarjetaBannerHome">
+        <item name="cardCornerRadius">34dp</item>
+        <item name="cardElevation">6dp</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- 5. BARRAS Y NAVEGACIÓN (Nav.*)                             -->
+    <!-- ========================================================= -->
+
+    <!-- Barra Inferior de Navegación -->
+    <style name="BarraNavegacionInferior">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- Item de Navegación Individual -->
+    <style name="ItemNavegacion">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- ========================================================= -->
+    <!-- 6. MARCAS DE AGUA Y DECORACIONES (MarcaAgua.*)             -->
+    <!-- ========================================================= -->
+
+    <!-- Marca de Agua Huellas de Neumático (Fondo Completo) -->
+    <style name="MarcaAguaFondo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:alpha">0.12</item>
+        <item name="android:src">@drawable/bg_tire_tracks</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <!-- Marca de Agua Casco Translúcido Inferior -->
+    <style name="MarcaAguaCasco">
+        <item name="android:layout_width">320dp</item>
+        <item name="android:layout_height">320dp</item>
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginBottom">-40dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:alpha">0.18</item>
+        <item name="android:src">@drawable/ic_helmet_logo</item>
+        <item name="android:contentDescription">@null</item>
+    </style>
+
+    <style name="MarcaAguaCascoEsquina" parent="MarcaAguaCasco">
+        <item name="android:layout_width">280dp</item>
+        <item name="android:layout_height">280dp</item>
+        <item name="android:layout_gravity">bottom|start</item>
+        <item name="android:layout_marginStart">-30dp</item>
+        <item name="android:layout_marginBottom">-20dp</item>
+        <item name="android:alpha">0.20</item>
+    </style>
+
+</resources>

@@ -5,16 +5,11 @@
     android:id="@+id/branch_map_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <!-- Subtle Tire Tracks Background Watermark -->
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.12"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_tire_tracks"
-        android:contentDescription="Fondo" />
+        style="@style/MarcaAguaFondo" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,27 +24,19 @@
 
             <ImageView
                 android:id="@+id/btn_map_back"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                style="@style/BotonIconoNav"
                 android:layout_gravity="start|center_vertical"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
                 android:contentDescription="Volver"
-                android:focusable="true"
-                android:padding="6dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#111111" />
+                app:tint="@color/biker_black" />
 
             <TextView
                 android:id="@+id/tv_city_title"
+                style="@style/TextoTituloVintage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="serif"
-                android:text="La Paz"
-                android:textColor="#111111"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="La Paz" />
         </FrameLayout>
 
         <!-- Google Maps Native Container -->
@@ -76,17 +63,17 @@
                 <!-- Google Maps Place Card (Overlay) -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_place_info"
+                    style="@style/TarjetaContenedor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_margin="12dp"
-                    app:cardCornerRadius="16dp"
                     app:cardElevation="8dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:background="@color/white"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="10dp">
@@ -112,20 +99,19 @@
                                 android:layout_height="wrap_content"
                                 android:fontFamily="sans-serif-medium"
                                 android:text="FW67+66F La Paz"
-                                android:textColor="#111111"
+                                android:textColor="@color/biker_black"
                                 android:textSize="13sp"
                                 android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/tv_place_address"
+                                style="@style/TextoSecundario"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="Av. Rafael Pabón, Megacenter Irpavi"
-                                android:textColor="#555555"
-                                android:textSize="11sp" />
+                                android:text="Av. Rafael Pabón, Megacenter Irpavi" />
                         </LinearLayout>
 
                         <!-- Directions / Navigation Button -->
@@ -144,7 +130,7 @@
                                 android:layout_height="20dp"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_directions"
-                                app:tint="#FFFFFF"
+                                app:tint="@color/white"
                                 android:contentDescription="Cómo llegar" />
                         </FrameLayout>
                     </LinearLayout>
@@ -166,41 +152,31 @@
             android:orientation="horizontal">
 
             <TextView
+                style="@style/TextoTituloVintage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
                 android:letterSpacing="0.08"
                 android:text="REALIZAR COMPRA"
-                android:textColor="#111111"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginStart="16dp"
                 android:src="@drawable/ic_arrow_forward"
-                app:tint="#111111"
+                app:tint="@color/biker_black"
                 android:contentDescription="Flecha" />
         </LinearLayout>
 
         <!-- Bottom Navigation Bar matching Figma -->
         <LinearLayout
             android:id="@+id/ll_bottom_nav"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="#FFFFFF"
-            android:elevation="12dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            style="@style/BarraNavegacionInferior"
+            android:layout_height="56dp">
 
             <FrameLayout
                 android:id="@+id/nav_btn_profile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
@@ -213,28 +189,20 @@
 
             <FrameLayout
                 android:id="@+id/nav_btn_home"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_home"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Inicio" />
             </FrameLayout>
 
             <FrameLayout
                 android:id="@+id/nav_btn_menu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"

@@ -8,76 +8,62 @@
 
     <TextView
         android:id="@+id/tv_dialog_title"
+        style="@style/TextoTituloVintage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
         android:text="Iniciar Sesión / Registro"
-        android:textColor="#111111"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="18sp" />
 
     <TextView
+        style="@style/TextoSecundario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="Ingresa tus datos para tu cuenta en Chelo Biker Shop"
-        android:textColor="#666666"
         android:textSize="12sp" />
 
     <EditText
         android:id="@+id/et_login_name"
-        android:layout_width="match_parent"
+        style="@style/CampoTextoFormulario"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/bg_edit_text"
         android:hint="Nombre Completo"
         android:inputType="textPersonName"
-        android:paddingHorizontal="14dp"
         android:textSize="14sp" />
 
     <EditText
         android:id="@+id/et_login_email"
-        android:layout_width="match_parent"
+        style="@style/CampoTextoFormulario"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_edit_text"
         android:hint="Correo Electrónico"
         android:inputType="textEmailAddress"
-        android:paddingHorizontal="14dp"
         android:textSize="14sp" />
 
     <EditText
         android:id="@+id/et_login_phone"
-        android:layout_width="match_parent"
+        style="@style/CampoTextoFormulario"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_edit_text"
         android:hint="Teléfono / WhatsApp (+591)"
         android:inputType="phone"
-        android:paddingHorizontal="14dp"
         android:textSize="14sp" />
 
     <EditText
         android:id="@+id/et_login_city"
-        android:layout_width="match_parent"
+        style="@style/CampoTextoFormulario"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/bg_edit_text"
         android:hint="Ciudad (Cochabamba, La Paz, El Alto)"
         android:inputType="text"
-        android:paddingHorizontal="14dp"
         android:textSize="14sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_dialog_submit"
-        android:layout_width="match_parent"
+        style="@style/BotonPrimario"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_pill_btn"
-        android:backgroundTint="#212121"
         android:text="Guardar y Continuar"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="14sp" />
 
 </LinearLayout>

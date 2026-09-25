@@ -5,27 +5,18 @@
     android:id="@+id/branches_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FA">
+    android:background="@color/biker_gray_bg">
 
     <!-- Subtle Tire Tracks Background Watermark -->
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:alpha="0.12"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bg_tire_tracks"
-        android:contentDescription="Fondo" />
+        style="@style/MarcaAguaFondo" />
 
     <!-- Helmet Watermark -->
     <ImageView
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_gravity="bottom|start"
+        style="@style/MarcaAguaCascoEsquina"
         android:layout_marginStart="-40dp"
         android:layout_marginBottom="-30dp"
-        android:alpha="0.15"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark" />
+        android:alpha="0.15" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,15 +34,10 @@
 
             <ImageView
                 android:id="@+id/btn_branches_back"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
+                style="@style/BotonIconoNav"
                 android:contentDescription="Volver"
-                android:focusable="true"
-                android:padding="6dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#111111" />
+                app:tint="@color/biker_black" />
 
             <ImageView
                 android:layout_width="34dp"
@@ -64,17 +50,15 @@
         <!-- Main Title: DONDE RECOJERAS TU ADQUISICION -->
         <TextView
             android:id="@+id/tv_branches_title"
+            style="@style/TextoTituloVintage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
-            android:fontFamily="serif"
             android:gravity="center"
             android:letterSpacing="0.08"
             android:lineSpacingExtra="4dp"
             android:text="DONDE RECOJERAS TU ADQUISICION"
-            android:textColor="#222222"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <!-- 3 City Branch Buttons Container -->
         <LinearLayout
@@ -88,14 +72,10 @@
             <!-- 1. La Paz -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_branch_lapaz"
+                style="@style/TarjetaSucursal"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_marginVertical="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="5dp">
+                android:layout_marginVertical="10dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -114,29 +94,22 @@
                         android:background="#66FFFFFF" />
 
                     <TextView
+                        style="@style/TextoTituloVintage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
                         android:text="La paz"
-                        android:textColor="#111111"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- 2. El Alto -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_branch_elalto"
+                style="@style/TarjetaSucursal"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_marginVertical="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="5dp">
+                android:layout_marginVertical="10dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -155,29 +128,22 @@
                         android:background="#66FFFFFF" />
 
                     <TextView
+                        style="@style/TextoTituloVintage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
                         android:text="El Alto"
-                        android:textColor="#111111"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
 
             <!-- 3. Cochabamba -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_branch_cochabamba"
+                style="@style/TarjetaSucursal"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:layout_marginVertical="10dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="5dp">
+                android:layout_marginVertical="10dp">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -196,15 +162,12 @@
                         android:background="#66FFFFFF" />
 
                     <TextView
+                        style="@style/TextoTituloVintage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
                         android:text="Cochabamba"
-                        android:textColor="#111111"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
+                        android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
 
@@ -212,16 +175,15 @@
 
         <!-- Subtitle Footer Note -->
         <TextView
+            style="@style/TextoSubtituloVintage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:fontFamily="serif"
             android:gravity="center"
             android:lineSpacingExtra="3dp"
             android:text="Tu pedido sera enviado\na la sucursal de la ciudad\nseleccionada"
             android:textColor="#333333"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </FrameLayout>

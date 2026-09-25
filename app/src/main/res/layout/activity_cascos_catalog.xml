@@ -5,20 +5,15 @@
     android:id="@+id/cascos_catalog_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
     <!-- Bottom Left Large Helmet Watermark -->
     <ImageView
         android:id="@+id/iv_catalog_watermark"
-        android:layout_width="320dp"
-        android:layout_height="320dp"
+        style="@style/MarcaAguaCasco"
         android:layout_gravity="bottom|start"
         android:layout_marginStart="-40dp"
-        android:layout_marginBottom="-40dp"
-        android:alpha="0.20"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark Casco" />
+        android:layout_marginBottom="-40dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -40,26 +35,21 @@
 
             <ImageView
                 android:id="@+id/btn_back_home"
+                style="@style/BotonIconoNav"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:padding="4dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#111111"
+                app:tint="@color/biker_black"
                 android:contentDescription="Regresar" />
 
             <TextView
+                style="@style/TextoTituloVintage"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:fontFamily="serif"
-                android:letterSpacing="0.06"
-                android:text="Cascos Disponibles"
-                android:textColor="#111111"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="Cascos Disponibles" />
 
             <ImageView
                 android:layout_width="28dp"
@@ -118,7 +108,7 @@
                 android:layout_gravity="center"
                 android:elevation="8dp"
                 android:src="@drawable/ic_shopping_cart"
-                app:tint="#FFFFFF"
+                app:tint="@color/white"
                 android:contentDescription="Carrito" />
 
             <TextView
@@ -130,7 +120,7 @@
                 android:elevation="10dp"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 android:textStyle="bold" />
         </FrameLayout>
@@ -138,12 +128,8 @@
         <!-- Bottom Navigation Bar -->
         <LinearLayout
             android:id="@+id/ll_bottom_nav"
+            style="@style/BarraNavegacionInferior"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:background="#FFFFFF"
-            android:elevation="12dp"
-            android:gravity="center"
-            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -151,55 +137,43 @@
             <!-- Profile Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_profile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_person"
-                    app:tint="#888888"
+                    app:tint="@color/biker_gray_muted"
                     android:contentDescription="Perfil" />
             </FrameLayout>
 
             <!-- Home Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_home"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_home"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Home" />
             </FrameLayout>
 
             <!-- Menu / Branches Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_menu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_menu"
-                    app:tint="#888888"
-                    android:contentDescription="Sucursales" />
+                    app:tint="@color/biker_gray_muted"
+                    android:contentDescription="Menu" />
             </FrameLayout>
         </LinearLayout>
 

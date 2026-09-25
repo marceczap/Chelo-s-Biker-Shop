@@ -30,7 +30,7 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:src="@drawable/ic_helmet_logo"
-            app:tint="#111111"
+            app:tint="@color/biker_black"
             android:contentDescription="Logo" />
 
         <LinearLayout
@@ -41,22 +41,18 @@
             android:orientation="vertical">
 
             <TextView
+                style="@style/TextoTituloVintage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:letterSpacing="0.06"
                 android:text="CHELO BIKER SHOP"
-                android:textColor="#111111"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/menu_user_info"
+                style="@style/TextoSecundarioMedio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Marcelo Biker • marcelo@chelobiker.com"
-                android:textColor="#6B7280"
-                android:textSize="11.5sp" />
+                android:text="Marcelo Biker • marcelo@chelobiker.com" />
         </LinearLayout>
     </LinearLayout>
 
@@ -69,15 +65,10 @@
     <!-- 1. CONTÁCTANOS -->
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_btn_contact"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#F9FAFB">
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +88,7 @@
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_phone"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Contacto" />
             </FrameLayout>
 
@@ -110,21 +101,17 @@
 
                 <TextView
                     android:id="@+id/tv_menu_contact_title"
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="CONTÁCTANOS"
-                    android:textColor="#111111"
-                    android:textSize="13.5sp"
-                    android:textStyle="bold" />
+                    android:text="CONTÁCTANOS" />
 
                 <TextView
                     android:id="@+id/tv_menu_contact_sub"
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="WhatsApp, llamadas, correo y sucursales"
-                    android:textColor="#6B7280"
-                    android:textSize="11sp" />
+                    android:text="WhatsApp, llamadas, correo y sucursales" />
             </LinearLayout>
 
             <ImageView
@@ -139,15 +126,10 @@
     <!-- 2. INFORMACIÓN LEGAL -->
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_btn_legal"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#F9FAFB">
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -167,7 +149,7 @@
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_legal"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Legal" />
             </FrameLayout>
 
@@ -180,21 +162,17 @@
 
                 <TextView
                     android:id="@+id/tv_menu_legal_title"
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="INFORMACIÓN LEGAL"
-                    android:textColor="#111111"
-                    android:textSize="13.5sp"
-                    android:textStyle="bold" />
+                    android:text="INFORMACIÓN LEGAL" />
 
                 <TextView
                     android:id="@+id/tv_menu_legal_sub"
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Términos, políticas de privacidad y garantías"
-                    android:textColor="#6B7280"
-                    android:textSize="11sp" />
+                    android:text="Términos, políticas de privacidad y garantías" />
             </LinearLayout>
 
             <ImageView
@@ -208,12 +186,13 @@
 
     <!-- 3. IDIOMA / LANGUAGE -->
     <androidx.cardview.widget.CardView
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#F9FAFB">
+        android:clickable="false"
+        android:focusable="false"
+        android:foreground="@null">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -238,7 +217,7 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_language"
-                        app:tint="#111111"
+                        app:tint="@color/biker_black"
                         android:contentDescription="Idioma" />
                 </FrameLayout>
 
@@ -251,21 +230,17 @@
 
                     <TextView
                         android:id="@+id/tv_menu_lang_title"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:text="IDIOMA / LANGUAGE"
-                        android:textColor="#111111"
-                        android:textSize="13.5sp"
-                        android:textStyle="bold" />
+                        android:text="IDIOMA / LANGUAGE" />
 
                     <TextView
                         android:id="@+id/tv_menu_lang_sub"
+                        style="@style/TextoSecundario"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Selecciona el idioma del aplicativo"
-                        android:textColor="#6B7280"
-                        android:textSize="11sp" />
+                        android:text="Selecciona el idioma del aplicativo" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -293,7 +268,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="🇪🇸 Español"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/white"
                         android:textSize="12.5sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -326,14 +301,10 @@
     <!-- 4. CERRAR SESIÓN -->
     <androidx.cardview.widget.CardView
         android:id="@+id/menu_btn_logout"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackground"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#FEF2F2">
+        app:cardBackgroundColor="@color/biker_red_bg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -353,7 +324,7 @@
                     android:layout_height="20dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_logout"
-                    app:tint="#DC2626"
+                    app:tint="@color/biker_red_danger"
                     android:contentDescription="Salir" />
             </FrameLayout>
 
@@ -366,21 +337,19 @@
 
                 <TextView
                     android:id="@+id/tv_menu_logout_title"
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
                     android:text="CERRAR SESIÓN"
-                    android:textColor="#DC2626"
-                    android:textSize="13.5sp"
-                    android:textStyle="bold" />
+                    android:textColor="@color/biker_red_danger" />
 
                 <TextView
                     android:id="@+id/tv_menu_logout_sub"
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Cerrar la cuenta en este dispositivo"
-                    android:textColor="#EF4444"
-                    android:textSize="11sp" />
+                    android:textColor="#EF4444" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

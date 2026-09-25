@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Basic Palette -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Brand / Theme Palette -->
+    <color name="biker_black">#111111</color>
+    <color name="biker_dark">#1F2937</color>
+    <color name="biker_green">#10B981</color>
+    <color name="biker_green_dark">#059669</color>
+    <color name="biker_orange">#FF6D00</color>
+    <color name="biker_amber_price">#B45309</color>
+    <color name="biker_red_danger">#DC2626</color>
+    <color name="biker_red_bg">#FEE2E2</color>
+    <color name="biker_blue_link">#0088FF</color>
+
+    <!-- Gray Gradients -->
+    <color name="biker_gray_bg">#F9FAFB</color>
+    <color name="biker_gray_card">#F3F4F6</color>
+    <color name="biker_gray_border">#E5E7EB</color>
+    <color name="biker_gray_text">#6B7280</color>
+    <color name="biker_gray_sub">#4B5563</color>
+    <color name="biker_gray_muted">#9CA3AF</color>
+    <color name="biker_gray_hint">#555555</color>
+
+    <!-- Legacy / Compatibility -->
     <color name="primary_dark">#121212</color>
     <color name="accent_orange">#FF6D00</color>
     <color name="accent_red">#E53935</color>

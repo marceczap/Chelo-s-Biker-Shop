@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_rounded_card"
-    android:backgroundTint="#FFFFFF"
+    android:backgroundTint="@color/white"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -20,19 +20,17 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_phone"
-            app:tint="#111111"
+            app:tint="@color/biker_black"
             android:contentDescription="Contacto" />
 
         <TextView
             android:id="@+id/tv_contact_dialog_title"
+            style="@style/TextoTituloVintage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="serif"
             android:text="Contáctanos"
-            android:textColor="#111111"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <View
@@ -44,13 +42,11 @@
     <!-- WhatsApp Button -->
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_contact_whatsapp"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:focusable="true"
         app:cardCornerRadius="14dp"
-        app:cardElevation="0dp"
         app:cardBackgroundColor="#ECFDF5">
 
         <LinearLayout
@@ -74,20 +70,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
                     android:text="WhatsApp Oficial"
                     android:textColor="#065F46"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textSize="13sp" />
 
                 <TextView
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+591 76543210 (Atención 24/7)"
-                    android:textColor="#047857"
-                    android:textSize="11sp" />
+                    android:textColor="#047857" />
             </LinearLayout>
 
             <TextView
@@ -98,7 +93,7 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="CHATEAR"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -107,13 +102,11 @@
     <!-- Phone Call Button -->
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_contact_call"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:clickable="true"
-        android:focusable="true"
         app:cardCornerRadius="14dp"
-        app:cardElevation="0dp"
         app:cardBackgroundColor="#F0F9FF">
 
         <LinearLayout
@@ -137,20 +130,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
                     android:text="Llamada Telefónica"
                     android:textColor="#075985"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textSize="13sp" />
 
                 <TextView
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+591 2 2789000 (Central La Paz)"
-                    android:textColor="#0284C7"
-                    android:textSize="11sp" />
+                    android:textColor="#0284C7" />
             </LinearLayout>
 
             <TextView
@@ -161,7 +153,7 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="LLAMAR"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -170,14 +162,12 @@
     <!-- Email Button -->
     <androidx.cardview.widget.CardView
         android:id="@+id/btn_contact_email"
+        style="@style/TarjetaOpcionMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="14dp"
-        android:clickable="true"
-        android:focusable="true"
         app:cardCornerRadius="14dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#F9FAFB">
+        app:cardBackgroundColor="@color/biker_gray_bg">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -200,20 +190,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="serif"
                     android:text="Correo de Soporte"
                     android:textColor="#1F2937"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:textSize="13sp" />
 
                 <TextView
+                    style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="contacto@chelobiker.com"
-                    android:textColor="#4B5563"
-                    android:textSize="11sp" />
+                    android:textColor="#4B5563" />
             </LinearLayout>
 
             <TextView
@@ -224,7 +213,7 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:text="ENVIAR"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="10sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -239,40 +228,34 @@
         android:padding="12dp">
 
         <TextView
+            style="@style/TextoEncabezadoSeccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="📍 Casa Matriz &amp; Talleres:"
-            android:textColor="#111111"
-            android:textSize="11.5sp"
-            android:textStyle="bold" />
+            android:textSize="11.5sp" />
 
         <TextView
+            style="@style/TextoSecundario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="Av. Rafael Pabón, MegaCenter Irpavi • La Paz, Bolivia"
-            android:textColor="#666666"
-            android:textSize="11sp" />
+            android:text="Av. Rafael Pabón, MegaCenter Irpavi • La Paz, Bolivia" />
 
         <TextView
+            style="@style/TextoEncabezadoSeccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:text="⏰ Horario de Atención: Lun a Sáb: 09:00 - 19:30"
-            android:textColor="#111111"
             android:textSize="11sp" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_close_contact"
-        android:layout_width="match_parent"
+        style="@style/BotonPrimario"
         android:layout_height="44dp"
         android:layout_marginTop="14dp"
-        android:background="@drawable/bg_pill_btn"
-        android:backgroundTint="#111111"
         android:text="CERRAR"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textSize="12sp" />
 
 </LinearLayout>

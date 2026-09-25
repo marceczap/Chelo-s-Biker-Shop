@@ -5,20 +5,15 @@
     android:id="@+id/product_detail_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-    <!-- Bottom Left Large Helmet Watermark matching Figma P6 -->
+    <!-- Bottom Left Large Helmet Watermark -->
     <ImageView
         android:id="@+id/iv_detail_watermark"
-        android:layout_width="340dp"
-        android:layout_height="340dp"
+        style="@style/MarcaAguaCasco"
         android:layout_gravity="bottom|start"
         android:layout_marginStart="-30dp"
-        android:layout_marginBottom="-30dp"
-        android:alpha="0.22"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_helmet_logo"
-        android:contentDescription="Watermark Casco" />
+        android:layout_marginBottom="-30dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -40,13 +35,12 @@
 
             <ImageView
                 android:id="@+id/btn_detail_back"
+                style="@style/BotonIconoNav"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:clickable="true"
-                android:focusable="true"
                 android:padding="4dp"
                 android:src="@drawable/ic_arrow_back"
-                app:tint="#111111"
+                app:tint="@color/biker_black"
                 android:contentDescription="Regresar" />
 
             <View
@@ -85,31 +79,28 @@
                 <!-- Product Name / Title in Gothic / Serif Style -->
                 <TextView
                     android:id="@+id/tv_detail_title"
+                    style="@style/TextoTituloVintage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="12dp"
-                    android:fontFamily="serif"
                     android:gravity="center"
-                    android:letterSpacing="0.08"
                     android:text="KTM POWER 250CC"
-                    android:textColor="#111111"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp" />
 
                 <!-- Product Image inside Framed Box with Soft Shadow -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_detail_image"
+                    style="@style/TarjetaContenedor"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:layout_marginHorizontal="6dp"
-                    app:cardCornerRadius="16dp"
                     app:cardElevation="6dp">
 
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#FFFFFF"
+                        android:background="@color/white"
                         android:padding="8dp">
 
                         <ImageView
@@ -122,7 +113,7 @@
                     </FrameLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- Technical Specifications List (Centered Uppercase matching Figma) -->
+                <!-- Technical Specifications List -->
                 <LinearLayout
                     android:id="@+id/ll_detail_specs"
                     android:layout_width="match_parent"
@@ -133,77 +124,54 @@
 
                     <TextView
                         android:id="@+id/tv_spec_1"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="3dp"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
-                        android:text="CILINDRADA 250CC"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="CILINDRADA 250CC" />
 
                     <TextView
                         android:id="@+id/tv_spec_2"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="3dp"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
-                        android:text="MOTOR A VARILLA"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="MOTOR A VARILLA" />
 
                     <TextView
                         android:id="@+id/tv_spec_3"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="3dp"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
-                        android:text="TANQUE 13 LTS"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="TANQUE 13 LTS" />
 
                     <TextView
                         android:id="@+id/tv_spec_4"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="3dp"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
-                        android:text="FRENOS A DISCO"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="FRENOS A DISCO" />
 
                     <TextView
                         android:id="@+id/tv_spec_5"
+                        style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="3dp"
-                        android:fontFamily="serif"
-                        android:letterSpacing="0.06"
-                        android:text="TABLERO DIGITAL"
-                        android:textColor="#111111"
-                        android:textSize="14sp"
-                        android:textStyle="bold" />
+                        android:text="TABLERO DIGITAL" />
                 </LinearLayout>
 
                 <!-- Colores Disponibles Section -->
                 <TextView
                     android:id="@+id/tv_colors_title"
+                    style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.08"
                     android:text="COLORES DISPONIBLES"
-                    android:textColor="#111111"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
 
                 <!-- 3 Color Variation Circles -->
                 <LinearLayout
@@ -251,31 +219,21 @@
                 <!-- Price Display -->
                 <TextView
                     android:id="@+id/tv_detail_price"
+                    style="@style/TextoPrecio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.06"
                     android:text="$4,800 USD"
-                    android:textColor="#111111"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp" />
 
-                <!-- AGREGAR AL CARRITO Button (Grey Pill matching Figma) -->
+                <!-- AGREGAR AL CARRITO Button -->
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_add_to_cart"
-                    android:layout_width="match_parent"
-                    android:layout_height="52dp"
+                    style="@style/BotonPrimario"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="8dp"
-                    android:background="@drawable/bg_pill_btn"
-                    android:fontFamily="serif"
-                    android:letterSpacing="0.1"
-                    android:text="AGREGAR AL CARRITO"
-                    android:textColor="#333333"
-                    android:textSize="13sp"
-                    android:textStyle="bold" />
+                    android:text="AGREGAR AL CARRITO" />
 
             </LinearLayout>
         </ScrollView>
@@ -305,7 +263,7 @@
                 android:layout_gravity="center"
                 android:elevation="8dp"
                 android:src="@drawable/ic_shopping_cart"
-                app:tint="#FFFFFF"
+                app:tint="@color/white"
                 android:contentDescription="Carrito" />
 
             <TextView
@@ -317,7 +275,7 @@
                 android:elevation="10dp"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 android:textStyle="bold" />
         </FrameLayout>
@@ -325,12 +283,8 @@
         <!-- Bottom Navigation Bar -->
         <LinearLayout
             android:id="@+id/ll_bottom_nav"
+            style="@style/BarraNavegacionInferior"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:background="#FFFFFF"
-            android:elevation="12dp"
-            android:gravity="center"
-            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -338,55 +292,43 @@
             <!-- Profile Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_profile"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_person"
-                    app:tint="#888888"
+                    app:tint="@color/biker_gray_muted"
                     android:contentDescription="Perfil" />
             </FrameLayout>
 
             <!-- Home Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_home"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_home"
-                    app:tint="#111111"
+                    app:tint="@color/biker_black"
                     android:contentDescription="Home" />
             </FrameLayout>
 
             <!-- Menu / Branches Button -->
             <FrameLayout
                 android:id="@+id/nav_btn_menu"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:focusable="true">
+                style="@style/ItemNavegacion">
 
                 <ImageView
                     android:layout_width="28dp"
                     android:layout_height="28dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_menu"
-                    app:tint="#888888"
-                    android:contentDescription="Sucursales" />
+                    app:tint="@color/biker_gray_muted"
+                    android:contentDescription="Menu" />
             </FrameLayout>
         </LinearLayout>
 

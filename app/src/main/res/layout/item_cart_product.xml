@@ -2,12 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_cart_item"
+    style="@style/TarjetaItemCarrito"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="18dp"
-    app:cardElevation="3dp">
+    android:layout_marginBottom="12dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,35 +41,30 @@
 
             <TextView
                 android:id="@+id/tv_cart_item_title"
+                style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="PRODUCTO"
-                android:textColor="#111111"
-                android:textSize="13sp"
-                android:textStyle="bold"
+                android:ellipsize="end"
                 android:maxLines="2"
-                android:ellipsize="end" />
+                android:text="PRODUCTO"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_cart_item_color"
+                style="@style/TextoSecundarioMedio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Color: Naranja"
-                android:textColor="#666666"
-                android:textSize="11.5sp" />
+                android:text="Color: Naranja" />
 
             <TextView
                 android:id="@+id/tv_cart_item_price"
+                style="@style/TextoPrecio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:fontFamily="serif"
                 android:text="$4,800 USD"
-                android:textColor="#D97706"
-                android:textSize="13sp"
-                android:textStyle="bold" />
+                android:textSize="13sp" />
         </LinearLayout>
 
         <!-- Prominent Horizontal Quantity Controls (- [qty] +) -->
@@ -99,7 +92,7 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="−"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </FrameLayout>
@@ -111,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="1"
-                android:textColor="#111111"
+                android:textColor="@color/biker_black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -131,7 +124,7 @@
                     android:gravity="center"
                     android:includeFontPadding="false"
                     android:text="+"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </FrameLayout>

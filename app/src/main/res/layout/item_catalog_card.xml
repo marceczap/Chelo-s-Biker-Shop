@@ -2,16 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_root"
+    style="@style/TarjetaItemCatalogo"
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:layout_margin="5dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="3dp">
+    android:layout_margin="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,28 +35,25 @@
         <!-- Product Title -->
         <TextView
             android:id="@+id/tv_card_title"
+            style="@style/TextoEncabezadoSeccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:fontFamily="serif"
-            android:textColor="#111111"
-            android:textSize="11.5sp"
-            android:textStyle="bold"
             android:lines="2"
-            android:ellipsize="end" />
+            android:ellipsize="end"
+            android:textSize="11.5sp" />
 
         <!-- Subtitle: especificaciones / caracteristicas -->
         <TextView
             android:id="@+id/tv_card_subtitle"
+            style="@style/TextoSubtituloVintage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:fontFamily="serif"
             android:text="especificaciones"
             android:textColor="#333333"
-            android:textSize="10.5sp"
-            android:textStyle="bold" />
+            android:textSize="10.5sp" />
 
         <!-- Specs Container -->
         <LinearLayout
@@ -77,17 +69,16 @@
         <!-- Price Badge (Golden Amber Pill) -->
         <TextView
             android:id="@+id/tv_card_price"
+            style="@style/TextoPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
             android:background="@drawable/bg_price_pill_amber"
-            android:fontFamily="serif"
             android:paddingHorizontal="12dp"
             android:paddingVertical="3dp"
             android:textColor="#B45309"
-            android:textSize="11sp"
-            android:textStyle="bold" />
+            android:textSize="11sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
