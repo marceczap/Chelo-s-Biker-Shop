@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Información Legal"
+            android:text="@string/legal_dialog_title"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -53,7 +53,7 @@
                 style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1. TÉRMINOS Y CONDICIONES DE USO"
+                android:text="@string/legal_sec1_title"
                 android:textSize="12sp" />
 
             <TextView
@@ -63,14 +63,14 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="3dp"
-                android:text="El presente documento establece las condiciones de compra, reserva de motocicletas, repuestos y equipamiento homologado a través de Chelo Biker Shop S.R.L. Toda orden emitida cuenta con respaldo de factura fiscal autorizada por el SIN Bolivia."
+                android:text="@string/legal_sec1_desc"
                 android:textColor="#4B5563" />
 
             <TextView
                 style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2. POLÍTICA DE PRIVACIDAD Y DATOS PERSONALES"
+                android:text="@string/legal_sec2_title"
                 android:textSize="12sp" />
 
             <TextView
@@ -80,14 +80,14 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="10dp"
                 android:lineSpacingExtra="3dp"
-                android:text="Los datos de contacto, facturación (NIT/CI) y seguridad biker almacenados en esta aplicación se procesan de forma cifrada bajo protocolos estrictos de confidencialidad para fines exclusivos de gestión de pedidos y entrega en sucursal."
+                android:text="@string/legal_sec2_desc"
                 android:textColor="#4B5563" />
 
             <TextView
                 style="@style/TextoEncabezadoSeccion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3. GARANTÍA DE FÁBRICA Y HOMOLOGACIONES"
+                android:text="@string/legal_sec3_title"
                 android:textSize="12sp" />
 
             <TextView
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:lineSpacingExtra="3dp"
-                android:text="Todas las motocicletas cuentan con 1 año o 10,000 km de garantía de fábrica oficial. Los cascos cuentan con certificación internacional DOT / ECE 22.06 y la indumentaria con protecciones CE Nivel 2."
+                android:text="@string/legal_sec3_desc"
                 android:textColor="#4B5563" />
 
         </LinearLayout>
@@ -107,7 +107,7 @@
         style="@style/BotonPrimario"
         android:layout_height="44dp"
         android:layout_marginTop="14dp"
-        android:text="ENTENDIDO"
+        android:text="@string/legal_btn_accept"
         android:textSize="12sp" />
 
 </LinearLayout>

@@ -57,7 +57,7 @@
             android:gravity="center"
             android:letterSpacing="0.08"
             android:lineSpacingExtra="4dp"
-            android:text="DONDE RECOJERAS TU ADQUISICION"
+            android:text="@string/branches_main_title"
             android:textSize="18sp" />
 
         <!-- 3 City Branch Buttons Container -->
@@ -98,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="La paz"
+                        android:text="@string/city_lapaz"
                         android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
@@ -132,7 +132,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="El Alto"
+                        android:text="@string/city_elalto"
                         android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
@@ -166,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Cochabamba"
+                        android:text="@string/city_cochabamba"
                         android:textSize="22sp" />
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
@@ -181,7 +181,7 @@
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:lineSpacingExtra="3dp"
-            android:text="Tu pedido sera enviado\na la sucursal de la ciudad\nseleccionada"
+            android:text="@string/branches_footer_note"
             android:textColor="#333333"
             android:textSize="14sp" />
 

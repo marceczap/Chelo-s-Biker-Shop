@@ -44,7 +44,7 @@
                 style="@style/TextoTituloVintage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CHELO BIKER SHOP"
+                android:text="@string/menu_title"
                 android:textSize="15sp" />
 
             <TextView
@@ -104,14 +104,14 @@
                     style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CONTÁCTANOS" />
+                    android:text="@string/menu_contact" />
 
                 <TextView
                     android:id="@+id/tv_menu_contact_sub"
                     style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="WhatsApp, llamadas, correo y sucursales" />
+                    android:text="@string/menu_contact_sub" />
             </LinearLayout>
 
             <ImageView
@@ -165,14 +165,14 @@
                     style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="INFORMACIÓN LEGAL" />
+                    android:text="@string/menu_legal" />
 
                 <TextView
                     android:id="@+id/tv_menu_legal_sub"
                     style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Términos, políticas de privacidad y garantías" />
+                    android:text="@string/menu_legal_sub" />
             </LinearLayout>
 
             <ImageView
@@ -233,14 +233,14 @@
                         style="@style/TextoEncabezadoSeccion"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="IDIOMA / LANGUAGE" />
+                        android:text="@string/menu_language" />
 
                     <TextView
                         android:id="@+id/tv_menu_lang_sub"
                         style="@style/TextoSecundario"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Selecciona el idioma del aplicativo" />
+                        android:text="@string/menu_language_sub" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -267,7 +267,7 @@
                         android:id="@+id/tv_lang_es"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🇪🇸 Español"
+                        android:text="@string/lang_es_label"
                         android:textColor="@color/white"
                         android:textSize="12.5sp"
                         android:textStyle="bold" />
@@ -289,7 +289,7 @@
                         android:id="@+id/tv_lang_en"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🇺🇸 English"
+                        android:text="@string/lang_en_label"
                         android:textColor="#4B5563"
                         android:textSize="12.5sp"
                         android:textStyle="bold" />
@@ -340,7 +340,7 @@
                     style="@style/TextoEncabezadoSeccion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="CERRAR SESIÓN"
+                    android:text="@string/menu_logout"
                     android:textColor="@color/biker_red_danger" />
 
                 <TextView
@@ -348,7 +348,7 @@
                     style="@style/TextoSecundario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cerrar la cuenta en este dispositivo"
+                    android:text="@string/menu_logout_sub"
                     android:textColor="#EF4444" />
             </LinearLayout>
         </LinearLayout>

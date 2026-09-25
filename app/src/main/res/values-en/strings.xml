@@ -1,28 +1,106 @@
-
 <resources>
     <string name="app_name">Chelo Biker Shop</string>
+    <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+
+    <!-- Navigation and Categories -->
     <string name="title_motos">Motorcycles</string>
     <string name="title_cascos">Helmets</string>
     <string name="title_indumentaria">Riding Gear</string>
     <string name="title_perfil">My Profile</string>
     <string name="title_sucursales">Branches</string>
+    <string name="title_cart">Shopping Cart</string>
+
+    <!-- Login Screen (MainActivity) -->
+    <string name="login_title">Chelo\'s Biker Shop</string>
+    <string name="login_est">Est. 2026</string>
+    <string name="login_subtitle">The finest biker gear and motorcycles</string>
+    <string name="hint_email">email address</string>
+    <string name="hint_password">password</string>
+    <string name="btn_login_text">ENTER / SIGN IN</string>
+    <string name="login_register_link">Don\'t have an account? Sign Up</string>
+    <string name="social_login_label">or sign in with your social accounts</string>
+
+    <!-- Register Screen (RegisterActivity) -->
+    <string name="register_title">Sign Up</string>
+    <string name="register_subtitle">Enter your email and password</string>
+    <string name="btn_acceder">CONTINUE</string>
+    <string name="social_auth_or">or Sign in with an existing account</string>
+
+    <!-- Home Screen -->
+    <string name="home_brand_title">CHELO\'S BIKER SHOP</string>
+    <string name="home_showroom_badge">EXCLUSIVE SHOWROOM 2026</string>
+    <string name="home_showroom_desc">Gear up with premier biker engineering and extreme performance</string>
+    <string name="home_sec_motos">MOTORCYCLES CATALOG</string>
+    <string name="home_sec_cascos">HIGH PROTECTION HELMETS</string>
+    <string name="home_sec_indumentaria">BIKER RIDING GEAR</string>
+    <string name="home_view_all">View All</string>
+
+    <!-- Catalogs and Product Detail -->
+    <string name="specs_label">specifications</string>
+    <string name="detail_specs_title">TECHNICAL SPECIFICATIONS</string>
+    <string name="colors_available">AVAILABLE COLORS</string>
     <string name="add_to_cart">ADD TO CART</string>
     <string name="buy_now">CHECKOUT / BUY NOW</string>
-    <string name="colors_available">AVAILABLE COLORS</string>
-    <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+    <string name="added_to_cart_toast">Item added to cart! 🛒</string>
 
-    <!-- Menu Hamburger Strings -->
+    <!-- Shopping Cart -->
+    <string name="cart_header_title">SHOPPING CART</string>
+    <string name="cart_summary_title">Order Summary</string>
+    <string name="cart_subtotal">Subtotal:</string>
+    <string name="cart_shipping">Branch Delivery:</string>
+    <string name="cart_shipping_free">FREE</string>
+    <string name="cart_total">Estimated Total:</string>
+    <string name="cart_continue">PROCEED TO CHECKOUT</string>
+    <string name="cart_empty_msg">Your cart is empty</string>
+
+    <!-- Branches and Map -->
+    <string name="branches_main_title">WHERE WILL YOU PICK UP YOUR PURCHASE</string>
+    <string name="branches_footer_note">Your order will be shipped\nto the selected city\nbranch office</string>
+    <string name="city_lapaz">La Paz</string>
+    <string name="city_elalto">El Alto</string>
+    <string name="city_cochabamba">Cochabamba</string>
+    <string name="map_directions">Get Directions</string>
+
+    <!-- Hamburger Menu -->
     <string name="menu_title">CHELO BIKER SHOP</string>
     <string name="menu_contact">CONTACT US</string>
     <string name="menu_contact_sub">WhatsApp, phone calls, email &amp; branches</string>
     <string name="menu_legal">LEGAL INFORMATION</string>
     <string name="menu_legal_sub">Terms of service, privacy &amp; warranties</string>
     <string name="menu_language">LANGUAGE / IDIOMA</string>
-    <string name="menu_language_sub">Choose your preferred application language</string>
+    <string name="menu_language_sub">Select application language</string>
     <string name="menu_logout">LOG OUT</string>
     <string name="menu_logout_sub">Sign out from your account on this device</string>
+    <string name="lang_es_label">🇪🇸 Español</string>
+    <string name="lang_en_label">🇺🇸 English</string>
 
-    <!-- Profile Strings -->
+    <!-- Contact Dialog -->
+    <string name="contact_dialog_title">Contact Us</string>
+    <string name="contact_whatsapp_title">Official WhatsApp</string>
+    <string name="contact_whatsapp_sub">+591 76543210 (24/7 Support)</string>
+    <string name="contact_whatsapp_btn">CHAT</string>
+    <string name="contact_call_title">Phone Call</string>
+    <string name="contact_call_sub">+591 2 2789000 (La Paz HQ)</string>
+    <string name="contact_call_btn">CALL</string>
+    <string name="contact_email_title">Support Email</string>
+    <string name="contact_email_sub">contacto@chelobiker.com</string>
+    <string name="contact_email_btn">SEND</string>
+    <string name="contact_hq_title">📍 Headquarters &amp; Service:</string>
+    <string name="contact_hq_addr">Av. Rafael Pabón, MegaCenter Irpavi • La Paz, Bolivia</string>
+    <string name="contact_hq_hours">⏰ Business Hours: Mon to Sat: 09:00 - 19:30</string>
+    <string name="btn_close">CLOSE</string>
+
+    <!-- Legal Dialog -->
+    <string name="legal_dialog_title">Legal Information</string>
+    <string name="legal_sec1_title">1. TERMS AND CONDITIONS OF USE</string>
+    <string name="legal_sec1_desc">This document sets forth the terms of purchase, reservation of motorcycles, parts and certified safety equipment through Chelo Biker Shop S.R.L. All orders include official fiscal invoices authorized by SIN Bolivia.</string>
+    <string name="legal_sec2_title">2. PRIVACY POLICY &amp; PERSONAL DATA</string>
+    <string name="legal_sec2_desc">Contact details, billing data (NIT/ID) and biker security profiles stored in this application are securely encrypted under strict confidentiality protocols exclusively for order management and branch delivery.</string>
+    <string name="legal_sec3_title">3. FACTORY WARRANTY &amp; CERTIFICATIONS</string>
+    <string name="legal_sec3_desc">All motorcycles include a 1-year or 10,000 km official manufacturer warranty. Helmets comply with DOT / ECE 22.06 safety standards and gear includes CE Level 2 armor.</string>
+    <string name="legal_btn_accept">UNDERSTOOD</string>
+
+    <!-- Profile -->
     <string name="profile_title">My Biker Profile</string>
     <string name="profile_badge_active">ACTIVE RIDER 🏁</string>
     <string name="profile_sec_personal">PERSONAL INFORMATION</string>

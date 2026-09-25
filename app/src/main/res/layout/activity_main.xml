@@ -113,7 +113,7 @@
                 style="@style/CampoTextoPill"
                 android:layout_width="0dp"
                 android:layout_marginTop="10dp"
-                android:hint="correo"
+                android:hint="@string/hint_email"
                 android:inputType="textEmailAddress"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +125,7 @@
                 style="@style/CampoTextoPill"
                 android:layout_width="0dp"
                 android:layout_marginTop="10dp"
-                android:hint="contraseña"
+                android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,19 +145,11 @@
                 app:layout_constraintTop_toBottomOf="@id/et_password">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="serif"
-                    android:text="No tienes una cuenta? "
-                    android:textColor="@color/biker_black"
-                    android:textSize="12sp" />
-
-                <TextView
                     android:id="@+id/tv_register_btn"
                     style="@style/TextoEnlaceAzul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="REGISTRATE" />
+                    android:text="@string/login_register_link" />
             </LinearLayout>
 
             <!-- Action Button ( INGRESAR en color verde ) -->
@@ -167,7 +159,7 @@
                 android:layout_width="0dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginHorizontal="20dp"
-                android:text="INGRESAR"
+                android:text="@string/btn_login_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ll_register_link" />

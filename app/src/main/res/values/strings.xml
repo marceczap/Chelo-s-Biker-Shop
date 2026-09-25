@@ -1,16 +1,67 @@
 <resources>
     <string name="app_name">Chelo Biker Shop</string>
+    <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+
+    <!-- Navegación y Categorías -->
     <string name="title_motos">Motos</string>
     <string name="title_cascos">Cascos</string>
     <string name="title_indumentaria">Indumentaria</string>
     <string name="title_perfil">Mi Perfil</string>
     <string name="title_sucursales">Sucursales</string>
+    <string name="title_cart">Carrito de Compras</string>
+
+    <!-- Pantalla Login (MainActivity) -->
+    <string name="login_title">Chelo\'s Biker Shop</string>
+    <string name="login_est">Est. 2026</string>
+    <string name="login_subtitle">La mejor indumentaria y motocicletas</string>
+    <string name="hint_email">correo electrónico</string>
+    <string name="hint_password">contraseña</string>
+    <string name="btn_login_text">INGRESAR</string>
+    <string name="login_register_link">¿No tienes cuenta? Registrate</string>
+    <string name="social_login_label">o ingresa con tus redes sociales</string>
+
+    <!-- Pantalla Registro (RegisterActivity) -->
+    <string name="register_title">Registro</string>
+    <string name="register_subtitle">Ingresa tu correo y contraseña</string>
+    <string name="btn_acceder">ACCEDER</string>
+    <string name="social_auth_or">o Accede desde una cuenta existente</string>
+
+    <!-- Pantalla Home -->
+    <string name="home_brand_title">CHELO\'S BIKER SHOP</string>
+    <string name="home_showroom_badge">SHOWROOM EXCLUSIVO 2026</string>
+    <string name="home_showroom_desc">Equípate con lo mejor en ingeniería biker y estilo extremo</string>
+    <string name="home_sec_motos">CATÁLOGO DE MOTOS</string>
+    <string name="home_sec_cascos">CASCOS DE ALTA PROTECCIÓN</string>
+    <string name="home_sec_indumentaria">INDUMENTARIA BIKER</string>
+    <string name="home_view_all">Ver Todo</string>
+
+    <!-- Catálogos y Detalle de Producto -->
+    <string name="specs_label">especificaciones</string>
+    <string name="detail_specs_title">ESPECIFICACIONES TÉCNICAS</string>
+    <string name="colors_available">COLORES DISPONIBLES</string>
     <string name="add_to_cart">AGREGAR AL CARRITO</string>
     <string name="buy_now">REALIZAR COMPRA</string>
-    <string name="colors_available">COLORES DISPONIBLES</string>
-    <string name="google_maps_key">AIzaSyAMoEz8iNGJoHag1rk_qzuULo7DkG7GatI</string>
+    <string name="added_to_cart_toast">¡Producto agregado al carrito! 🛒</string>
 
-    <!-- Menu Hamburger Strings -->
+    <!-- Carrito -->
+    <string name="cart_header_title">CARRITO DE COMPRAS</string>
+    <string name="cart_summary_title">Resumen del Pedido</string>
+    <string name="cart_subtotal">Subtotal:</string>
+    <string name="cart_shipping">Envío Sucursal:</string>
+    <string name="cart_shipping_free">GRATIS</string>
+    <string name="cart_total">Total Estimado:</string>
+    <string name="cart_continue">CONTINUAR COMPRA</string>
+    <string name="cart_empty_msg">Tu carrito está vacío</string>
+
+    <!-- Sucursales y Mapa -->
+    <string name="branches_main_title">DONDE RECOJERAS TU ADQUISICION</string>
+    <string name="branches_footer_note">Tu pedido sera enviado\na la sucursal de la ciudad\nseleccionada</string>
+    <string name="city_lapaz">La Paz</string>
+    <string name="city_elalto">El Alto</string>
+    <string name="city_cochabamba">Cochabamba</string>
+    <string name="map_directions">Cómo llegar</string>
+
+    <!-- Menú Hamburguesa -->
     <string name="menu_title">CHELO BIKER SHOP</string>
     <string name="menu_contact">CONTÁCTANOS</string>
     <string name="menu_contact_sub">WhatsApp, llamadas, correo y sucursales</string>
@@ -20,8 +71,36 @@
     <string name="menu_language_sub">Selecciona el idioma del aplicativo</string>
     <string name="menu_logout">CERRAR SESIÓN</string>
     <string name="menu_logout_sub">Cerrar la cuenta en este dispositivo</string>
+    <string name="lang_es_label">🇪🇸 Español</string>
+    <string name="lang_en_label">🇺🇸 English</string>
 
-    <!-- Profile Strings -->
+    <!-- Diálogo Contáctanos -->
+    <string name="contact_dialog_title">Contáctanos</string>
+    <string name="contact_whatsapp_title">WhatsApp Oficial</string>
+    <string name="contact_whatsapp_sub">+591 76543210 (Atención 24/7)</string>
+    <string name="contact_whatsapp_btn">CHATEAR</string>
+    <string name="contact_call_title">Llamada Telefónica</string>
+    <string name="contact_call_sub">+591 2 2789000 (Central La Paz)</string>
+    <string name="contact_call_btn">LLAMAR</string>
+    <string name="contact_email_title">Correo de Soporte</string>
+    <string name="contact_email_sub">contacto@chelobiker.com</string>
+    <string name="contact_email_btn">ENVIAR</string>
+    <string name="contact_hq_title">📍 Casa Matriz &amp; Talleres:</string>
+    <string name="contact_hq_addr">Av. Rafael Pabón, MegaCenter Irpavi • La Paz, Bolivia</string>
+    <string name="contact_hq_hours">⏰ Horario de Atención: Lun a Sáb: 09:00 - 19:30</string>
+    <string name="btn_close">CERRAR</string>
+
+    <!-- Diálogo Legal -->
+    <string name="legal_dialog_title">Información Legal</string>
+    <string name="legal_sec1_title">1. TÉRMINOS Y CONDICIONES DE USO</string>
+    <string name="legal_sec1_desc">El presente documento establece las condiciones de compra, reserva de motocicletas, repuestos y equipamiento homologado a través de Chelo Biker Shop S.R.L. Toda orden emitida cuenta con respaldo de factura fiscal autorizada por el SIN Bolivia.</string>
+    <string name="legal_sec2_title">2. POLÍTICA DE PRIVACIDAD Y DATOS PERSONALES</string>
+    <string name="legal_sec2_desc">Los datos de contacto, facturación (NIT/CI) y seguridad biker almacenados en esta aplicación se procesan de forma cifrada bajo protocolos estrictos de confidencialidad para fines exclusivos de gestión de pedidos y entrega en sucursal.</string>
+    <string name="legal_sec3_title">3. GARANTÍA DE FÁBRICA Y HOMOLOGACIONES</string>
+    <string name="legal_sec3_desc">Todas las motocicletas cuentan con 1 año o 10,000 km de garantía de fábrica oficial. Los cascos cuentan con certificación internacional DOT / ECE 22.06 y la indumentaria con protecciones CE Nivel 2.</string>
+    <string name="legal_btn_accept">ENTENDIDO</string>
+
+    <!-- Perfil Biker -->
     <string name="profile_title">Mi Perfil Biker</string>
     <string name="profile_badge_active">PILOTO ACTIVO 🏁</string>
     <string name="profile_sec_personal">INFORMACIÓN PERSONAL</string>
