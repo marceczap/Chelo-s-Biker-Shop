@@ -2,18 +2,23 @@ package com.example.miappbiker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +29,23 @@ public class HomeActivity extends AppCompatActivity {
     private CardView btnCatCascos;
     private CardView btnCatIndumentaria;
     private EditText etSearch;
+    private ImageView btnClearSearch;
 
-    private static class SearchProduct {
-        String name;
-        String category;
-        int imageRes;
-        String price;
-        String[] specs;
+    private View viewSearchScrim;
+    private CardView cardSearchResults;
+    private TextView tvSearchResultsCount;
+    private RecyclerView rvSearchResults;
+    private TextView tvNoSearchResults;
+    private SearchSuggestionsAdapter suggestionsAdapter;
 
-        SearchProduct(String name, String category, int imageRes, String price, String[] specs) {
+    public static class SearchProduct {
+        public String name;
+        public String category;
+        public int imageRes;
+        public String price;
+        public String[] specs;
+
+        public SearchProduct(String name, String category, int imageRes, String price, String[] specs) {
             this.name = name;
             this.category = category;
             this.imageRes = imageRes;
@@ -61,6 +74,13 @@ public class HomeActivity extends AppCompatActivity {
         btnCatCascos = findViewById(R.id.btn_cat_cascos);
         btnCatIndumentaria = findViewById(R.id.btn_cat_indumentaria);
         etSearch = findViewById(R.id.et_search);
+        btnClearSearch = findViewById(R.id.btn_clear_search);
+
+        viewSearchScrim = findViewById(R.id.view_search_scrim);
+        cardSearchResults = findViewById(R.id.card_search_results);
+        tvSearchResultsCount = findViewById(R.id.tv_search_results_count);
+        rvSearchResults = findViewById(R.id.rv_search_results);
+        tvNoSearchResults = findViewById(R.id.tv_no_search_results);
 
         btnCatMotos.setOnClickListener(v -> {
             Intent intent = new Intent(HomeActivity.this, MotosCatalogActivity.class);
@@ -130,20 +150,56 @@ public class HomeActivity extends AppCompatActivity {
     private void setupSearch() {
         if (etSearch == null) return;
 
+        rvSearchResults.setLayoutManager(new LinearLayoutManager(this));
+        suggestionsAdapter = new SearchSuggestionsAdapter(product -> openProductDetail(product));
+        rvSearchResults.setAdapter(suggestionsAdapter);
+
+        // Real-Time As-You-Type Filter
+        etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String query = s.toString().trim();
+                filterSearchLive(query);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+
+        if (btnClearSearch != null) {
+            btnClearSearch.setOnClickListener(v -> {
+                etSearch.setText("");
+                hideSearchResults();
+            });
+        }
+
+        if (viewSearchScrim != null) {
+            viewSearchScrim.setOnClickListener(v -> hideSearchResults());
+        }
+
+        findViewById(R.id.btn_close_search_overlay).setOnClickListener(v -> hideSearchResults());
+
         etSearch.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH || actionId == EditorInfo.IME_ACTION_DONE) {
-                performSearch(etSearch.getText().toString().trim());
+                String query = etSearch.getText().toString().trim();
+                filterSearchLive(query);
                 return true;
             }
             return false;
         });
     }
 
-    private void performSearch(String query) {
+    private void filterSearchLive(String query) {
         if (query.isEmpty()) {
-            Toast.makeText(this, "Escribe un producto o marca para buscar", Toast.LENGTH_SHORT).show();
+            if (btnClearSearch != null) btnClearSearch.setVisibility(View.GONE);
+            hideSearchResults();
             return;
         }
+
+        if (btnClearSearch != null) btnClearSearch.setVisibility(View.VISIBLE);
 
         String q = query.toLowerCase();
         List<SearchProduct> matches = new ArrayList<>();
@@ -153,30 +209,36 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
+        cardSearchResults.setVisibility(View.VISIBLE);
+        if (viewSearchScrim != null) viewSearchScrim.setVisibility(View.VISIBLE);
+
         if (matches.isEmpty()) {
-            Toast.makeText(this, "No se encontraron productos para \"" + query + "\"", Toast.LENGTH_SHORT).show();
-            return;
+            rvSearchResults.setVisibility(View.GONE);
+            tvNoSearchResults.setVisibility(View.VISIBLE);
+            tvSearchResultsCount.setText("Sin resultados para \"" + query + "\"");
+        } else {
+            tvNoSearchResults.setVisibility(View.GONE);
+            rvSearchResults.setVisibility(View.VISIBLE);
+            tvSearchResultsCount.setText("Sugerencias (" + matches.size() + ")");
+            suggestionsAdapter.updateData(matches);
         }
+    }
 
-        String[] itemTitles = new String[matches.size()];
-        for (int i = 0; i < matches.size(); i++) {
-            SearchProduct item = matches.get(i);
-            itemTitles[i] = item.name + " (" + item.category + ") - " + item.price;
-        }
+    private void hideSearchResults() {
+        if (cardSearchResults != null) cardSearchResults.setVisibility(View.GONE);
+        if (viewSearchScrim != null) viewSearchScrim.setVisibility(View.GONE);
+    }
 
-        new AlertDialog.Builder(this)
-                .setTitle("Resultados de Búsqueda (" + matches.size() + ")")
-                .setItems(itemTitles, (dialog, which) -> {
-                    SearchProduct selected = matches.get(which);
-                    Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
-                    intent.putExtra(ProductDetailActivity.EXTRA_TITLE, selected.name);
-                    intent.putExtra(ProductDetailActivity.EXTRA_IMAGE_RES, selected.imageRes);
-                    intent.putExtra(ProductDetailActivity.EXTRA_SPECS, selected.specs);
-                    intent.putExtra(ProductDetailActivity.EXTRA_PRICE, selected.price);
-                    intent.putExtra(ProductDetailActivity.EXTRA_CATEGORY, selected.category);
-                    startActivity(intent);
-                })
-                .setNegativeButton("Cancelar", null)
-                .show();
+    private void openProductDetail(SearchProduct product) {
+        hideSearchResults();
+        etSearch.setText("");
+
+        Intent intent = new Intent(HomeActivity.this, ProductDetailActivity.class);
+        intent.putExtra(ProductDetailActivity.EXTRA_TITLE, product.name);
+        intent.putExtra(ProductDetailActivity.EXTRA_IMAGE_RES, product.imageRes);
+        intent.putExtra(ProductDetailActivity.EXTRA_SPECS, product.specs);
+        intent.putExtra(ProductDetailActivity.EXTRA_PRICE, product.price);
+        intent.putExtra(ProductDetailActivity.EXTRA_CATEGORY, product.category);
+        startActivity(intent);
     }
 }
