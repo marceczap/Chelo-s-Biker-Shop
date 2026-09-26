@@ -170,51 +170,37 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="COLORES DISPONIBLES"
-                    android:textSize="15sp" />
+                    android:text="@string/colors_available"
+                    android:textSize="14sp" />
 
-                <!-- 3 Color Variation Circles -->
-                <LinearLayout
-                    android:id="@+id/ll_colors_container"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                <!-- Modern Biker Color Combo Box (Spinner) -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_combobox_selector">
 
-                    <!-- Black Option -->
-                    <FrameLayout
-                        android:id="@+id/btn_color_black"
-                        android:layout_width="54dp"
-                        android:layout_height="54dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:background="@drawable/bg_circle_color_black"
-                        android:clickable="true"
-                        android:elevation="4dp"
-                        android:focusable="true" />
+                    <Spinner
+                        android:id="@+id/spinner_product_color"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:gravity="center_vertical"
+                        android:overlapAnchor="false"
+                        android:spinnerMode="dropdown" />
 
-                    <!-- Red Option -->
-                    <FrameLayout
-                        android:id="@+id/btn_color_red"
-                        android:layout_width="54dp"
-                        android:layout_height="54dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:background="@drawable/bg_circle_color_red"
-                        android:clickable="true"
-                        android:elevation="4dp"
-                        android:focusable="true" />
-
-                    <!-- Green Option -->
-                    <FrameLayout
-                        android:id="@+id/btn_color_green"
-                        android:layout_width="54dp"
-                        android:layout_height="54dp"
-                        android:layout_marginHorizontal="12dp"
-                        android:background="@drawable/bg_circle_color_green"
-                        android:clickable="true"
-                        android:elevation="4dp"
-                        android:focusable="true" />
-                </LinearLayout>
+                    <!-- Dropdown Arrow Indicator -->
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="8dp"
+                        android:rotation="90"
+                        android:src="@drawable/ic_arrow_forward"
+                        app:tint="@color/biker_black"
+                        android:contentDescription="Desplegar" />
+                </FrameLayout>
 
                 <!-- Price Display -->
                 <TextView

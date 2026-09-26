@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp">
+
+    <View
+        android:id="@+id/v_dropdown_color_dot"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/bg_badge_circle"
+        android:backgroundTint="#111111" />
+
+    <TextView
+        android:id="@+id/tv_dropdown_color_name"
+        style="@style/TextoEncabezadoSeccion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:text="Negro Mate"
+        android:textColor="@color/biker_black"
+        android:textSize="13.5sp" />
+
+</LinearLayout>

@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -102,42 +105,77 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void setupColorSelector() {
-        FrameLayout btnBlack = findViewById(R.id.btn_color_black);
-        FrameLayout btnRed = findViewById(R.id.btn_color_red);
-        FrameLayout btnGreen = findViewById(R.id.btn_color_green);
+        Spinner spinnerColor = findViewById(R.id.spinner_product_color);
+        if (spinnerColor == null) return;
 
-        btnBlack.setOnClickListener(v -> {
-            selectedColor = "Negro";
-            btnBlack.setScaleX(1.15f);
-            btnBlack.setScaleY(1.15f);
-            btnRed.setScaleX(1.0f);
-            btnRed.setScaleY(1.0f);
-            btnGreen.setScaleX(1.0f);
-            btnGreen.setScaleY(1.0f);
-            Toast.makeText(this, "Color seleccionado: Negro", Toast.LENGTH_SHORT).show();
-        });
+        List<ColorSpinnerAdapter.ColorOption> colorOptions = getColorOptionsForProduct(productTitle);
+        ColorSpinnerAdapter adapter = new ColorSpinnerAdapter(this, colorOptions);
+        spinnerColor.setAdapter(adapter);
 
-        btnRed.setOnClickListener(v -> {
-            selectedColor = "Rojo";
-            btnRed.setScaleX(1.15f);
-            btnRed.setScaleY(1.15f);
-            btnBlack.setScaleX(1.0f);
-            btnBlack.setScaleY(1.0f);
-            btnGreen.setScaleX(1.0f);
-            btnGreen.setScaleY(1.0f);
-            Toast.makeText(this, "Color seleccionado: Rojo", Toast.LENGTH_SHORT).show();
-        });
+        if (!colorOptions.isEmpty()) {
+            selectedColor = colorOptions.get(0).name;
+        }
 
-        btnGreen.setOnClickListener(v -> {
-            selectedColor = "Verde";
-            btnGreen.setScaleX(1.15f);
-            btnGreen.setScaleY(1.15f);
-            btnBlack.setScaleX(1.0f);
-            btnBlack.setScaleY(1.0f);
-            btnRed.setScaleX(1.0f);
-            btnRed.setScaleY(1.0f);
-            Toast.makeText(this, "Color seleccionado: Verde", Toast.LENGTH_SHORT).show();
+        spinnerColor.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(android.widget.AdapterView<?> parent, View view, int position, long id) {
+                ColorSpinnerAdapter.ColorOption chosen = (ColorSpinnerAdapter.ColorOption) parent.getItemAtPosition(position);
+                if (chosen != null) {
+                    selectedColor = chosen.name;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(android.widget.AdapterView<?> parent) {
+            }
         });
+    }
+
+    private List<ColorSpinnerAdapter.ColorOption> getColorOptionsForProduct(String title) {
+        List<ColorSpinnerAdapter.ColorOption> list = new java.util.ArrayList<>();
+        String upper = (title != null) ? title.toUpperCase() : "";
+
+        if (upper.contains("KTM")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Naranja Racing (KTM Orange)", 0xFFFF6600));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Mate Stealth", 0xFF1E1E1E));
+            list.add(new ColorSpinnerAdapter.ColorOption("Blanco Factory Racing", 0xFFF9FAFB));
+        } else if (upper.contains("BMW")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Motorsport Tricolor (M-Pack)", 0xFF003399));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Tormenta Metálico", 0xFF1A1A1A));
+            list.add(new ColorSpinnerAdapter.ColorOption("Plata Hielo Metálico", 0xFFC0C0C0));
+        } else if (upper.contains("KAWASAKI") || upper.contains("NINJA")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Verde Lima Kawasaki", 0xFF00C853));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Ébano Metalizado", 0xFF1F1F1F));
+            list.add(new ColorSpinnerAdapter.ColorOption("Gris Grafito Mate", 0xFF546E7A));
+        } else if (upper.contains("DUCATI") || upper.contains("PANIGALE")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Rojo Ducati Corse", 0xFFD50000));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Dark Stealth", 0xFF121212));
+            list.add(new ColorSpinnerAdapter.ColorOption("Blanco Seda Ártico", 0xFFEEEEEE));
+        } else if (upper.contains("HONDA") || upper.contains("CBR")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Rojo Grand Prix HRC", 0xFFE53935));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Mate Ballistic", 0xFF212121));
+            list.add(new ColorSpinnerAdapter.ColorOption("Azul Candy Caribbean", 0xFF0D47A1));
+        } else if (upper.contains("YAMAHA") || upper.contains("R1") || upper.contains("MT")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Azul Icon Yamaha Racing", 0xFF0D47A1));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Tech Black", 0xFF1B1B1B));
+            list.add(new ColorSpinnerAdapter.ColorOption("Gris / Cian Cyan Storm", 0xFF00E5FF));
+        } else if (upper.contains("CASCO") || upper.contains("HELMET") || upper.contains("AGV") || upper.contains("SHOEI") || upper.contains("ARAI")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Mate Stealth", 0xFF212121));
+            list.add(new ColorSpinnerAdapter.ColorOption("Fibra de Carbono Gloss", 0xFF37474F));
+            list.add(new ColorSpinnerAdapter.ColorOption("Rojo Racing Replica", 0xFFE53935));
+            list.add(new ColorSpinnerAdapter.ColorOption("Blanco Perla / Fluo", 0xFFF5F5F5));
+        } else if (upper.contains("CHAQUETA") || upper.contains("JACKET") || upper.contains("GUANTE") || upper.contains("GLOVE")) {
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Cuero Premium", 0xFF212121));
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro / Detalles Rojos", 0xFFC62828));
+            list.add(new ColorSpinnerAdapter.ColorOption("Gris Reflectivo High-Viz", 0xFF78909C));
+        } else {
+            list.add(new ColorSpinnerAdapter.ColorOption("Negro Mate", 0xFF212121));
+            list.add(new ColorSpinnerAdapter.ColorOption("Rojo Deportivo", 0xFFE53935));
+            list.add(new ColorSpinnerAdapter.ColorOption("Azul Eléctrico", 0xFF1565C0));
+            list.add(new ColorSpinnerAdapter.ColorOption("Verde Racing", 0xFF00C853));
+            list.add(new ColorSpinnerAdapter.ColorOption("Blanco Perla", 0xFFF5F5F5));
+        }
+        return list;
     }
 
     private void setupButtons() {
