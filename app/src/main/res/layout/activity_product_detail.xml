@@ -186,8 +186,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@android:color/transparent"
+                        android:dropDownVerticalOffset="4dp"
                         android:gravity="center_vertical"
                         android:overlapAnchor="false"
+                        android:popupBackground="@drawable/bg_dropdown_popup"
                         android:spinnerMode="dropdown" />
 
                     <!-- Dropdown Arrow Indicator -->

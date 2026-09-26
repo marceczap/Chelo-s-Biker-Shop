@@ -52,15 +52,23 @@ public class ColorSpinnerAdapter extends ArrayAdapter<ColorSpinnerAdapter.ColorO
             View vDot = convertView.findViewById(R.id.v_color_dot);
             TextView tvName = convertView.findViewById(R.id.tv_color_name);
 
-            tvName.setText(item.name);
-
-            GradientDrawable dotDrawable = new GradientDrawable();
-            dotDrawable.setShape(GradientDrawable.OVAL);
-            dotDrawable.setColor(item.colorHex);
-            if (item.colorHex == 0xFFFFFFFF || item.colorHex == 0xFFF9FAFB) {
-                dotDrawable.setStroke(2, 0xFFCCCCCC);
+            if (tvName != null) {
+                tvName.setText(item.name);
+                tvName.setTextColor(0xFF111111);
             }
-            vDot.setBackground(dotDrawable);
+
+            if (vDot != null) {
+                vDot.setBackgroundTintList(null);
+                GradientDrawable dotDrawable = new GradientDrawable();
+                dotDrawable.setShape(GradientDrawable.OVAL);
+                dotDrawable.setColor(item.colorHex);
+                if (isLightColor(item.colorHex)) {
+                    dotDrawable.setStroke(3, 0xFF9CA3AF);
+                } else {
+                    dotDrawable.setStroke(2, 0x40000000);
+                }
+                vDot.setBackground(dotDrawable);
+            }
         }
 
         return convertView;
@@ -77,17 +85,33 @@ public class ColorSpinnerAdapter extends ArrayAdapter<ColorSpinnerAdapter.ColorO
             View vDot = convertView.findViewById(R.id.v_dropdown_color_dot);
             TextView tvName = convertView.findViewById(R.id.tv_dropdown_color_name);
 
-            tvName.setText(item.name);
-
-            GradientDrawable dotDrawable = new GradientDrawable();
-            dotDrawable.setShape(GradientDrawable.OVAL);
-            dotDrawable.setColor(item.colorHex);
-            if (item.colorHex == 0xFFFFFFFF || item.colorHex == 0xFFF9FAFB) {
-                dotDrawable.setStroke(2, 0xFFCCCCCC);
+            if (tvName != null) {
+                tvName.setText(item.name);
+                tvName.setTextColor(0xFF111111);
             }
-            vDot.setBackground(dotDrawable);
+
+            if (vDot != null) {
+                vDot.setBackgroundTintList(null);
+                GradientDrawable dotDrawable = new GradientDrawable();
+                dotDrawable.setShape(GradientDrawable.OVAL);
+                dotDrawable.setColor(item.colorHex);
+                if (isLightColor(item.colorHex)) {
+                    dotDrawable.setStroke(3, 0xFF9CA3AF);
+                } else {
+                    dotDrawable.setStroke(2, 0x40000000);
+                }
+                vDot.setBackground(dotDrawable);
+            }
         }
 
         return convertView;
+    }
+
+    private boolean isLightColor(int color) {
+        int r = (color >> 16) & 0xFF;
+        int g = (color >> 8) & 0xFF;
+        int b = color & 0xFF;
+        double brightness = (0.299 * r + 0.587 * g + 0.114 * b);
+        return brightness > 180;
     }
 }
