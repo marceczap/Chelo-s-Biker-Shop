@@ -182,29 +182,6 @@ public class CartActivity extends AppCompatActivity {
     }
 
     private void setupNavigation() {
-        findViewById(R.id.btn_cart_back).setOnClickListener(v -> finish());
-
-        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
-        if (btnHome != null) {
-            btnHome.setOnClickListener(v -> {
-                Intent intent = new Intent(CartActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            });
-        }
-
-        FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
-        if (btnProfile != null) {
-            btnProfile.setOnClickListener(v -> {
-                Intent intent = new Intent(CartActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            });
-        }
-
-        FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
-        if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
-        }
+        NavigationHelper.setupAll(this);
     }
 }

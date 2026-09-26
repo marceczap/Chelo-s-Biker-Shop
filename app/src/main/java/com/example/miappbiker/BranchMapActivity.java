@@ -195,27 +195,6 @@ public class BranchMapActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     private void setupNavigation() {
-        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
-        if (btnHome != null) {
-            btnHome.setOnClickListener(v -> {
-                Intent intent = new Intent(BranchMapActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            });
-        }
-
-        FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
-        if (btnProfile != null) {
-            btnProfile.setOnClickListener(v -> {
-                Intent intent = new Intent(BranchMapActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            });
-        }
-
-        FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
-        if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
-        }
+        NavigationHelper.setupAll(this);
     }
 }

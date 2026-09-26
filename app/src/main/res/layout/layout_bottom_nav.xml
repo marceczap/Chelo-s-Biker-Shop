@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Estandarización de Barra de Navegación Inferior Biker -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_bottom_nav"
+    style="@style/BarraNavegacionInferior"
+    android:layout_width="match_parent"
+    android:layout_height="62dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent">
+
+    <!-- Perfil Button -->
+    <FrameLayout
+        android:id="@+id/nav_btn_profile"
+        style="@style/ItemNavegacion">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:contentDescription="Perfil"
+            android:src="@drawable/ic_person"
+            app:tint="@color/biker_gray_muted" />
+    </FrameLayout>
+
+    <!-- Home Button -->
+    <FrameLayout
+        android:id="@+id/nav_btn_home"
+        style="@style/ItemNavegacion">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:contentDescription="Home"
+            android:src="@drawable/ic_home"
+            app:tint="@color/biker_black" />
+    </FrameLayout>
+
+    <!-- Menu / Sucursales Button -->
+    <FrameLayout
+        android:id="@+id/nav_btn_menu"
+        style="@style/ItemNavegacion">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu"
+            app:tint="@color/biker_gray_muted" />
+    </FrameLayout>
+</LinearLayout>

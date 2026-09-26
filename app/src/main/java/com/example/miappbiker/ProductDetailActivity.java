@@ -54,15 +54,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateCartBadge();
-    }
-
-    private void updateCartBadge() {
-        TextView tvBadge = findViewById(R.id.tv_cart_badge);
-        if (tvBadge != null) {
-            int count = CartManager.getInstance().getTotalCount();
-            tvBadge.setText(String.valueOf(count));
-        }
+        NavigationHelper.updateCartBadge(this);
     }
 
     private void loadProductData() {
@@ -179,45 +171,11 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void setupButtons() {
-        ImageView btnBack = findViewById(R.id.btn_detail_back);
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
-
-        FrameLayout btnCart = findViewById(R.id.btn_floating_cart);
-        if (btnCart != null) {
-            btnCart.setOnClickListener(v -> {
-                Intent intent = new Intent(ProductDetailActivity.this, CartActivity.class);
-                startActivity(intent);
-            });
-        }
+        NavigationHelper.setupAll(this);
 
         AppCompatButton btnAddToCart = findViewById(R.id.btn_add_to_cart);
         if (btnAddToCart != null) {
             btnAddToCart.setOnClickListener(v -> executeFlyToCartAnimation());
-        }
-
-        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
-        if (btnHome != null) {
-            btnHome.setOnClickListener(v -> {
-                Intent intent = new Intent(ProductDetailActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            });
-        }
-
-        FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
-        if (btnProfile != null) {
-            btnProfile.setOnClickListener(v -> {
-                Intent intent = new Intent(ProductDetailActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            });
-        }
-
-        FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
-        if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
         }
     }
 
@@ -246,7 +204,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         FrameLayout animContainer = findViewById(R.id.fl_fly_animation_container);
 
         if (sourceView == null || targetCartBtn == null || animContainer == null) {
-            updateCartBadge();
+            NavigationHelper.updateCartBadge(this);
             Toast.makeText(this, "¡Agregado al Carrito! 🛒", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -287,7 +245,7 @@ public class ProductDetailActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         animContainer.removeView(flyingImg);
-                        updateCartBadge();
+                        NavigationHelper.updateCartBadge(ProductDetailActivity.this);
 
                         // Bounce animation on floating cart button
                         targetCartBtn.animate()

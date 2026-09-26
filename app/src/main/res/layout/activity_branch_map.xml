@@ -168,51 +168,8 @@
                 android:contentDescription="Flecha" />
         </LinearLayout>
 
-        <!-- Bottom Navigation Bar matching Figma -->
-        <LinearLayout
-            android:id="@+id/ll_bottom_nav"
-            style="@style/BarraNavegacionInferior"
-            android:layout_height="56dp">
-
-            <FrameLayout
-                android:id="@+id/nav_btn_profile"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_person"
-                    app:tint="#888888"
-                    android:contentDescription="Perfil" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/nav_btn_home"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_home"
-                    app:tint="@color/biker_black"
-                    android:contentDescription="Inicio" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/nav_btn_menu"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_menu"
-                    app:tint="#888888"
-                    android:contentDescription="Sucursales" />
-            </FrameLayout>
-        </LinearLayout>
+        <!-- Bottom Navigation Bar (Estandarizado) -->
+        <include layout="@layout/layout_bottom_nav" />
 
     </LinearLayout>
 </FrameLayout>

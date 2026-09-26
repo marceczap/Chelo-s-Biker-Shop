@@ -332,57 +332,8 @@
             </LinearLayout>
         </ScrollView>
 
-        <!-- Bottom Navigation Bar (Profile Active) -->
-        <LinearLayout
-            android:id="@+id/ll_bottom_nav"
-            style="@style/BarraNavegacionInferior"
-            android:layout_width="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <!-- Profile Button (Active) -->
-            <FrameLayout
-                android:id="@+id/nav_btn_profile"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_person"
-                    app:tint="@color/biker_black"
-                    android:contentDescription="Perfil" />
-            </FrameLayout>
-
-            <!-- Home Button -->
-            <FrameLayout
-                android:id="@+id/nav_btn_home"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_home"
-                    app:tint="@color/biker_gray_muted"
-                    android:contentDescription="Home" />
-            </FrameLayout>
-
-            <!-- Menu / Branches Button -->
-            <FrameLayout
-                android:id="@+id/nav_btn_menu"
-                style="@style/ItemNavegacion">
-
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_menu"
-                    app:tint="@color/biker_gray_muted"
-                    android:contentDescription="Menu" />
-            </FrameLayout>
-        </LinearLayout>
+        <!-- Bottom Navigation Bar (Estandarizado) -->
+        <include layout="@layout/layout_bottom_nav" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

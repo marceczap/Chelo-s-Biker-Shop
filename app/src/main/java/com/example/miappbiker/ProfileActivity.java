@@ -92,21 +92,7 @@ public class ProfileActivity extends AppCompatActivity {
             btnSave.setOnClickListener(v -> saveUserData());
         }
 
-        // Navigation
-        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
-        if (btnHome != null) {
-            btnHome.setOnClickListener(v -> {
-                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            });
-        }
-
-        FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
-        if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
-        }
+        NavigationHelper.setupAll(this);
     }
 
     private void saveUserData() {

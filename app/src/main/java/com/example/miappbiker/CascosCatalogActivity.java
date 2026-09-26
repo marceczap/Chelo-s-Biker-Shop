@@ -74,21 +74,13 @@ public class CascosCatalogActivity extends AppCompatActivity {
         });
 
         populateGrid();
-        setupNavigation();
+        NavigationHelper.setupAll(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        updateCartBadge();
-    }
-
-    private void updateCartBadge() {
-        TextView tvBadge = findViewById(R.id.tv_cart_badge);
-        if (tvBadge != null) {
-            int count = CartManager.getInstance().getTotalCount();
-            tvBadge.setText(String.valueOf(count));
-        }
+        NavigationHelper.updateCartBadge(this);
     }
 
     private void populateGrid() {
@@ -166,43 +158,5 @@ public class CascosCatalogActivity extends AppCompatActivity {
         });
 
         return cardView;
-    }
-
-    private void setupNavigation() {
-        ImageView btnBack = findViewById(R.id.btn_back_home);
-        if (btnBack != null) {
-            btnBack.setOnClickListener(v -> finish());
-        }
-
-        FrameLayout btnCart = findViewById(R.id.btn_floating_cart);
-        if (btnCart != null) {
-            btnCart.setOnClickListener(v -> {
-                Intent intent = new Intent(CascosCatalogActivity.this, CartActivity.class);
-                startActivity(intent);
-            });
-        }
-
-        FrameLayout btnHome = findViewById(R.id.nav_btn_home);
-        if (btnHome != null) {
-            btnHome.setOnClickListener(v -> {
-                Intent intent = new Intent(CascosCatalogActivity.this, HomeActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-                finish();
-            });
-        }
-
-        FrameLayout btnProfile = findViewById(R.id.nav_btn_profile);
-        if (btnProfile != null) {
-            btnProfile.setOnClickListener(v -> {
-                Intent intent = new Intent(CascosCatalogActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            });
-        }
-
-        FrameLayout btnMenu = findViewById(R.id.nav_btn_menu);
-        if (btnMenu != null) {
-            btnMenu.setOnClickListener(v -> HamburgerMenuBottomSheet.showMenu(getSupportFragmentManager()));
-        }
     }
 }
