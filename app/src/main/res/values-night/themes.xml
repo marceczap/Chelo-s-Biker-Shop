@@ -1,7 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme (Night Mode). -->
     <style name="Base.Theme.MiAPPBiker" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:windowBackground">@color/biker_bg</item>
+        <item name="android:colorBackground">@color/biker_bg</item>
+        <item name="colorSurface">@color/biker_surface</item>
+        <item name="colorPrimary">@color/biker_green</item>
     </style>
+
+    <style name="Theme.MiAPPBiker" parent="Base.Theme.MiAPPBiker" />
 </resources>

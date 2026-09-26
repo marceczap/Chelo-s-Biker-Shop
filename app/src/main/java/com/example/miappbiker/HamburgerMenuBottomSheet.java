@@ -80,6 +80,22 @@ public class HamburgerMenuBottomSheet extends BottomSheetDialogFragment {
             btnLangEn.setOnClickListener(v -> changeAppLanguage("en"));
         }
 
+        // Theme Switcher Buttons (Light / Dark)
+        LinearLayout btnThemeLight = view.findViewById(R.id.btn_theme_light);
+        LinearLayout btnThemeDark = view.findViewById(R.id.btn_theme_dark);
+        TextView tvThemeLight = view.findViewById(R.id.tv_theme_light);
+        TextView tvThemeDark = view.findViewById(R.id.tv_theme_dark);
+
+        updateThemeButtonsUI(sessionManager.isDarkMode(), btnThemeLight, btnThemeDark, tvThemeLight, tvThemeDark);
+
+        if (btnThemeLight != null) {
+            btnThemeLight.setOnClickListener(v -> changeAppTheme(false));
+        }
+
+        if (btnThemeDark != null) {
+            btnThemeDark.setOnClickListener(v -> changeAppTheme(true));
+        }
+
         CardView btnLogout = view.findViewById(R.id.menu_btn_logout);
         if (btnLogout != null) {
             btnLogout.setOnClickListener(v -> showLogoutDialog());
@@ -101,6 +117,36 @@ public class HamburgerMenuBottomSheet extends BottomSheetDialogFragment {
 
             btnLangEn.setBackgroundResource(R.drawable.bg_lang_unselected);
             tvLangEn.setTextColor(0xFF4B5563);
+        }
+    }
+
+    private void updateThemeButtonsUI(boolean isDark, View btnLight, View btnDark, TextView tvLight, TextView tvDark) {
+        if (btnLight == null || btnDark == null || tvLight == null || tvDark == null) return;
+
+        if (isDark) {
+            btnDark.setBackgroundResource(R.drawable.bg_lang_selected);
+            tvDark.setTextColor(0xFFFFFFFF);
+
+            btnLight.setBackgroundResource(R.drawable.bg_lang_unselected);
+            tvLight.setTextColor(0xFF4B5563);
+        } else {
+            btnLight.setBackgroundResource(R.drawable.bg_lang_selected);
+            tvLight.setTextColor(0xFFFFFFFF);
+
+            btnDark.setBackgroundResource(R.drawable.bg_lang_unselected);
+            tvDark.setTextColor(0xFF4B5563);
+        }
+    }
+
+    private void changeAppTheme(boolean isDark) {
+        sessionManager.setDarkMode(isDark);
+
+        String msg = isDark ? getString(R.string.theme_changed_dark) : getString(R.string.theme_changed_light);
+        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+
+        dismiss();
+        if (getActivity() != null) {
+            getActivity().recreate();
         }
     }
 

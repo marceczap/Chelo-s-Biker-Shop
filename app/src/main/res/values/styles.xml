@@ -170,25 +170,25 @@
     <!-- 4. TARJETAS Y CONTENEDORES (Tarjeta.*)                     -->
     <!-- ========================================================= -->
 
-    <!-- Tarjeta Estándar Blanca -->
+    <!-- Tarjeta Estándar Blanca / Superficie Oscura -->
     <style name="TarjetaContenedor">
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">2dp</item>
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/biker_card_bg</item>
     </style>
 
     <!-- Tarjeta de Producto Elevada -->
     <style name="TarjetaElevada">
         <item name="cardCornerRadius">24dp</item>
         <item name="cardElevation">5dp</item>
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/biker_card_bg</item>
     </style>
 
     <!-- Tarjeta de Opción de Menú (Gris Suave Interactivo) -->
     <style name="TarjetaOpcionMenu">
         <item name="cardCornerRadius">16dp</item>
         <item name="cardElevation">0dp</item>
-        <item name="cardBackgroundColor">@color/biker_gray_bg</item>
+        <item name="cardBackgroundColor">@color/biker_surface</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
@@ -207,14 +207,14 @@
     <style name="TarjetaItemCarrito">
         <item name="cardCornerRadius">18dp</item>
         <item name="cardElevation">3dp</item>
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/biker_card_bg</item>
     </style>
 
     <!-- Tarjeta de Producto en Catálogo Grid -->
     <style name="TarjetaItemCatalogo">
         <item name="cardCornerRadius">20dp</item>
         <item name="cardElevation">3dp</item>
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardBackgroundColor">@color/biker_card_bg</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
@@ -234,7 +234,7 @@
     <style name="BarraNavegacionInferior">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">64dp</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/biker_bottom_nav_bg</item>
         <item name="android:elevation">12dp</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>

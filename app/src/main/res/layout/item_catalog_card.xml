@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:text="especificaciones"
-            android:textColor="#333333"
+            android:textColor="@color/biker_gray_text"
             android:textSize="10.5sp" />
 
         <!-- Specs Container -->

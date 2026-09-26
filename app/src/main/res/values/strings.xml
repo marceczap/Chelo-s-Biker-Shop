@@ -69,6 +69,12 @@
     <string name="menu_legal_sub">Términos, políticas de privacidad y garantías</string>
     <string name="menu_language">IDIOMA / LANGUAGE</string>
     <string name="menu_language_sub">Selecciona el idioma del aplicativo</string>
+    <string name="menu_theme">TEMA DE LA APLICACIÓN</string>
+    <string name="menu_theme_sub">Alternar entre modo claro y modo oscuro</string>
+    <string name="theme_light_label">☀️ Claro</string>
+    <string name="theme_dark_label">🌙 Oscuro</string>
+    <string name="theme_changed_dark">Modo Oscuro Night Ride activado 🌙</string>
+    <string name="theme_changed_light">Modo Claro activado ☀️</string>
     <string name="menu_logout">CERRAR SESIÓN</string>
     <string name="menu_logout_sub">Cerrar la cuenta en este dispositivo</string>
     <string name="lang_es_label">🇪🇸 Español</string>

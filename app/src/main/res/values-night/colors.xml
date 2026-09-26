@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Basic Palette -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Brand / Theme Palette in Dark Mode -->
+    <color name="biker_black">#F3F4F6</color>
+    <color name="biker_dark">#0F172A</color>
+    <color name="biker_green">#10B981</color>
+    <color name="biker_green_dark">#059669</color>
+    <color name="biker_orange">#FF7A00</color>
+    <color name="biker_amber_price">#F59E0B</color>
+    <color name="biker_red_danger">#EF4444</color>
+    <color name="biker_red_bg">#3B1414</color>
+    <color name="biker_blue_link">#38BDF8</color>
+
+    <!-- Semantic Theme Colors (Night Mode - Biker Carbon & OLED Black) -->
+    <color name="biker_bg">#121212</color>
+    <color name="biker_surface">#1E1E1E</color>
+    <color name="biker_card_bg">#1E1E1E</color>
+    <color name="biker_card_stroke">#2E2E2E</color>
+    <color name="biker_text_title">#F9FAFB</color>
+    <color name="biker_text_primary">#F3F4F6</color>
+    <color name="biker_text_secondary">#9CA3AF</color>
+    <color name="biker_input_bg">#262626</color>
+    <color name="biker_input_stroke">#3D3D3D</color>
+    <color name="biker_bottom_sheet_bg">#1E1E1E</color>
+    <color name="biker_bottom_nav_bg">#1A1A1A</color>
+    <color name="biker_icon_tint">#F3F4F6</color>
+    <color name="biker_divider">#2A2A2A</color>
+
+    <!-- Gray Gradients for Dark Mode -->
+    <color name="biker_gray_bg">#121212</color>
+    <color name="biker_gray_card">#242424</color>
+    <color name="biker_gray_border">#333333</color>
+    <color name="biker_gray_text">#9CA3AF</color>
+    <color name="biker_gray_sub">#D1D5DB</color>
+    <color name="biker_gray_muted">#6B7280</color>
+    <color name="biker_gray_hint">#888888</color>
+
+    <!-- Legacy / Compatibility in Dark Mode -->
+    <color name="primary_dark">#0A0A0A</color>
+    <color name="accent_orange">#FF7A00</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_green">#10B981</color>
+    <color name="btn_grey">#3A3A3A</color>
+    <color name="btn_grey_dark">#262626</color>
+    <color name="text_muted">#9CA3AF</color>
+    <color name="bg_light">#1E1E1E</color>
+    <color name="blue_id_bar">#1E3A8A</color>
+    <color name="blue_id_line">#3B82F6</color>
+</resources>

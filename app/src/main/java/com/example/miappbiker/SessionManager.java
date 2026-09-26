@@ -3,6 +3,8 @@ package com.example.miappbiker;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.appcompat.app.AppCompatDelegate;
+
 public class SessionManager {
     private static final String PREF_NAME = "CheloBikerSession";
     private static final String KEY_IS_LOGGED_IN = "isLoggedIn";
@@ -15,6 +17,7 @@ public class SessionManager {
     private static final String KEY_LICENSE = "userLicense";
     private static final String KEY_EMERGENCY = "userEmergency";
     private static final String KEY_LANGUAGE = "appLanguage";
+    private static final String KEY_DARK_MODE = "isDarkMode";
 
     private final SharedPreferences pref;
     private final SharedPreferences.Editor editor;
@@ -89,6 +92,21 @@ public class SessionManager {
 
     public String getLanguage() {
         return pref.getString(KEY_LANGUAGE, "es");
+    }
+
+    public boolean isDarkMode() {
+        return pref.getBoolean(KEY_DARK_MODE, false);
+    }
+
+    public void setDarkMode(boolean isDark) {
+        editor.putBoolean(KEY_DARK_MODE, isDark);
+        editor.apply();
+        applyTheme();
+    }
+
+    public void applyTheme() {
+        boolean dark = isDarkMode();
+        AppCompatDelegate.setDefaultNightMode(dark ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
     }
 
     public void logout() {

@@ -15,6 +15,21 @@
     <color name="biker_red_bg">#FEE2E2</color>
     <color name="biker_blue_link">#0088FF</color>
 
+    <!-- Semantic Theme Colors (Light) -->
+    <color name="biker_bg">#FFFFFF</color>
+    <color name="biker_surface">#FFFFFF</color>
+    <color name="biker_card_bg">#FFFFFF</color>
+    <color name="biker_card_stroke">#E5E7EB</color>
+    <color name="biker_text_title">#111111</color>
+    <color name="biker_text_primary">#111111</color>
+    <color name="biker_text_secondary">#6B7280</color>
+    <color name="biker_input_bg">#F9FAFB</color>
+    <color name="biker_input_stroke">#E5E7EB</color>
+    <color name="biker_bottom_sheet_bg">#FFFFFF</color>
+    <color name="biker_bottom_nav_bg">#FFFFFF</color>
+    <color name="biker_icon_tint">#111111</color>
+    <color name="biker_divider">#F3F4F6</color>
+
     <!-- Gray Gradients -->
     <color name="biker_gray_bg">#F9FAFB</color>
     <color name="biker_gray_card">#F3F4F6</color>

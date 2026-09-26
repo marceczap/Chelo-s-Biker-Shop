@@ -69,6 +69,12 @@
     <string name="menu_legal_sub">Terms of service, privacy &amp; warranties</string>
     <string name="menu_language">LANGUAGE / IDIOMA</string>
     <string name="menu_language_sub">Select application language</string>
+    <string name="menu_theme">APP THEME</string>
+    <string name="menu_theme_sub">Switch between light and dark mode</string>
+    <string name="theme_light_label">☀️ Light</string>
+    <string name="theme_dark_label">🌙 Dark</string>
+    <string name="theme_changed_dark">Dark Mode Night Ride activated 🌙</string>
+    <string name="theme_changed_light">Light Mode activated ☀️</string>
     <string name="menu_logout">LOG OUT</string>
     <string name="menu_logout_sub">Sign out from your account on this device</string>
     <string name="lang_es_label">🇪🇸 Español</string>
