@@ -5,6 +5,7 @@
         <item name="android:colorBackground">@color/biker_bg</item>
         <item name="colorSurface">@color/biker_surface</item>
         <item name="colorPrimary">@color/biker_green</item>
+        <item name="android:windowAnimationStyle">@style/BikerActivityAnimation</item>
     </style>
 
     <style name="Theme.MiAPPBiker" parent="Base.Theme.MiAPPBiker" />
